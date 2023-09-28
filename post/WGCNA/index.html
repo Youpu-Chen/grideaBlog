@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>「转录组」001｜WGCNA专题：实战原理两不误 | 陈有朴</title>
-<link rel="shortcut icon" href="https://grideaBlog/favicon.ico">
-<link href="https://grideaBlog/styles/main.css?v=1695906722777" rel="stylesheet">
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1695907117900" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="陈有朴 » Feed"
-  href="https://grideaBlog/atom.xml">
+  href="https://chenyoupu.top/atom.xml">
 
 
 
@@ -28,7 +28,7 @@
     <div class="header animated fadeInDown">
   <div class="site_title_container">
     <div class="site_title">
-      <a href="https://grideaBlog">
+      <a href="https://chenyoupu.top">
         陈有朴
       </a>
     </div>
@@ -51,7 +51,7 @@
           
     
           
-    <a href="https://grideaBlog/atom.xml" target="_blank">
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
       <i class="iconfont icon-rss"></i></a>
   </div>
 </div>
@@ -79,7 +79,7 @@
   
 
   <div class="gridea-search-div">
-    <form id="gridea-search-form" data-update="1695906722777" action="/search/">
+    <form id="gridea-search-form" data-update="1695907117900" action="/search/">
       <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
     </form>
   </div>
@@ -177,7 +177,7 @@ plotDendroAndColors(geneTree, dynamicColors, &quot;Dynamic Tree Cut&quot;,dendro
 # dev.off()
 </code></pre>
 <p>绘制图如下，<br>
-<img src="https://grideaBlog/post-images/1661263419560.png" alt="" loading="lazy"></p>
+<img src="https://chenyoupu.top/post-images/1661263419560.png" alt="" loading="lazy"></p>
 <p>gene module合并代码如下 -&gt; 基于<code>cutreeDynamic()</code>的分析结果进行聚类分析的gene module的合并</p>
 <ul>
 <li><code>mergeCloseModules</code>：合并gene module</li>
@@ -200,7 +200,7 @@ write.table(merge$oldMEs,file=&quot;oldMEs.txt&quot;);
 write.table(merge$newMEs,file=&quot;newMEs.txt&quot;);
 </code></pre>
 <p>绘制图如下，可以看到有一些gene module被合并了，</p>
-<figure data-type="image" tabindex="1"><img src="https://grideaBlog/post-images/1661263433346.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://chenyoupu.top/post-images/1661263433346.png" alt="" loading="lazy"></figure>
 <h2 id="7将gene-module与表型特征相联系">7）将gene module与表型特征相联系</h2>
 <p>使用标准化的eigengene进行计算。<br>
 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mi>o</mi><mi>r</mi><mo>(</mo><mi>M</mi><mi>E</mi><mi>s</mi><mo separator="true">,</mo><mi>T</mi><mi>r</mi><mi>a</mi><mi>i</mi><mi>t</mi><mi>s</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">
@@ -278,7 +278,7 @@ labeledHeatmap(Matrix = moduleTraitCor,
 <blockquote>
 <p>Note：右边的图例，代表相关性程度</p>
 </blockquote>
-<figure data-type="image" tabindex="2"><img src="https://grideaBlog/post-images/1661263448767.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://chenyoupu.top/post-images/1661263448767.png" alt="" loading="lazy"></figure>
 <h2 id="8hub-gene的鉴定">8）Hub gene的鉴定</h2>
 <p>2种方法，</p>
 <ul>
@@ -342,7 +342,7 @@ verboseScatterplot(abs(geneModuleMembership[moduleGenes, column]),
                    cex.main = 1.2, cex.lab = 1.2, cex.axis = 1.2, col = module)
 </code></pre>
 <p>散点图结果如下，可以看到module membership值越高的gene，其gene significance也越高。</p>
-<figure data-type="image" tabindex="3"><img src="https://grideaBlog/post-images/1661263464074.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://chenyoupu.top/post-images/1661263464074.png" alt="" loading="lazy"></figure>
 <h1 id="其他">其他</h1>
 <h2 id="绘制gene-module-eigengenes与samples之间的热图">绘制gene module eigengenes与samples之间的热图</h2>
 <pre><code class="language-R">library(&quot;pheatmap&quot;)
@@ -378,10 +378,10 @@ pheatmap(merge$newMEs,cluster_col=T,cluster_row=T,show_rownames=T,show_colnames=
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
-                      <a href="https://grideaBlog/tag/p6u3WQosA/" class="article-info">
+                      <a href="https://chenyoupu.top/tag/p6u3WQosA/" class="article-info">
                         WGCNA</a>
                       
-                      <a href="https://grideaBlog/tag/JqrJMa8-Vd/" class="article-info">
+                      <a href="https://chenyoupu.top/tag/JqrJMa8-Vd/" class="article-info">
                         转录组</a>
                       </span>
                   </div>
@@ -390,7 +390,7 @@ pheatmap(merge$newMEs,cluster_col=T,cluster_row=T,show_rownames=T,show_colnames=
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://grideaBlog/post/GATK-BESTPRACTICE/">
+                  <a href="https://chenyoupu.top/post/GATK-BESTPRACTICE/">
                     <h3 class="post-title">
                       这可能是我写过最全的GATK笔记
                     </h3>
@@ -436,7 +436,7 @@ pheatmap(merge$newMEs,cluster_col=T,cluster_row=T,show_rownames=T,show_colnames=
 <div id="back_to_top" class="back_to_top">
   <span>△</span>
 </div>
-<script src="https://grideaBlog/media/scripts/util.js"></script>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
 
 </div>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
