@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>「R | parallel」第一篇｜gene level的FST计算 | 陈有朴</title>
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1695908129407" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="陈有朴 » Feed"
+  href="https://chenyoupu.top/atom.xml">
+
+
+
+
+  <meta name="description" content="写在前面
+
+聊聊我自己。群体遗传学研究的对象是allele，而针对一个population，就算是一个population，其内部存在的variants也是相当多的（由于genetic drift的影响），所以要处理的下游数据难免就会呈现r..." />
+  <meta name="keywords" content="" />
+</head>
+
+<body>
+  <div class="main animated">
+    <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <a href="https://chenyoupu.top">
+        陈有朴
+      </a>
+    </div>
+    <div class="description">
+      Hi，这里是有朴的第二大脑。很高兴与你相遇
+    </div>
+  </div>
+  <div class="my_socials">
+    
+    
+          
+    
+          
+    
+          
+    
+          
+    
+          
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
+      <i class="iconfont icon-rss"></i></a>
+  </div>
+</div>
+
+<div class="header_menu">
+  
+  
+  <a href="/" class="menu">Homepage</a>
+  
+
+  
+  <a href="/archives" class="menu">Archives</a>
+  
+
+  
+  <a href="/tags" class="menu">Tags</a>
+  
+
+  
+  <a href="/post/about" class="menu">About Me</a>
+  
+
+  
+  <a href="/post/friendslinks" class="menu">Links</a>
+  
+
+  <div class="gridea-search-div">
+    <form id="gridea-search-form" data-update="1695908129407" action="https://chenyoupu.top/search/">
+      <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+    </form>
+  </div>
+</div>
+
+
+    <div class="autopagerize_page_element">
+      <div class="content">
+        <div class="post_page">
+          <div class="post animated fadeInDown">
+            <div class="post_title post_detail_title">
+              <h2>
+                <a>
+                  「R | parallel」第一篇｜gene level的FST计算</a>
+              </h2>
+              <span class="article-info">2023-05-15, 700 words, 4 min read</span>
+            </div>
+            <div class="post_content markdown">
+              <p class="md_block">
+                <span class="md_line md_line_start md_line_end">
+                  <h2 id="写在前面">写在前面</h2>
+<ul>
+<li>聊聊我自己。群体遗传学研究的对象是allele，而针对一个population，就算是一个population，其内部存在的variants也是相当多的（由于genetic drift的影响），所以要处理的下游数据难免就会呈现records多到“上天”的情况</li>
+</ul>
+<p>‍</p>
+<h2 id="r-parallel的使用">R | parallel的使用</h2>
+<p>虽然R语言是一门针对统计学的语言，但并不就代表它不可以实现最基本的计算功能，multiprocessing。</p>
+<p>需要使用的packages，<code>parallel</code>​。</p>
+<p>就拿我自己做的分析来举例：</p>
+<ul>
+<li>现存一个vcftools计算得到的FST结果文件，分别记录了从chromosome1到chromosome21的per-site FST计算结果；</li>
+<li>我的reference gene BED从UCSC Genome Table Browser下载得到，从共记录了两万多条gene records</li>
+</ul>
+<p>如何计算得到每一个gene的FST？</p>
+<p>前提条件说了很多了，只是为了希望做分析的人能够理解这个问题。</p>
+<p>但是在给出自己的代码之前，先给出R parallel的基本使用。</p>
+<h3 id="r-parallele-multiprocessing">R | parallele | multiprocessing</h3>
+<p>直接使用multiprocessing方法时，不需要自行创建cluster来预设对应包含线程数的sockets，而用起来就像lapply一样，但是与其不同的是，lapply是将所有的函数依次应用到输入的每一个list上，而multiprocessing的lapply则是同时发动所有的任务，</p>
+<p>使用函数，</p>
+<ul>
+<li>mclapply()</li>
+<li>mcmapply()</li>
+</ul>
+<h3 id="r-parallele-sockets">R | parallele | sockets</h3>
+<ul>
+<li>sockets类型的multiprocessing与上述提到的基本方法，在使用上的不同需要首先创建一个clusters，同时在完成运算之后需要释放这个cluster，</li>
+<li>同时还需要将应用的数据export到cluster中</li>
+</ul>
+<pre><code class="language-r">cluster_1 &lt;- makeCluster(16)  # 可以使用detectCores()来检测总共有多少个核
+stopCluster(cluster_1)
+</code></pre>
+<p>‍</p>
+<h2 id="r-我的population-genetics实战">R | 我的population genetics实战</h2>
+<ul>
+<li>
+<p>核心模块，</p>
+<p><code>chr.vector</code>​，是包含了chr1tochr22的chromosome tag的向量，需要先将其输出到cluster，才能够应用于cluster计算</p>
+<p><strong>但是我还存在的疑问：为什么input_df和gene_bed就不export就不会报错了呢</strong>？</p>
+<blockquote>
+<p>Note：这里的理解，就好比神经网络模型使用CUDA时，也需要将对应张量加载到GPU上</p>
+</blockquote>
+<pre><code class="language-r">parLapply(cluster_1, chr.vector, df = input_df, fun = function(input_df, chr_number, gene_bed){
+  # retrieve output dataset using chromosome tag {1..21} to split the FST dataset
+  chr_number_input_df &lt;- input_df %&gt;% filter(chr==chr_number)
+  ...
+}
+</code></pre>
+</li>
+</ul>
+<pre><code class="language-r">cluster_1 &lt;- makeCluster(16) # using 16 cores to speed up the FST calculation process.
+clusterExport(cluster_1, &quot;chr.vector&quot;)  # export chromosome vector the sockets
+
+# 
+FST_list &lt;- parLapply(cluster_1, chr.vector, df = input_df, fun = function(input_df, chr_number, gene_bed){
+  # retrieve output dataset using chromosome tag {1..21} to split the FST dataset
+  chr_number_input_df &lt;- input_df %&gt;% filter(chr==chr_number)
+  new_chr_number_input_df = chr_number_input_df %&gt;% left_join(gene_bed, by=c(&quot;chr&quot;))
+  
+  # only save the validated records
+  new_chr_number_input_df &lt;- new_chr_number_input_df %&gt;% filter((pos &gt;= start_pos &amp; pos &lt;= end_pos))
+  
+  # using 0 to replace negative value
+  new_chr_number_input_df$weight_FST[new_chr_number_input_df$weight_FST &lt; 0] &lt;- 0
+
+  # calculate FST for each gene
+  cal_df &lt;- new_chr_number_input_df %&gt;% 
+              group_by(gene) %&gt;%
+              summarize(
+                Mean_Fst = mean(weight_FST, na.rm = TRUE)
+              )
+  return(cal_df)
+})
+
+# close cluster
+stopCluster(cluster_1)
+</code></pre>
+<h2 id="推荐阅读">推荐阅读</h2>
+<ul>
+<li>
+<p><a href="https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html">bookdown.org/rdpeng/rpro...</a></p>
+</li>
+<li>
+<p><a href="https://www.r-bloggers.com/2019/06/parallel-r-socket-or-fork/">www.r-bloggers.com/2019/...</a></p>
+<p>创建sockets还可以使用不同的模式。。</p>
+</li>
+</ul>
+<p>‍</p>
+<br />
+                  
+              </p>
+            </div>
+            <div class="post_footer">
+              
+              
+                <div class="next-post" style="margin-top: 20px;">
+                  <div class="next">下一篇</div>
+                  <a href="https://chenyoupu.top/post/popgen_FST/">
+                    <h3 class="post-title">
+                      「Population Genetics」002｜FST - By Weir and Cockerham
+                    </h3>
+                  </a>
+                </div>
+                
+            </div>
+          </div>
+          
+          
+                      
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+<div id="disqus_thread"></div>
+<script>
+  var options = {
+    shortname: 'DisqusComments',
+    apikey: '0D4eig7RqYsljZD0i62dy7y5H2AVm2gE3T9qwx1S16zyJejdxXypcpTtxHm07Eig',
+  }
+  if ('https://disqus.com/api/oauth/2.0/authorize/') {
+    options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+  }
+  var dsqjs = new DisqusJS(options)
+</script>
+          
+                            
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  
+  <div class="powered">
+    Powered by<a href="https://gridea.dev/" target="_blank">Gridea</a>&<a
+    href="https://github.com/fei0810/gridea-theme-oneplus" target="_blank">Theme OnePlus</a>
+ </div>
+ <div class="footer_slogan">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank"> Gridea</a>
+</div>
+<div id="back_to_top" class="back_to_top">
+  <span>△</span>
+</div>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
+
+</div>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>

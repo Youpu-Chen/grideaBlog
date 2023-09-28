@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>友情链接 | 陈有朴</title>
+<title>看懂R背后的运行，我五分钟解决了别人一天才能解决的问题 | 陈有朴</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1695908129407" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,8 +15,8 @@
 
 
 
-  <meta name="description" content="😇
-" />
+  <meta name="description" content="看懂R背后的运行，我五分钟解决了别人一天才能解决的问题
+基于Rscript来直接运行脚本，实际上会存在内存上限的问题（一般出现在tidyverse merge数据的过程中），但是在Linux环境下设置运行内存上限的方法和Win是不一样的，我..." />
   <meta name="keywords" content="" />
 </head>
 
@@ -87,14 +87,21 @@
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  友情链接</a>
+                  看懂R背后的运行，我五分钟解决了别人一天才能解决的问题</a>
               </h2>
-              <span class="article-info">2023-01-14, 0 words, 0 min read</span>
+              <span class="article-info">2023-06-10, 137 words, 1 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <p>😇</p>
+                  <h1 id="看懂r背后的运行我五分钟解决了别人一天才能解决的问题">看懂R背后的运行，我五分钟解决了别人一天才能解决的问题</h1>
+<p>基于Rscript来直接运行脚本，实际上会存在内存上限的问题（一般出现在tidyverse merge数据的过程中），但是在Linux环境下设置运行内存上限的方法和Win是不一样的，我就用一行代码帮助小伙伴解决了一丢丢小问题，</p>
+<pre><code class="language-r">library(unix)
+rlimit_as(1e13) # approximately 120G
+</code></pre>
+<p>结果：三分钟解决问题。。</p>
+<p>周末继续总结继续学习继续看文献。</p>
+<p>‍</p>
 <br />
                   
               </p>
@@ -102,6 +109,15 @@
             <div class="post_footer">
               
               
+                <div class="next-post" style="margin-top: 20px;">
+                  <div class="next">下一篇</div>
+                  <a href="https://chenyoupu.top/post/R  parallel  第一篇/">
+                    <h3 class="post-title">
+                      「R | parallel」第一篇｜gene level的FST计算
+                    </h3>
+                  </a>
+                </div>
+                
             </div>
           </div>
           

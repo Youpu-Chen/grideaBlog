@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>「Population Genetics随笔」001｜coalescent theory | 陈有朴</title>
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1695908129407" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="陈有朴 » Feed"
+  href="https://chenyoupu.top/atom.xml">
+
+
+
+
+  <meta name="description" content="写在前面
+
+虽然学习群体遗传学的过程中，肯定是需要看教材，更多地阅读书的，但是有的教材中要么就是缺公式，要是就是新手不友好，所以看别人帖子也是一种不为过的学习方式，但是也切记不能忽略了背后的数学描述生物的过程。
+这篇文章是对G-CAT上co..." />
+  <meta name="keywords" content="population genetics" />
+</head>
+
+<body>
+  <div class="main animated">
+    <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <a href="https://chenyoupu.top">
+        陈有朴
+      </a>
+    </div>
+    <div class="description">
+      Hi，这里是有朴的第二大脑。很高兴与你相遇
+    </div>
+  </div>
+  <div class="my_socials">
+    
+    
+          
+    
+          
+    
+          
+    
+          
+    
+          
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
+      <i class="iconfont icon-rss"></i></a>
+  </div>
+</div>
+
+<div class="header_menu">
+  
+  
+  <a href="/" class="menu">Homepage</a>
+  
+
+  
+  <a href="/archives" class="menu">Archives</a>
+  
+
+  
+  <a href="/tags" class="menu">Tags</a>
+  
+
+  
+  <a href="/post/about" class="menu">About Me</a>
+  
+
+  
+  <a href="/post/friendslinks" class="menu">Links</a>
+  
+
+  <div class="gridea-search-div">
+    <form id="gridea-search-form" data-update="1695908129407" action="https://chenyoupu.top/search/">
+      <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+    </form>
+  </div>
+</div>
+
+
+    <div class="autopagerize_page_element">
+      <div class="content">
+        <div class="post_page">
+          <div class="post animated fadeInDown">
+            <div class="post_title post_detail_title">
+              <h2>
+                <a>
+                  「Population Genetics随笔」001｜coalescent theory</a>
+              </h2>
+              <span class="article-info">2023-04-24, 642 words, 3 min read</span>
+            </div>
+            <div class="post_content markdown">
+              <p class="md_block">
+                <span class="md_line md_line_start md_line_end">
+                  <h1 id="写在前面">写在前面</h1>
+<ul>
+<li>虽然学习群体遗传学的过程中，肯定是需要看教材，更多地阅读书的，但是有的教材中要么就是缺公式，要是就是新手不友好，所以看别人帖子也是一种不为过的学习方式，但是也切记不能忽略了背后的数学描述生物的过程。</li>
+<li>这篇文章是对G-CAT上coalescent theory的理解和总结，推荐阅读原博客。</li>
+</ul>
+<p>‍</p>
+<h1 id="coalescence-定义">coalescence | 定义</h1>
+<p>当一个个体或者一个群体中，发生mutation时，就产生了2个不同碱基类型的allele，这是一个前向（forward）的过程。</p>
+<p>而coalescence，是一个逆向（backwards）的过程，即推断群体中两个allele，共享同一个ancestral allele的概率是多大。</p>
+<p>‍</p>
+<h1 id="coalescence-影响因素">coalescence | 影响因素</h1>
+<p>将backwards合并理解为一个抽样过程，选定一个allele（A）的时候，即从ancestral population中（有效群体大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">N_{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）随机抽选一个allele作为ancestral allele的概率为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><msub><mi>N</mi><mi>e</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2N_{e}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2902079999999998em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.10903em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>。那么再选中一个allele（B），其ancestral allele与A相同的概率还是为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><msub><mi>N</mi><mi>e</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2N_{e}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2902079999999998em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.10903em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>。</p>
+<p>而在current population中，有多少种AB allele组合呢？答案是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo>)</mo><mo>!</mo><mn>2</mn><mo>!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n!}{(n-2)!2!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.400108em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="mclose mtight">!</span><span class="mord mtight">2</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>种。</p>
+<p>总而言之，针对一个allele，其coalescent rate和effective population size，针对一整个群体来说更是如此。</p>
+<p>而在demographic history中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">N_{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>并不是一成不变的，会受到环境的各种影响，而反映在群体上的则有population bottleneck、population expansion。</p>
+<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424214855-o21dt24.png" alt="image" title="coalescent rate, changing with Ne. Source from G-CAT" style="zoom:50%;" />
+<p>而针对具有不同<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">N_{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的群体来说，更是如此，</p>
+<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424215039-8k3euv1.png" alt="image" title="不同Ne的群体，其coalescent的速率是不同的" style="zoom:50%;" />
+<p>‍</p>
+<h1 id="coalescence-how-to-apply-or-what-its-application">coalescence | how to apply or what its application?</h1>
+<h2 id="1bottlenecks-testing">1）bottlenecks testing</h2>
+<p>既然coalescent rate会随着有效群体大小的变化而变化，那其实也就说明了它可以反映生物学背后的故事，那么是什么故事呢？</p>
+<p>当群体因为外界环境影响，有效群体大小变得特别小的时候，the number of alleles in total减少，群体水平的variants variation变小了，从图上看长这样，</p>
+<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424220239-1nvrq3n.png" alt="image" title="在回溯整个demographic history时，经过bottleneck之后，coalescent rate升高" style="zoom:50%;" />
+<h2 id="2introgression-testing">2）introgression testing</h2>
+<p>当两个population存在introgression或者horizontal gene transfer时，就会存在一些allele，它们backward collapse的时间，相较于population的spliting time是更早的，</p>
+<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424220623-pzvv9f7.png" alt="image" style="zoom:50%;" />
+<p>‍</p>
+<h2 id="3spliting-time-testing">3）spliting time testing</h2>
+<p>一句话结束：population divergence或者说speciation发生的时候，coalescent events出现的次数也升高到了最高，</p>
+<blockquote>
+<p>但是有的coalescent可能发生在spliting之前，又可能发生在spliting之后，即基于coalescence估计出来的divergence time是approximation，只能是不断的逼近，一种永远无法抵达的真实。</p>
+</blockquote>
+<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424220940-ojcsxmo.png" alt="image" style="zoom: 50%;" />
+<p>‍</p>
+<h1 id="推荐阅读">推荐阅读</h1>
+<ul>
+<li><a href="https://theg-cat.com/2018/11/09/bringing-alleles-back-together-applications-of-coalescent-theory/">theg-cat.com/2018/11/09/...</a></li>
+</ul>
+<p>‍</p>
+<br />
+                  
+              </p>
+            </div>
+            <div class="post_footer">
+              
+                <div class="meta">
+                  <div class="info">
+                    <span class="field tags">
+                      <i class="iconfont icon-tag-sm"></i>
+                      
+                      <a href="https://chenyoupu.top/tag/TJI1Qqyxl/" class="article-info">
+                        population genetics</a>
+                      </span>
+                  </div>
+                </div>
+                
+              
+                <div class="next-post" style="margin-top: 20px;">
+                  <div class="next">下一篇</div>
+                  <a href="https://chenyoupu.top/post/wpaper001/">
+                    <h3 class="post-title">
+                      「文献写作工作流」001｜Zotero - A Better Way to Organize Your Literature
+                    </h3>
+                  </a>
+                </div>
+                
+            </div>
+          </div>
+          
+          
+                      
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+<div id="disqus_thread"></div>
+<script>
+  var options = {
+    shortname: 'DisqusComments',
+    apikey: '0D4eig7RqYsljZD0i62dy7y5H2AVm2gE3T9qwx1S16zyJejdxXypcpTtxHm07Eig',
+  }
+  if ('https://disqus.com/api/oauth/2.0/authorize/') {
+    options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+  }
+  var dsqjs = new DisqusJS(options)
+</script>
+          
+                            
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  
+  <div class="powered">
+    Powered by<a href="https://gridea.dev/" target="_blank">Gridea</a>&<a
+    href="https://github.com/fei0810/gridea-theme-oneplus" target="_blank">Theme OnePlus</a>
+ </div>
+ <div class="footer_slogan">
+  Powered by <a href="https://github.com/getgridea/gridea" target="_blank"> Gridea</a>
+</div>
+<div id="back_to_top" class="back_to_top">
+  <span>△</span>
+</div>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
+
+</div>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
