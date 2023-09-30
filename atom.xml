@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
-    <title>陈有朴</title>
-    <updated>2023-09-30T10:35:52.909Z</updated>
+    <title>Youpu的第二大脑</title>
+    <updated>2023-09-30T10:36:51.232Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
     <subtitle>Hi，这里是有朴的第二大脑。&lt;br/&gt;很高兴与你相遇</subtitle>
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
-    <rights>All rights reserved 2023, 陈有朴</rights>
+    <rights>All rights reserved 2023, Youpu的第二大脑</rights>
     <entry>
         <title type="html"><![CDATA[「有谱音乐说」001｜我是个“健将”]]></title>
         <id>https://chenyoupu.top/post/you-pu-yin-le-shuo-001orwo-shi-ge-jian-jiang/</id>
