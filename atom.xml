@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>Youpu的第二大脑</title>
-    <updated>2023-10-02T11:31:58.230Z</updated>
+    <updated>2023-10-02T11:36:03.346Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,56 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, Youpu的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「GWAS那些事儿」heritability和genetic correlation估计中的liability scale]]></title>
+        <id>https://chenyoupu.top/post/gwas-liability-scale/</id>
+        <link href="https://chenyoupu.top/post/gwas-liability-scale/">
+        </link>
+        <updated>2023-10-02T11:34:52.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>liability scale是什么</strong>？</p>
+<p>the &quot;liability scale&quot; refers to a hypothetical scale used to model the underlying genetic liability or genetic risk for a specific trait or disease.</p>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002175826.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[「GWAS那些事儿」linear regression中的Z-Score]]></title>
+        <id>https://chenyoupu.top/post/gwas-zscore/</id>
+        <link href="https://chenyoupu.top/post/gwas-zscore/">
+        </link>
+        <updated>2023-10-02T11:33:43.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>
+<p><strong>Z-score在GWAS summary statistics中的含义是什么</strong>？</p>
+<p>The Z-score quantifies how many standard deviations an observed association statistic is from the expected null distribution under the assumption of no association.</p>
+<ol>
+<li>
+<p><strong>Association Testing</strong>: In a GWAS, genetic variants across the genome are tested for their association with a particular trait or disease. The most common statistical test used for this purpose is logistic regression for binary traits (e.g., disease status) or linear regression for continuous traits (e.g., height).</p>
+</li>
+<li>
+<p><strong>Z-Score Calculation</strong>: After performing the association test for each SNP, a Z-score is calculated for that SNP. The formula for calculating the Z-score is typically as follows:</p>
+<pre><code class="language-shell">Z = (β - β₀) / SE
+</code></pre>
+<ul>
+<li><code>Z</code> is the Z-score.</li>
+<li><code>β</code> is the estimated effect size or regression coefficient for the SNP, representing the change in the trait value associated with each additional copy of the variant.</li>
+<li><code>β₀</code> is the null hypothesis value for <code>β</code>, often assumed to be zero under the null hypothesis of no association.</li>
+<li><code>SE</code> is the standard error of the estimated effect size <code>β</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Interpretation</strong>: The Z-score measures how many standard deviations (<code>SE</code>) the estimated effect size (<code>β</code>) is away from the null hypothesis value (<code>β₀</code>). A high absolute Z-score indicates a strong association between the SNP and the trait, whereas a low or close-to-zero Z-score suggests a weak or no association.</p>
+</li>
+<li>
+<p><strong>Significance Threshold</strong>: Researchers typically establish a significance threshold (e.g., Z-score greater than 5 or corresponding p-value threshold) to determine which associations are statistically significant. Associations with Z-scores exceeding this threshold are considered noteworthy and may indicate a genuine genetic influence on the trait or disease.</p>
+</li>
+<li>
+<p><strong>Positive and Negative Z-Scores</strong>: The sign of the Z-score indicates the direction of the effect. A positive Z-score suggests that the variant is positively associated with an increase in the trait (e.g., risk allele for a disease). A negative Z-score suggests a negative association (e.g., protective allele for a disease).</p>
+</li>
+</ol>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」LDSC｜LD Score的计算与LD regression构建]]></title>
         <id>https://chenyoupu.top/post/gwas-ldsc/</id>
@@ -779,112 +829,6 @@ stopCluster(cluster_1)
 </ul>
 <h2 id="题外话">题外话</h2>
 <p>用bedtools + R tidyverse来计算每个gene的FST忒慢了（这怎么“Have a nice day”），欢迎有缘人后台留言优秀方法！</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「Population Genetics随笔」001｜coalescent theory]]></title>
-        <id>https://chenyoupu.top/post/popgen_coalscent/</id>
-        <link href="https://chenyoupu.top/post/popgen_coalscent/">
-        </link>
-        <updated>2023-04-24T13:26:04.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="写在前面">写在前面</h1>
-<ul>
-<li>虽然学习群体遗传学的过程中，肯定是需要看教材，更多地阅读书的，但是有的教材中要么就是缺公式，要是就是新手不友好，所以看别人帖子也是一种不为过的学习方式，但是也切记不能忽略了背后的数学描述生物的过程。</li>
-<li>这篇文章是对G-CAT上coalescent theory的理解和总结，推荐阅读原博客。</li>
-</ul>
-<p>‍</p>
-<h1 id="coalescence-定义">coalescence | 定义</h1>
-<p>当一个个体或者一个群体中，发生mutation时，就产生了2个不同碱基类型的allele，这是一个前向（forward）的过程。</p>
-<p>而coalescence，是一个逆向（backwards）的过程，即推断群体中两个allele，共享同一个ancestral allele的概率是多大。</p>
-<p>‍</p>
-<h1 id="coalescence-影响因素">coalescence | 影响因素</h1>
-<p>将backwards合并理解为一个抽样过程，选定一个allele（A）的时候，即从ancestral population中（有效群体大小为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">N_{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>）随机抽选一个allele作为ancestral allele的概率为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><msub><mi>N</mi><mi>e</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2N_{e}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2902079999999998em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.10903em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>。那么再选中一个allele（B），其ancestral allele与A相同的概率还是为<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><msub><mi>N</mi><mi>e</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{1}{2N_{e}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.2902079999999998em;vertical-align:-0.44509999999999994em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.845108em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.16454285714285719em;"><span style="top:-2.357em;margin-left:-0.10903em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.143em;"><span></span></span></span></span></span></span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.44509999999999994em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>。</p>
-<p>而在current population中，有多少种AB allele组合呢？答案是<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>n</mi><mo>!</mo></mrow><mrow><mo>(</mo><mi>n</mi><mo>−</mo><mn>2</mn><mo>)</mo><mo>!</mo><mn>2</mn><mo>!</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{n!}{(n-2)!2!}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.400108em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8801079999999999em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathdefault mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span><span class="mclose mtight">)</span><span class="mclose mtight">!</span><span class="mord mtight">2</span><span class="mclose mtight">!</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span><span class="mclose mtight">!</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>种。</p>
-<p>总而言之，针对一个allele，其coalescent rate和effective population size，针对一整个群体来说更是如此。</p>
-<p>而在demographic history中，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">N_{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>并不是一成不变的，会受到环境的各种影响，而反映在群体上的则有population bottleneck、population expansion。</p>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424214855-o21dt24.png" alt="image" title="coalescent rate, changing with Ne. Source from G-CAT" style="zoom:50%;" />
-<p>而针对具有不同<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>N</mi><mi>e</mi></msub></mrow><annotation encoding="application/x-tex">N_{e}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">e</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>的群体来说，更是如此，</p>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424215039-8k3euv1.png" alt="image" title="不同Ne的群体，其coalescent的速率是不同的" style="zoom:50%;" />
-<p>‍</p>
-<h1 id="coalescence-how-to-apply-or-what-its-application">coalescence | how to apply or what its application?</h1>
-<h2 id="1bottlenecks-testing">1）bottlenecks testing</h2>
-<p>既然coalescent rate会随着有效群体大小的变化而变化，那其实也就说明了它可以反映生物学背后的故事，那么是什么故事呢？</p>
-<p>当群体因为外界环境影响，有效群体大小变得特别小的时候，the number of alleles in total减少，群体水平的variants variation变小了，从图上看长这样，</p>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424220239-1nvrq3n.png" alt="image" title="在回溯整个demographic history时，经过bottleneck之后，coalescent rate升高" style="zoom:50%;" />
-<h2 id="2introgression-testing">2）introgression testing</h2>
-<p>当两个population存在introgression或者horizontal gene transfer时，就会存在一些allele，它们backward collapse的时间，相较于population的spliting time是更早的，</p>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424220623-pzvv9f7.png" alt="image" style="zoom:50%;" />
-<p>‍</p>
-<h2 id="3spliting-time-testing">3）spliting time testing</h2>
-<p>一句话结束：population divergence或者说speciation发生的时候，coalescent events出现的次数也升高到了最高，</p>
-<blockquote>
-<p>但是有的coalescent可能发生在spliting之前，又可能发生在spliting之后，即基于coalescence估计出来的divergence time是approximation，只能是不断的逼近，一种永远无法抵达的真实。</p>
-</blockquote>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230424220940-ojcsxmo.png" alt="image" style="zoom: 50%;" />
-<p>‍</p>
-<h1 id="推荐阅读">推荐阅读</h1>
-<ul>
-<li><a href="https://theg-cat.com/2018/11/09/bringing-alleles-back-together-applications-of-coalescent-theory/">theg-cat.com/2018/11/09/...</a></li>
-</ul>
-<p>‍</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「文献写作工作流」001｜Zotero - A Better Way to Organize Your Literature]]></title>
-        <id>https://chenyoupu.top/post/wpaper001/</id>
-        <link href="https://chenyoupu.top/post/wpaper001/">
-        </link>
-        <updated>2023-04-16T08:44:46.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="zotero-a-better-way-to-organize-your-literature-第1弹来了">Zotero | A Better Way to Organize Your Literature | 第1弹来了</h1>
-<h1 id="写在前面">写在前面</h1>
-<p>作为一个尚且还在搞科研的科研狗，当然还是得管理好自己的学习笔记。</p>
-<p>作为早期体验过Mendeley的一批小众人，我觉得还是对文献的管理存在一定的要求。</p>
-<ul>
-<li>App要美观</li>
-<li>文献组织要合理</li>
-<li>笔记功能</li>
-</ul>
-<p>这里比较鸡肋的还是笔记功能，虽然市面上已经存在很多笔记软件，但是就算是好用的软件，还是得在两个App之间不断来回反复横跳，略嫌麻烦。因此有没有更好的解决方案呢？</p>
-<p>‍</p>
-<h1 id="better-notes-内嵌式的markdown笔记">better notes | 内嵌式的markdown笔记</h1>
-<p>为了避免发生，一边看文献还得一边打开一个Word或者外置markdown软件（比如typora），能够自如地在Zotero内部进行笔记管理，better notes非常好的满足了我的需求，</p>
-<ul>
-<li>内嵌式的markdown类笔记软件，让我不需要再不同的笔记软件之前切换</li>
-<li>提供了自定义模板等功能。让我能够更好地以“我”的方式去读文献，总结知识。</li>
-</ul>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230415161027-ty4akfo.png" alt="image" title="我的自定义模板" style="zoom: 50%;" />
-<p>另外两个点，</p>
-<ul>
-<li>就算想要用自己常用的笔记软件再来作为复盘，也是可以直接将better notes工作区内的内容之间复制到目标笔记软件中，即可以实现跳转到better notes笔记内，进而再跳转到对应的页面。</li>
-<li>Quicker，则是一款轻量级的工具包，能够实现将Zotero中的文献选中，“复制”到笔记再实现跳转和双链笔记</li>
-</ul>
-<p>‍</p>
-<h1 id="color-tags-最简单但却最实用">color tags | 最简单，但却最实用</h1>
-<p>有很多各种华丽呼哨的笔记记录方式，仿佛color tags，已经被相忘于江湖。</p>
-<p>但可别小瞧了最简单的方法，最简单的，往往却最实用。</p>
-<p>我自己总结的color tags阅读文献的方式如下，</p>
-<ul>
-<li>绿色：Methods部分 / 文章中方法的细节部分</li>
-<li>黄色：文章中所使用的统计量、计算方法</li>
-<li>红色：Results部分 / 文章的重要结论</li>
-<li>蓝色：文章中，不清晰的知识点</li>
-<li>紫色：文章中引用的、后续可以继续阅读的参考文献</li>
-<li>橙色：想要学的英语语法、词组</li>
-</ul>
-<p>而针对一篇文献，又可以很轻松地使用“插入笔记模板”的格式，直接插入到better notes当中，再做进一步的整理，</p>
-<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230416170625-mwrpa7d.png" alt="image" style="zoom:50%;" />
-<h2 id="示例-color-tags导入到better-notes">示例 | color tags导入到better notes</h2>
-<p><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230416170514-i7rkkpq.png" alt="image" style="zoom: 50%;" />​</p>
-<p><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/blog-img/image-20230416170504-fulcwsq.png" alt="image" style="zoom:50%;" />​</p>
-<p>‍</p>
-<h1 id="隐藏功能-zotero-dark-themes">隐藏功能 | Zotero Dark themes</h1>
-<p>对于需要长时间坐在办公桌前的同学，Zotero原始配色就算不上什么有益眼睛健康的配色了，从而转向是否存在绿色、黑色皮肤的存在。</p>
-<p>打开咕咕，直接搜索即可食用。</p>
-<p>链接如下：<a href="https://github.com/Rosmaninho/Zotero-Dark-Theme">github.com/Rosmaninho/Zo...</a></p>
-<p>‍</p>
-<h1 id="我的资源">我的资源</h1>
-<p>[1] https://github.com/Youpu-Chen/Zotero_configs</p>
-<p>‍</p>
 ]]></content>
     </entry>
 </feed>
