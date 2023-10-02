@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-02T14:22:24.773Z</updated>
+    <updated>2023-10-02T15:06:45.573Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,29 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「每日知识储备」molecular markrs]]></title>
+        <id>https://chenyoupu.top/post/dailykg001/</id>
+        <link href="https://chenyoupu.top/post/dailykg001/">
+        </link>
+        <updated>2023-10-02T15:05:06.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="molecular-markrs是什么">molecular markrs是什么？</h1>
+<ul>
+<li>
+<p>指基因组上的一段区域、一段DNA。不同的语境也可以指代不同的意思，比如还可以指代为SNPs。</p>
+<p>比如如下的这段话是Yang Jian老师10年的文章中提到的genotyepd SNP，但是在黄三文老师的22年的番茄泛基因组文章中则表述为了“molecular markers”</p>
+<blockquote>
+<p>果然，是我看的文献还不够多</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002230342.png" alt="" loading="lazy"></figure>
+</li>
+<li>
+<p>也可以称作genetic markers</p>
+</li>
+</ul>
+<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002224303.png" alt="" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」数量遗传学应该关注谁的文章？]]></title>
         <id>https://chenyoupu.top/post/gwas-famous/</id>
@@ -606,149 +629,6 @@ P: 1.9880e-27
 </li>
 </ul>
 <figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230930001906.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「文献写作工作流」002｜siyuan + Zotero联动 - 一篇manuscript的诞生]]></title>
-        <id>https://chenyoupu.top/post/wpaper002/</id>
-        <link href="https://chenyoupu.top/post/wpaper002/">
-        </link>
-        <updated>2023-09-28T13:39:02.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
-<ul>
-<li>科研中，写作其实是非常重要的一环，就算分析会做，就算算法会整，不能够将自己的想法给清晰地reticulate出来，还是难免会有些折磨</li>
-<li>那么从日常的博客写作中，到底能够在“写一篇文章”上帮助到我多少呢？</li>
-</ul>
-<p>我以一篇review的诞生为例。</p>
-<h2 id="idea的产生">idea的产生</h2>
-<p>“对一个领域的了解程度，至少需要对这个领域内的100篇经典文献完成阅读”。</p>
-<p>100篇并不是一个强制要求的数目，但是侧面的说明了一个问题：</p>
-<ul>
-<li>这个领域内前人都做了些什么？</li>
-<li>这个领域内的热点和痛点是什么？</li>
-<li>这个领域内目前最大的challenges是什么？</li>
-</ul>
-<p>那么针对写一篇综述的任务，就需要researcher对领域内的文章有一个非常inclusive的理解。</p>
-<p>我的工作流：Zotero + Bette Notes（plugin）+ 思源笔记</p>
-<p>分别简述一个这两个软件的好处，</p>
-<ul>
-<li>
-<p>Zotero：开源，足够多的插件满足我的需求；利用坚果云可以达到很好的跨设备同步，在工位就大电脑主力输出，如果离开工位，则可以使用另一部电脑来查看大电脑的文献笔记等</p>
-</li>
-<li>
-<p>思源笔记：虽然typora很优秀，但是typora也仅仅只能作为markdown的编辑器来使用，并不是一个非常便捷的笔记管理软件。为了更好的实现第二大脑的概念，思源笔记就是我认为非常好的解决方案：</p>
-<p>1）本地，重在写作，写在当下，这些都是非常重要的需求。Notion作为一款打开了笔记管理新时代的软件，打开速度让我感觉到很难受，所以就pass。但是不得不说，Notion的数据库功能是非常好用的，因此在文献条目以及笔记阅读等方面，我还是会采用Database + Tag的方式来管理文献。不追求可以的All in One，各取所需即可。</p>
-<p>2）相对便捷的设备同步。利用阿里云、腾讯云等云服务，思源笔记也可以非常轻松的实现跨设备同步，但是由于是对整体进行上传，同步速度在wolai、Notion的比较上略逊一筹。</p>
-</li>
-</ul>
-<p>而我所采用的idea收集方式如下，</p>
-<ul>
-<li>
-<p>将Zotero中对应的条目直接复制到思源笔记当中，保存着跳转链接，这个可以让我非常好的对idea追根溯源</p>
-<p>同时我以day为单位，每日对综述撰写的内容进行整理和不断补充，当素材足够的时候，即可以直接开始对应部分的撰写，而这两个超链接让我能够很好的找到出处。</p>
-<p>做科研，出处是非常重要的。</p>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230923232138.png" alt="" loading="lazy"></figure>
-<h2 id="manuscript的产生">manuscript的产生</h2>
-<p>而在思源笔记当中完成了对草稿的撰写之后，我才用的方式如下，</p>
-<ul>
-<li>
-<p>导出。让vscode的markdown做该做的事，</p>
-<p>这部分内容实际上是思源笔记现在对citekeys并没有一个非常好的支持，但是D大也说了如果之后思源笔记的科研用户多了，或许会考虑对该功能的更好实现</p>
-</li>
-<li>
-<p>Zotero Better Bibtex + Pandoc帮助生成word版本的manuscript</p>
-</li>
-</ul>
-<h3 id="1better-bibtex的配置">1）better bibtex的配置</h3>
-<ul>
-<li>citekey format的设置：该部分确定了之后在vscode中要如何对item进行引用</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230923232814.png" alt="" loading="lazy"></figure>
-<ul>
-<li>
-<p>如何想要更好的达到或者说和google scholar保持一致，还有一些内容需要配置，</p>
-<ul>
-<li>exclusive fields：去除掉导出的bib文件中不需要的field</li>
-</ul>
-<figure data-type="image" tabindex="3"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230923232952.png" alt="" loading="lazy"></figure>
-<ul>
-<li>
-<p>postscript的设置，</p>
-<blockquote>
-<p>别问，问就是抄的。该部分只保留对应的info，但是如果其中出现了中文，提取也会出现问题。目前最好的解决方案也还是使用connector添加item时，就对文献的year/Date进行修正，以免后期增多了之后，自己都懒得整理了。小习惯造就big success</p>
-</blockquote>
-<pre><code class="language-javascript">if (Translator.BetterTeX) {
-    if(tex.has['eventtitle']){
-        tex.add({
-            name: 'booktitle', 
-            value: tex.has['eventtitle'].value
-        });
-        delete tex.has['eventtitle'];
-    }
-    if(tex.has['date']){
-        tex.add({
-            name: 'year',
-            value: tex.has['date'].value
-        });
-        delete tex.has['date'];
-    }
-    if(tex.has['journaltitle']){
-        tex.add({
-            name: 'journal',
-            value: tex.has['journaltitle'].value
-        })
-        delete tex.has['journaltitle'];
-    }
-    else if(tex.has['shortjournal']){
-        tex.add({
-            name: 'journal',
-            value: tex.has['shortjournal'].value
-        })
-        delete tex.has['shortjournal'];
-    }
-    delete tex.has['shortjournal'];
-}
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="2markdown-snippet">2）markdown snippet</h3>
-<ul>
-<li>
-<p>vscode能够有code snippet加快编程效率，那markdown照样也行，</p>
-<ul>
-<li>
-<p>markdonw.json的设置</p>
-<blockquote>
-<p>start_paper中代表了一整个code snippet，prefix则是我们需要去定义的提示词</p>
-</blockquote>
-</li>
-</ul>
-<figure data-type="image" tabindex="4"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230923233410.png" alt="" loading="lazy"></figure>
-<ul>
-<li>
-<p>setting.json的设置。由于vscode中没有默认开启markdown的提示词，因此我们需要修改下，</p>
-<figure data-type="image" tabindex="5"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230923233626.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="3pandoc">3）pandoc</h3>
-<ul>
-<li>一款过于经典的工具，各类格式转换都能完成，写这个软件的教授还不是计算机出身，哲学教授嗷！</li>
-<li>在此步骤中还可以加入目标期刊的文献要求格式</li>
-</ul>
-<pre><code class="language-shell">pandoc input.md \
--o test.docx --bibliography test1.bib \
---citeproc -M reference-section-title=&quot;Reference&quot;
-</code></pre>
-<h2 id="参考资料">参考资料</h2>
-<ul>
-<li></li>
-</ul>
 ]]></content>
     </entry>
 </feed>

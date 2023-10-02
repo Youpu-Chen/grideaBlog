@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「GWAS那些事儿」linear regression中的Z-Score | 有朴的第二大脑</title>
+<title>「每日知识储备」molecular markrs | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1696259201406" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,11 +15,12 @@
 
 
 
-  <meta name="description" content="
+  <meta name="description" content="molecular markrs是什么？
 
-Z-score在GWAS summary statistics中的含义是什么？
-The Z-score quantifies how many standard deviations an observed association st..." />
-  <meta name="keywords" content="GWAS,基因组学" />
+
+指基因组上的一段区域、一段DNA。不同的语境也可以指代不同的意思，比如还可以指代为SNPs。
+比如如下的这段话是Yang Jian老师10年的文章中提到的genotyepd SNP，但是在黄三文..." />
+  <meta name="keywords" content="biology,GWAS" />
 </head>
 
 <body>
@@ -95,44 +96,28 @@ The Z-score quantifies how many standard deviations an observed association st..
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「GWAS那些事儿」linear regression中的Z-Score</a>
+                  「每日知识储备」molecular markrs</a>
               </h2>
-              <span class="article-info">2023-10-02, 340 words, 3 min read</span>
+              <span class="article-info">2023-10-02, 111 words, 1 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <ul>
-<li>
-<p><strong>Z-score在GWAS summary statistics中的含义是什么</strong>？</p>
-<p>The Z-score quantifies how many standard deviations an observed association statistic is from the expected null distribution under the assumption of no association.</p>
-<ol>
-<li>
-<p><strong>Association Testing</strong>: In a GWAS, genetic variants across the genome are tested for their association with a particular trait or disease. The most common statistical test used for this purpose is logistic regression for binary traits (e.g., disease status) or linear regression for continuous traits (e.g., height).</p>
-</li>
-<li>
-<p><strong>Z-Score Calculation</strong>: After performing the association test for each SNP, a Z-score is calculated for that SNP. The formula for calculating the Z-score is typically as follows:</p>
-<pre><code class="language-shell">Z = (β - β₀) / SE
-</code></pre>
+                  <h1 id="molecular-markrs是什么">molecular markrs是什么？</h1>
 <ul>
-<li><code>Z</code> is the Z-score.</li>
-<li><code>β</code> is the estimated effect size or regression coefficient for the SNP, representing the change in the trait value associated with each additional copy of the variant.</li>
-<li><code>β₀</code> is the null hypothesis value for <code>β</code>, often assumed to be zero under the null hypothesis of no association.</li>
-<li><code>SE</code> is the standard error of the estimated effect size <code>β</code>.</li>
-</ul>
+<li>
+<p>指基因组上的一段区域、一段DNA。不同的语境也可以指代不同的意思，比如还可以指代为SNPs。</p>
+<p>比如如下的这段话是Yang Jian老师10年的文章中提到的genotyepd SNP，但是在黄三文老师的22年的番茄泛基因组文章中则表述为了“molecular markers”</p>
+<blockquote>
+<p>果然，是我看的文献还不够多</p>
+</blockquote>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002230342.png" alt="" loading="lazy"></figure>
 </li>
 <li>
-<p><strong>Interpretation</strong>: The Z-score measures how many standard deviations (<code>SE</code>) the estimated effect size (<code>β</code>) is away from the null hypothesis value (<code>β₀</code>). A high absolute Z-score indicates a strong association between the SNP and the trait, whereas a low or close-to-zero Z-score suggests a weak or no association.</p>
-</li>
-<li>
-<p><strong>Significance Threshold</strong>: Researchers typically establish a significance threshold (e.g., Z-score greater than 5 or corresponding p-value threshold) to determine which associations are statistically significant. Associations with Z-scores exceeding this threshold are considered noteworthy and may indicate a genuine genetic influence on the trait or disease.</p>
-</li>
-<li>
-<p><strong>Positive and Negative Z-Scores</strong>: The sign of the Z-score indicates the direction of the effect. A positive Z-score suggests that the variant is positively associated with an increase in the trait (e.g., risk allele for a disease). A negative Z-score suggests a negative association (e.g., protective allele for a disease).</p>
-</li>
-</ol>
+<p>也可以称作genetic markers</p>
 </li>
 </ul>
+<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002224303.png" alt="" loading="lazy"></figure>
 <br />
                   
               </p>
@@ -144,11 +129,11 @@ The Z-score quantifies how many standard deviations an observed association st..
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
+                      <a href="https://chenyoupu.top/tag/9ZzP8hWwm/" class="article-info">
+                        biology</a>
+                      
                       <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
                         GWAS</a>
-                      
-                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
-                        基因组学</a>
                       </span>
                   </div>
                 </div>
@@ -156,9 +141,9 @@ The Z-score quantifies how many standard deviations an observed association st..
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/gwas-ldsc/">
+                  <a href="https://chenyoupu.top/post/gwas-famous/">
                     <h3 class="post-title">
-                      「GWAS那些事儿」LDSC｜LD Score的计算与LD regression构建
+                      「GWAS那些事儿」数量遗传学应该关注谁的文章？
                     </h3>
                   </a>
                 </div>
