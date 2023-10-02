@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>Youpu的第二大脑</title>
-    <updated>2023-10-02T14:14:52.114Z</updated>
+    <updated>2023-10-02T14:21:47.464Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,39 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, Youpu的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「GWAS那些事儿」数量遗传学应该关注谁的文章？]]></title>
+        <id>https://chenyoupu.top/post/gwas-famous/</id>
+        <link href="https://chenyoupu.top/post/gwas-famous/">
+        </link>
+        <updated>2023-10-02T14:20:34.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="写在前面">写在前面</h1>
+<ul>
+<li>持续更新</li>
+</ul>
+<ul>
+<li>
+<p>经过数十年的研究，GWAS已经证实了自己方法本身上的可行性</p>
+</li>
+<li>
+<p>Peter M. Visscher（关于missing heritability的综述，就是这位大佬写的）</p>
+</li>
+<li>
+<p>Yang Jian</p>
+<ul>
+<li>近期代表性工作：GCTA（可用于heritability estitation）</li>
+</ul>
+</li>
+<li>
+<p><a href="https://scholar.google.com/citations?hl=en&amp;user=9bqHVEsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">David J. Balding</a></p>
+<ul>
+<li>近期代表性工作：<a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=9bqHVEsAAAAJ&amp;sortby=pubdate&amp;citation_for_view=9bqHVEsAAAAJ:QsaTk4IG4EwC">LDAK-GBAT</a></li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002221915.png" alt="" loading="lazy"></figure>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS之外」TWAS（Transcriptome-Wide Association Study）]]></title>
         <id>https://chenyoupu.top/post/gwas-twas/</id>
@@ -716,22 +749,6 @@ P: 1.9880e-27
 <ul>
 <li></li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[看懂R背后的运行，我五分钟解决了别人一天才能解决的问题]]></title>
-        <id>https://chenyoupu.top/post/看懂R背后的运行，我五分钟解决了别人一天才能解决的问题/</id>
-        <link href="https://chenyoupu.top/post/看懂R背后的运行，我五分钟解决了别人一天才能解决的问题/">
-        </link>
-        <updated>2023-06-10T07:21:19.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="看懂r背后的运行我五分钟解决了别人一天才能解决的问题">看懂R背后的运行，我五分钟解决了别人一天才能解决的问题</h1>
-<p>基于Rscript来直接运行脚本，实际上会存在内存上限的问题（一般出现在tidyverse merge数据的过程中），但是在Linux环境下设置运行内存上限的方法和Win是不一样的，我就用一行代码帮助小伙伴解决了一丢丢小问题，</p>
-<pre><code class="language-r">library(unix)
-rlimit_as(1e13) # approximately 120G
-</code></pre>
-<p>结果：三分钟解决问题。。</p>
-<p>周末继续总结继续学习继续看文献。</p>
-<p>‍</p>
 ]]></content>
     </entry>
 </feed>
