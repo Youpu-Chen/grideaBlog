@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>Youpu的第二大脑</title>
-    <updated>2023-10-02T14:11:14.276Z</updated>
+    <updated>2023-10-02T14:14:52.114Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, Youpu的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「GWAS之外」TWAS（Transcriptome-Wide Association Study）]]></title>
+        <id>https://chenyoupu.top/post/gwas-twas/</id>
+        <link href="https://chenyoupu.top/post/gwas-twas/">
+        </link>
+        <updated>2023-10-02T14:13:33.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="twas">TWAS</h2>
+<ul>
+<li>
+<p>FOCUS</p>
+<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
+</li>
+<li>
+<p>FUSION</p>
+<p><a href="http://gusevlab.org/projects/fusion/">gusevlab.org/projects/fu...</a></p>
+</li>
+</ul>
+<h2 id="其他">其他</h2>
+<h3 id="为什么要发展twas">为什么要发展TWAS？</h3>
+<p>TWAS的发展是为了弥补GWAS的一些限制：</p>
+<ol>
+<li><strong>解释关联</strong>：GWAS虽然可以识别与性状或疾病相关的基因座，但通常无法提供这些关联的生物学解释。TWAS通过考虑基因表达数据，有助于更好地理解为什么某些基因与性状相关（SNP的存在是否影响了转录本层面的生物学机制）。</li>
+<li><strong>功能注释</strong>：TWAS可以用于识别潜在的功能性基因。它不仅告诉我们哪些基因与性状相关，还可以帮助我们了解这些基因在性状或疾病发病机制中的具体角色。</li>
+<li><strong>更精确的关联</strong>：TWAS可以提供更准确的关联信息，因为它结合了基因表达数据，减少了假阳性的可能性。</li>
+</ol>
+<p>总之，GWAS和TWAS是两种互补的遗传学方法，用于研究基因与性状或疾病之间的关系。TWAS的发展有助于增强我们对基因与性状之间关联的理解，并提供更多有关基因功能和生物学机制的信息。</p>
+<h3 id="twas与ld之间的关系">TWAS与LD之间的关系？</h3>
+<p>#GWAS#​TWAS statistics，在GWAS的基础上考虑了转录组的数据构建的统计量来找casual variants。但是TWAS仍旧会受到LD的影响。</p>
+<ul>
+<li>
+<p>TWAS加入了expression weight，即具有<strong>类似expression weight</strong>（对同一类转录本有相似影响的SNPs，才能够被当作与目标表型的casual SNPs）。但是由于LD的影响，在计算最终TWAS signal时，周围non-casual SNPs由于LD的影响，也会具有和casual SNPs近似水平的association signal —— LD tagging effect</p>
+</li>
+<li>
+<p>图解</p>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」heritability的估计有哪些工具/模型？]]></title>
         <id>https://chenyoupu.top/post/gwas-heritability-estimate/</id>
@@ -692,101 +731,6 @@ rlimit_as(1e13) # approximately 120G
 </code></pre>
 <p>结果：三分钟解决问题。。</p>
 <p>周末继续总结继续学习继续看文献。</p>
-<p>‍</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「R | parallel」第一篇｜gene level的FST计算]]></title>
-        <id>https://chenyoupu.top/post/R  parallel  第一篇/</id>
-        <link href="https://chenyoupu.top/post/R  parallel  第一篇/">
-        </link>
-        <updated>2023-05-15T13:00:56.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
-<ul>
-<li>聊聊我自己。群体遗传学研究的对象是allele，而针对一个population，就算是一个population，其内部存在的variants也是相当多的（由于genetic drift的影响），所以要处理的下游数据难免就会呈现records多到“上天”的情况</li>
-</ul>
-<p>‍</p>
-<h2 id="r-parallel的使用">R | parallel的使用</h2>
-<p>虽然R语言是一门针对统计学的语言，但并不就代表它不可以实现最基本的计算功能，multiprocessing。</p>
-<p>需要使用的packages，<code>parallel</code>​。</p>
-<p>就拿我自己做的分析来举例：</p>
-<ul>
-<li>现存一个vcftools计算得到的FST结果文件，分别记录了从chromosome1到chromosome21的per-site FST计算结果；</li>
-<li>我的reference gene BED从UCSC Genome Table Browser下载得到，从共记录了两万多条gene records</li>
-</ul>
-<p>如何计算得到每一个gene的FST？</p>
-<p>前提条件说了很多了，只是为了希望做分析的人能够理解这个问题。</p>
-<p>但是在给出自己的代码之前，先给出R parallel的基本使用。</p>
-<h3 id="r-parallele-multiprocessing">R | parallele | multiprocessing</h3>
-<p>直接使用multiprocessing方法时，不需要自行创建cluster来预设对应包含线程数的sockets，而用起来就像lapply一样，但是与其不同的是，lapply是将所有的函数依次应用到输入的每一个list上，而multiprocessing的lapply则是同时发动所有的任务，</p>
-<p>使用函数，</p>
-<ul>
-<li>mclapply()</li>
-<li>mcmapply()</li>
-</ul>
-<h3 id="r-parallele-sockets">R | parallele | sockets</h3>
-<ul>
-<li>sockets类型的multiprocessing与上述提到的基本方法，在使用上的不同需要首先创建一个clusters，同时在完成运算之后需要释放这个cluster，</li>
-<li>同时还需要将应用的数据export到cluster中</li>
-</ul>
-<pre><code class="language-r">cluster_1 &lt;- makeCluster(16)  # 可以使用detectCores()来检测总共有多少个核
-stopCluster(cluster_1)
-</code></pre>
-<p>‍</p>
-<h2 id="r-我的population-genetics实战">R | 我的population genetics实战</h2>
-<ul>
-<li>
-<p>核心模块，</p>
-<p><code>chr.vector</code>​，是包含了chr1tochr22的chromosome tag的向量，需要先将其输出到cluster，才能够应用于cluster计算</p>
-<p><strong>但是我还存在的疑问：为什么input_df和gene_bed就不export就不会报错了呢</strong>？</p>
-<blockquote>
-<p>Note：这里的理解，就好比神经网络模型使用CUDA时，也需要将对应张量加载到GPU上</p>
-</blockquote>
-<pre><code class="language-r">parLapply(cluster_1, chr.vector, df = input_df, fun = function(input_df, chr_number, gene_bed){
-  # retrieve output dataset using chromosome tag {1..21} to split the FST dataset
-  chr_number_input_df &lt;- input_df %&gt;% filter(chr==chr_number)
-  ...
-}
-</code></pre>
-</li>
-</ul>
-<pre><code class="language-r">cluster_1 &lt;- makeCluster(16) # using 16 cores to speed up the FST calculation process.
-clusterExport(cluster_1, &quot;chr.vector&quot;)  # export chromosome vector the sockets
-
-# 
-FST_list &lt;- parLapply(cluster_1, chr.vector, df = input_df, fun = function(input_df, chr_number, gene_bed){
-  # retrieve output dataset using chromosome tag {1..21} to split the FST dataset
-  chr_number_input_df &lt;- input_df %&gt;% filter(chr==chr_number)
-  new_chr_number_input_df = chr_number_input_df %&gt;% left_join(gene_bed, by=c(&quot;chr&quot;))
-  
-  # only save the validated records
-  new_chr_number_input_df &lt;- new_chr_number_input_df %&gt;% filter((pos &gt;= start_pos &amp; pos &lt;= end_pos))
-  
-  # using 0 to replace negative value
-  new_chr_number_input_df$weight_FST[new_chr_number_input_df$weight_FST &lt; 0] &lt;- 0
-
-  # calculate FST for each gene
-  cal_df &lt;- new_chr_number_input_df %&gt;% 
-              group_by(gene) %&gt;%
-              summarize(
-                Mean_Fst = mean(weight_FST, na.rm = TRUE)
-              )
-  return(cal_df)
-})
-
-# close cluster
-stopCluster(cluster_1)
-</code></pre>
-<h2 id="推荐阅读">推荐阅读</h2>
-<ul>
-<li>
-<p><a href="https://bookdown.org/rdpeng/rprogdatascience/parallel-computation.html">bookdown.org/rdpeng/rpro...</a></p>
-</li>
-<li>
-<p><a href="https://www.r-bloggers.com/2019/06/parallel-r-socket-or-fork/">www.r-bloggers.com/2019/...</a></p>
-<p>创建sockets还可以使用不同的模式。。</p>
-</li>
-</ul>
 <p>‍</p>
 ]]></content>
     </entry>

@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「GWAS那些事儿」linear regression中的Z-Score | Youpu的第二大脑</title>
+<title>「GWAS之外」TWAS（Transcriptome-Wide Association Study） | Youpu的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1696256081746" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,11 +15,23 @@
 
 
 
-  <meta name="description" content="
+  <meta name="description" content="TWAS
 
-Z-score在GWAS summary statistics中的含义是什么？
-The Z-score quantifies how many standard deviations an observed association st..." />
-  <meta name="keywords" content="GWAS,基因组学" />
+
+FOCUS
+github.com/bogdanlab/foc...
+
+
+FUSION
+gusevlab.org/projects/fu...
+
+
+其他
+为什么要发展TWAS？
+TWAS的发展是为了弥补GWAS的一些限制：
+
+解..." />
+  <meta name="keywords" content="TWAS,GWAS,基因组学,转录组" />
 </head>
 
 <body>
@@ -95,42 +107,42 @@ The Z-score quantifies how many standard deviations an observed association st..
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「GWAS那些事儿」linear regression中的Z-Score</a>
+                  「GWAS之外」TWAS（Transcriptome-Wide Association Study）</a>
               </h2>
-              <span class="article-info">2023-10-02, 340 words, 3 min read</span>
+              <span class="article-info">2023-10-02, 435 words, 2 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <ul>
-<li>
-<p><strong>Z-score在GWAS summary statistics中的含义是什么</strong>？</p>
-<p>The Z-score quantifies how many standard deviations an observed association statistic is from the expected null distribution under the assumption of no association.</p>
-<ol>
-<li>
-<p><strong>Association Testing</strong>: In a GWAS, genetic variants across the genome are tested for their association with a particular trait or disease. The most common statistical test used for this purpose is logistic regression for binary traits (e.g., disease status) or linear regression for continuous traits (e.g., height).</p>
-</li>
-<li>
-<p><strong>Z-Score Calculation</strong>: After performing the association test for each SNP, a Z-score is calculated for that SNP. The formula for calculating the Z-score is typically as follows:</p>
-<pre><code class="language-shell">Z = (β - β₀) / SE
-</code></pre>
+                  <h2 id="twas">TWAS</h2>
 <ul>
-<li><code>Z</code> is the Z-score.</li>
-<li><code>β</code> is the estimated effect size or regression coefficient for the SNP, representing the change in the trait value associated with each additional copy of the variant.</li>
-<li><code>β₀</code> is the null hypothesis value for <code>β</code>, often assumed to be zero under the null hypothesis of no association.</li>
-<li><code>SE</code> is the standard error of the estimated effect size <code>β</code>.</li>
+<li>
+<p>FOCUS</p>
+<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
+</li>
+<li>
+<p>FUSION</p>
+<p><a href="http://gusevlab.org/projects/fusion/">gusevlab.org/projects/fu...</a></p>
+</li>
 </ul>
-</li>
-<li>
-<p><strong>Interpretation</strong>: The Z-score measures how many standard deviations (<code>SE</code>) the estimated effect size (<code>β</code>) is away from the null hypothesis value (<code>β₀</code>). A high absolute Z-score indicates a strong association between the SNP and the trait, whereas a low or close-to-zero Z-score suggests a weak or no association.</p>
-</li>
-<li>
-<p><strong>Significance Threshold</strong>: Researchers typically establish a significance threshold (e.g., Z-score greater than 5 or corresponding p-value threshold) to determine which associations are statistically significant. Associations with Z-scores exceeding this threshold are considered noteworthy and may indicate a genuine genetic influence on the trait or disease.</p>
-</li>
-<li>
-<p><strong>Positive and Negative Z-Scores</strong>: The sign of the Z-score indicates the direction of the effect. A positive Z-score suggests that the variant is positively associated with an increase in the trait (e.g., risk allele for a disease). A negative Z-score suggests a negative association (e.g., protective allele for a disease).</p>
-</li>
+<h2 id="其他">其他</h2>
+<h3 id="为什么要发展twas">为什么要发展TWAS？</h3>
+<p>TWAS的发展是为了弥补GWAS的一些限制：</p>
+<ol>
+<li><strong>解释关联</strong>：GWAS虽然可以识别与性状或疾病相关的基因座，但通常无法提供这些关联的生物学解释。TWAS通过考虑基因表达数据，有助于更好地理解为什么某些基因与性状相关（SNP的存在是否影响了转录本层面的生物学机制）。</li>
+<li><strong>功能注释</strong>：TWAS可以用于识别潜在的功能性基因。它不仅告诉我们哪些基因与性状相关，还可以帮助我们了解这些基因在性状或疾病发病机制中的具体角色。</li>
+<li><strong>更精确的关联</strong>：TWAS可以提供更准确的关联信息，因为它结合了基因表达数据，减少了假阳性的可能性。</li>
 </ol>
+<p>总之，GWAS和TWAS是两种互补的遗传学方法，用于研究基因与性状或疾病之间的关系。TWAS的发展有助于增强我们对基因与性状之间关联的理解，并提供更多有关基因功能和生物学机制的信息。</p>
+<h3 id="twas与ld之间的关系">TWAS与LD之间的关系？</h3>
+<p>#GWAS#​TWAS statistics，在GWAS的基础上考虑了转录组的数据构建的统计量来找casual variants。但是TWAS仍旧会受到LD的影响。</p>
+<ul>
+<li>
+<p>TWAS加入了expression weight，即具有<strong>类似expression weight</strong>（对同一类转录本有相似影响的SNPs，才能够被当作与目标表型的casual SNPs）。但是由于LD的影响，在计算最终TWAS signal时，周围non-casual SNPs由于LD的影响，也会具有和casual SNPs近似水平的association signal —— LD tagging effect</p>
+</li>
+<li>
+<p>图解</p>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
 </li>
 </ul>
 <br />
@@ -144,11 +156,17 @@ The Z-score quantifies how many standard deviations an observed association st..
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
+                      <a href="https://chenyoupu.top/tag/1NYqZNZ4D/" class="article-info">
+                        TWAS</a>
+                      
                       <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
                         GWAS</a>
                       
                       <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
                         基因组学</a>
+                      
+                      <a href="https://chenyoupu.top/tag/JqrJMa8-Vd/" class="article-info">
+                        转录组</a>
                       </span>
                   </div>
                 </div>
@@ -156,9 +174,9 @@ The Z-score quantifies how many standard deviations an observed association st..
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/gwas-ldsc/">
+                  <a href="https://chenyoupu.top/post/gwas-heritability-estimate/">
                     <h3 class="post-title">
-                      「GWAS那些事儿」LDSC｜LD Score的计算与LD regression构建
+                      「GWAS那些事儿」heritability的估计有哪些工具/模型？
                     </h3>
                   </a>
                 </div>
