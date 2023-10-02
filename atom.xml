@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
-    <title>Youpu的第二大脑</title>
-    <updated>2023-10-02T14:21:47.464Z</updated>
+    <title>有朴的第二大脑</title>
+    <updated>2023-10-02T14:22:24.773Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
     <subtitle>Hi，这里是有朴的第二大脑。&lt;br/&gt;很高兴与你相遇</subtitle>
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
-    <rights>All rights reserved 2023, Youpu的第二大脑</rights>
+    <rights>All rights reserved 2023, 有朴的第二大脑</rights>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」数量遗传学应该关注谁的文章？]]></title>
         <id>https://chenyoupu.top/post/gwas-famous/</id>
