@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-02T15:06:45.573Z</updated>
+    <updated>2023-10-03T03:44:46.693Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,63 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「GWAS那些事儿」incomplete LD对heritability估计的影响]]></title>
+        <id>https://chenyoupu.top/post/gwas-incomplete-LD/</id>
+        <link href="https://chenyoupu.top/post/gwas-incomplete-LD/">
+        </link>
+        <updated>2023-10-03T03:43:49.000Z</updated>
+        <content type="html"><![CDATA[<p>有一个前提假设：</p>
+<ul>
+<li><strong>一个</strong>​<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><strong>​</strong>的效应往往是周围SNP效应之和**，而这部分效应则自然由连锁不平衡决定</li>
+</ul>
+<p>我的理解，</p>
+<ul>
+<li>
+<p>casual variants和SNP对phenotypic variation的贡献程度往往是不一样的，且casual variants本身的特点也与common variants不同，比如casual variants由于具有更高的effect，在群体中的frequecny不会太高，这是由于纯化选择的作用。</p>
+</li>
+<li>
+<p><u>而不完全的连锁，则会导致所使用的SNP set对heritability的低估</u>。这部分是考虑到了casual variants和周围具有effect但不是casual的SNPs之间的linkage disequilibrium对SNP effect的影响</p>
+</li>
+<li>
+<p>出处：番茄泛基因组文章</p>
+<p>“Incomplete LD between molecular markers and causal variants leads to the underestimation of heritability9” (<a href="zotero://select/library/items/95NL8IPS">Zhou et al., 2022, p. 529</a>) (<a href="zotero://open-pdf/library/items/GFG9LQDC?page=3&amp;annotation=UGIFEHTS">pdf</a>)</p>
+</li>
+</ul>
+<h2 id="举个例子">举个例子</h2>
+<p>在2010年这篇文章中，Yang Jian老师对于casual variants与周围SNP的incomplete LD所产生的effect是这样描述以及做了如下的simulation的，</p>
+<ul>
+<li>
+<p>将casual variants和common SNPs之间存在的<strong>incomplete LD</strong>导致的SNP effect bias estimation，记做<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">G_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>之间的差异，</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">G_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：基于casual variants所估计出来的effect</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：基于SNPs所估计出来的effect</li>
+</ul>
+<p>“Lack of complete LD is manifested as a difference between the genomic relationship between each pair of subjects j and k at the causal variants (Gjk) and the relationship between the same individuals calculated from the SNPs (Ajk).” (<a href="zotero://select/library/items/68BHI922">Yang et al., 2010, p. 2</a>) (<a href="zotero://open-pdf/library/items/ARYVNZTW?page=2&amp;annotation=GLD6745W">pdf</a>)</p>
+</li>
+<li>
+<p>将SNP set划分为<strong>common variants set</strong>以及<strong>casual variants set</strong>。<br>
+casual variants数据集中包含的variants，其频率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>在0.1～05之间，作者构建的emprical <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>（用于矫正<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>）的计算公式为：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mfrac><mrow><mi>c</mi><mo>+</mo><mn>1</mn><mi mathvariant="normal">/</mi><mi>N</mi></mrow><mrow><mi>v</mi><mi>a</mi><mi>r</mi><mo>(</mo><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">1-\frac{c+1/N}{var(A_{jk})}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.55808em;vertical-align:-0.5480799999999999em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mopen mtight">(</span><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29011428571428566em;"><span></span></span></span></span></span></span><span class="mclose mtight">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">c</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mord mtight">/</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5480799999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<blockquote>
+<p>c这个参数比较关键，通过不同的MAF casual variants set，估计出来的数值是不同的，其代表了对SNP effect的低估程度</p>
+</blockquote>
+</li>
+<li>
+<p>casual variants到底对common SNP的估计到底有怎么样的影响？</p>
+<p>当casual variants的allele frequency threshold被设置为0.1时，矫正后的heritability为0.8（非常接近familial studies的研究结果）</p>
+</li>
+</ul>
+<h2 id="写在后面">写在后面</h2>
+<ul>
+<li>在考虑associative SNP的真实effect时，需要考虑到的假设即，一个SNP的effect是周围SNP effect与自身effect的总和，因此就受到LD的影响。</li>
+<li>“当casual variants的allele frequency threshold被设置为0.1时”，并不就代表casual variants的allele frequency就为0.1</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>Common SNPs explain a large proportion of the heritability for human height</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「每日知识储备」molecular markrs]]></title>
         <id>https://chenyoupu.top/post/dailykg001/</id>
@@ -580,55 +637,6 @@ P: 1.9880e-27
 <p>可我真的需要一首歌的时间放空</p>
 <p>我不在乎这是比赛</p>
 <p>我要“发疯”</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「有谱talk」001｜利益关系就是最纯洁的关系]]></title>
-        <id>https://chenyoupu.top/post/youputalk001/</id>
-        <link href="https://chenyoupu.top/post/youputalk001/">
-        </link>
-        <updated>2023-09-29T16:02:05.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
-<ul>
-<li>
-<p>我个人在生活中比较礼貌的表现，实际上是为了防止别人伤害到自己，但是最近发生的很多事情，让我意识到一个点，要学会像小恶魔一样，用自己的弱点来武装自己，也还需要允许自己被伤害，还要在人际交往过程中懂得打“好人牌”和“坏人牌”</p>
-<blockquote>
-<p>让暴风雨来得更猛烈些吧<br>
-——高尔基</p>
-</blockquote>
-</li>
-<li>
-<p>很多时候是这样的。不仅是在本科，我去教别人东西，别人会很不客气地说来找我“讨论”，实际上自己什么都不会，就仅仅是为了在女生面前装*，我很好奇这样的意义，甚至觉得这样没有意义，自己难道已经忘了自己的身高以及其他优势吗？何必总是维持自己的“完美形象”和“高大形象”</p>
-</li>
-<li>
-<p>到了研究生，居然发现还是这样。</p>
-<p>我本希望营造一种与我讨论是没有“架子”的感觉，因为从我之前很多的经历里面出发，找人请教往往需要放低自己的身段，求着别人，别人都不一定肯教（但是其实现在大家都是很好交流的，也没有太大的架子）</p>
-<p>可现在的实际呢？你教了朋友东西，所谓的朋友仿佛在背后还要捅你一刀，这样的何必所谓朋友呢？也可能是我贪图了，我可能认为别人也愿意与我交朋友。</p>
-</li>
-</ul>
-<h2 id="最纯洁的关系就是利益关系">最纯洁的关系就是利益关系</h2>
-<ul>
-<li>
-<p>别做朋友，只在乎利益，这样就是最纯洁的关系。</p>
-<p>既然本身的出发点就是利益，希望别人帮自己，那就别谈什么友谊、友情、情谊等形而上学的概念，都是放屁。</p>
-<p>你对我有所图，我对你有所图，互相满足利益即可，切忌发展朋友关系，因为有的人属实不值得，别太深交。</p>
-</li>
-</ul>
-<h2 id="写在后面">写在后面</h2>
-<ul>
-<li>
-<p>总归来说，还是提升自己连接soft connections的能力，提升自己拉资源的能力，努力让自己成为资源，减少对所谓的朋友的渴求。</p>
-<p>朋友，有你会更好，但抱歉，我自己一人时也足够好。</p>
-</li>
-<li>
-<p>抱歉，男女平等、女权主义，我不想讨论，我做好我自己，我尽我所能尊重女性，在需要帮助的时候尽我所能，其余时刻，我只想搞我自己的“事业”，做我自己感兴趣的事，别的事情，我一律不关心。</p>
-<ul>
-<li>Whatever you said means nothing to me...</li>
-<li>尊重他人命运，放下助人情节</li>
-</ul>
-</li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20230930001906.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

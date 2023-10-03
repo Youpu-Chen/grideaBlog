@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>「GWAS那些事儿」incomplete LD对heritability估计的影响 | 有朴的第二大脑</title>
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1696304682833" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="有朴的第二大脑 » Feed"
+  href="https://chenyoupu.top/atom.xml">
+
+
+
+
+  <meta name="description" content="有一个前提假设：
+
+一个​SNPjSNP_{j}SNPj​​的效应往往是周围SNP效应之和**，而这部分效应则自然由连锁不平衡决定
+
+我的理解，
+
+
+casual variants和SNP对phenotypic variation的贡献程度..." />
+  <meta name="keywords" content="LD,GWAS,heritability" />
+</head>
+
+<body>
+  <div class="main animated">
+    <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <a href="https://chenyoupu.top">
+        有朴的第二大脑
+      </a>
+    </div>
+    <div class="description">
+      Hi，这里是有朴的第二大脑。<br/>很高兴与你相遇
+    </div>
+  </div>
+  <div class="my_socials">
+    
+    
+    <a href="https://github.com/Youpu-Chen" target="_blank">
+      <i class="iconfont icon-github"></i></a>
+    
+          
+    
+    <a href="https://twitter.com/chenhongpu1" target="_blank">
+      <i class="iconfont icon-twitter"></i></a>
+    
+          
+    
+          
+    
+          
+    
+          
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
+      <i class="iconfont icon-rss"></i></a>
+  </div>
+</div>
+
+<div class="header_menu">
+  
+  
+  <a href="/" class="menu">Homepage</a>
+  
+
+  
+  <a href="/archives" class="menu">Archives</a>
+  
+
+  
+  <a href="/tags" class="menu">Tags</a>
+  
+
+  
+  <a href="/post/about" class="menu">About Me</a>
+  
+
+  
+  <a href="/post/friendslinks" class="menu">Links</a>
+  
+
+  <div class="gridea-search-div">
+    <form id="gridea-search-form" data-update="1696304682833" action="https://chenyoupu.top/search/">
+      <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+    </form>
+  </div>
+</div>
+
+
+    <div class="autopagerize_page_element">
+      <div class="content">
+        <div class="post_page">
+          <div class="post animated fadeInDown">
+            <div class="post_title post_detail_title">
+              <h2>
+                <a>
+                  「GWAS那些事儿」incomplete LD对heritability估计的影响</a>
+              </h2>
+              <span class="article-info">2023-10-03, 575 words, 3 min read</span>
+            </div>
+            <div class="post_content markdown">
+              <p class="md_block">
+                <span class="md_line md_line_start md_line_end">
+                  <p>有一个前提假设：</p>
+<ul>
+<li><strong>一个</strong>​<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span><strong>​</strong>的效应往往是周围SNP效应之和**，而这部分效应则自然由连锁不平衡决定</li>
+</ul>
+<p>我的理解，</p>
+<ul>
+<li>
+<p>casual variants和SNP对phenotypic variation的贡献程度往往是不一样的，且casual variants本身的特点也与common variants不同，比如casual variants由于具有更高的effect，在群体中的frequecny不会太高，这是由于纯化选择的作用。</p>
+</li>
+<li>
+<p><u>而不完全的连锁，则会导致所使用的SNP set对heritability的低估</u>。这部分是考虑到了casual variants和周围具有effect但不是casual的SNPs之间的linkage disequilibrium对SNP effect的影响</p>
+</li>
+<li>
+<p>出处：番茄泛基因组文章</p>
+<p>“Incomplete LD between molecular markers and causal variants leads to the underestimation of heritability9” (<a href="zotero://select/library/items/95NL8IPS">Zhou et al., 2022, p. 529</a>) (<a href="zotero://open-pdf/library/items/GFG9LQDC?page=3&amp;annotation=UGIFEHTS">pdf</a>)</p>
+</li>
+</ul>
+<h2 id="举个例子">举个例子</h2>
+<p>在2010年这篇文章中，Yang Jian老师对于casual variants与周围SNP的incomplete LD所产生的effect是这样描述以及做了如下的simulation的，</p>
+<ul>
+<li>
+<p>将casual variants和common SNPs之间存在的<strong>incomplete LD</strong>导致的SNP effect bias estimation，记做<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">G_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>和<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>之间的差异，</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>G</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">G_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">G</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：基于casual variants所估计出来的effect</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>：基于SNPs所估计出来的effect</li>
+</ul>
+<p>“Lack of complete LD is manifested as a difference between the genomic relationship between each pair of subjects j and k at the causal variants (Gjk) and the relationship between the same individuals calculated from the SNPs (Ajk).” (<a href="zotero://select/library/items/68BHI922">Yang et al., 2010, p. 2</a>) (<a href="zotero://open-pdf/library/items/ARYVNZTW?page=2&amp;annotation=GLD6745W">pdf</a>)</p>
+</li>
+<li>
+<p>将SNP set划分为<strong>common variants set</strong>以及<strong>casual variants set</strong>。<br>
+casual variants数据集中包含的variants，其频率<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>θ</mi></mrow><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">θ</span></span></span></span>在0.1～05之间，作者构建的emprical <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>（用于矫正<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub></mrow><annotation encoding="application/x-tex">A_{jk}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361079999999999em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>）的计算公式为：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>−</mo><mfrac><mrow><mi>c</mi><mo>+</mo><mn>1</mn><mi mathvariant="normal">/</mi><mi>N</mi></mrow><mrow><mi>v</mi><mi>a</mi><mi>r</mi><mo>(</mo><msub><mi>A</mi><mrow><mi>j</mi><mi>k</mi></mrow></msub><mo>)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">1-\frac{c+1/N}{var(A_{jk})}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.55808em;vertical-align:-0.5480799999999999em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mopen mtight">(</span><span class="mord mtight"><span class="mord mathdefault mtight">A</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3448em;"><span style="top:-2.3487714285714287em;margin-left:0em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29011428571428566em;"><span></span></span></span></span></span></span><span class="mclose mtight">)</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.485em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">c</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mord mtight">/</span><span class="mord mathdefault mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.5480799999999999em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span></p>
+<blockquote>
+<p>c这个参数比较关键，通过不同的MAF casual variants set，估计出来的数值是不同的，其代表了对SNP effect的低估程度</p>
+</blockquote>
+</li>
+<li>
+<p>casual variants到底对common SNP的估计到底有怎么样的影响？</p>
+<p>当casual variants的allele frequency threshold被设置为0.1时，矫正后的heritability为0.8（非常接近familial studies的研究结果）</p>
+</li>
+</ul>
+<h2 id="写在后面">写在后面</h2>
+<ul>
+<li>在考虑associative SNP的真实effect时，需要考虑到的假设即，一个SNP的effect是周围SNP effect与自身effect的总和，因此就受到LD的影响。</li>
+<li>“当casual variants的allele frequency threshold被设置为0.1时”，并不就代表casual variants的allele frequency就为0.1</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li>Common SNPs explain a large proportion of the heritability for human height</li>
+</ul>
+<br />
+                  
+              </p>
+            </div>
+            <div class="post_footer">
+              
+                <div class="meta">
+                  <div class="info">
+                    <span class="field tags">
+                      <i class="iconfont icon-tag-sm"></i>
+                      
+                      <a href="https://chenyoupu.top/tag/zWCM5cKAs/" class="article-info">
+                        LD</a>
+                      
+                      <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
+                        GWAS</a>
+                      
+                      <a href="https://chenyoupu.top/tag/zG21iYlNhy/" class="article-info">
+                        heritability</a>
+                      </span>
+                  </div>
+                </div>
+                
+              
+                <div class="next-post" style="margin-top: 20px;">
+                  <div class="next">下一篇</div>
+                  <a href="https://chenyoupu.top/post/dailykg001/">
+                    <h3 class="post-title">
+                      「每日知识储备」molecular markrs
+                    </h3>
+                  </a>
+                </div>
+                
+            </div>
+          </div>
+          
+          
+                      
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+<div id="disqus_thread"></div>
+<script>
+  var options = {
+    shortname: 'DisqusComments',
+    apikey: '0D4eig7RqYsljZD0i62dy7y5H2AVm2gE3T9qwx1S16zyJejdxXypcpTtxHm07Eig',
+  }
+  if ('https://disqus.com/api/oauth/2.0/authorize/') {
+    options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+  }
+  var dsqjs = new DisqusJS(options)
+</script>
+          
+                            
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  
+  <div class="powered">
+    Powered by<a href="https://gridea.dev/" target="_blank">Gridea</a>&<a
+    href="https://github.com/fei0810/gridea-theme-oneplus" target="_blank">Theme OnePlus</a>
+ </div>
+ <div class="footer_slogan">
+  
+</div>
+<div id="back_to_top" class="back_to_top">
+  <span>△</span>
+</div>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
+
+</div>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
