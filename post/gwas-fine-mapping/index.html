@@ -5,9 +5,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「GWAS之外」TWAS（Transcriptome-Wide Association Study） | 有朴的第二大脑</title>
+<title>「GWAS那些事儿」fine-mapping | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
-<link href="https://chenyoupu.top/styles/main.css?v=1696304782860" rel="stylesheet">
+<link href="https://chenyoupu.top/styles/main.css?v=1696328252517" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="有朴的第二大脑 » Feed"
   href="https://chenyoupu.top/atom.xml">
@@ -15,23 +15,12 @@
 
 
 
-  <meta name="description" content="TWAS
+  <meta name="description" content="为什么要做fine-mapping？
 
 
-FOCUS
-github.com/bogdanlab/foc...
-
-
-FUSION
-gusevlab.org/projects/fu...
-
-
-其他
-为什么要发展TWAS？
-TWAS的发展是为了弥补GWAS的一些限制：
-
-解..." />
-  <meta name="keywords" content="TWAS,GWAS,基因组学,转录组" />
+从GWAS分析结果中，排除LD以及特定生物学背景的噪音，鉴定到casual variants对理解disease发生以及鉴定后续受到影响的gene和pathway有重要作用
+“Overcoming ..." />
+  <meta name="keywords" content="GWAS,基因组学" />
 </head>
 
 <body>
@@ -93,7 +82,7 @@ TWAS的发展是为了弥补GWAS的一些限制：
   
 
   <div class="gridea-search-div">
-    <form id="gridea-search-form" data-update="1696304782860" action="https://chenyoupu.top/search/">
+    <form id="gridea-search-form" data-update="1696328252517" action="https://chenyoupu.top/search/">
       <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
     </form>
   </div>
@@ -107,42 +96,34 @@ TWAS的发展是为了弥补GWAS的一些限制：
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「GWAS之外」TWAS（Transcriptome-Wide Association Study）</a>
+                  「GWAS那些事儿」fine-mapping</a>
               </h2>
-              <span class="article-info">2023-10-02, 435 words, 2 min read</span>
+              <span class="article-info">2023-10-03, 145 words, 1 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <h2 id="twas">TWAS</h2>
+                  <h2 id="为什么要做fine-mapping">为什么要做fine-mapping？</h2>
 <ul>
 <li>
-<p>FOCUS</p>
-<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
+<p>从GWAS分析结果中，排除LD以及特定生物学背景的噪音，鉴定到casual variants对理解disease发生以及鉴定后续受到影响的gene和pathway有重要作用</p>
+<p>“Overcoming LD and identifying the context-specific variants that are causal to a trait is imperative for understanding disease mechanisms and confidently identifying which downstream genes and pathways are affected.” (<a href="zotero://select/library/items/LGQLEIDT">Broekema et al., 2020, p. 3</a>) (<a href="zotero://open-pdf/library/items/NGDG8676?page=3&amp;annotation=HIZ4DZJZ">pdf</a>)</p>
 </li>
 <li>
-<p>FUSION</p>
-<p><a href="http://gusevlab.org/projects/fusion/">gusevlab.org/projects/fu...</a></p>
+<p>translate GWAS loci to a functional understanding of the associated trait, while taking cell-type- and disease-specific context into account.</p>
+<p><a href="https://zhuanlan.zhihu.com/p/106103885#:~:text=fine%20mapping%E4%BE%A7%E9%87%8D%E4%BA%8E%E7%A1%AE%E5%AE%9A,%E6%BD%9C%E5%9C%A8%E5%9B%A0%E6%9E%9C%E5%8F%98%E5%BC%82%E7%9A%84%E8%8C%83%E5%9B%B4%E3%80%82">zhuanlan.zhihu.com/p/106...</a></p>
 </li>
 </ul>
-<h2 id="其他">其他</h2>
-<h3 id="为什么要发展twas">为什么要发展TWAS？</h3>
-<p>TWAS的发展是为了弥补GWAS的一些限制：</p>
-<ol>
-<li><strong>解释关联</strong>：GWAS虽然可以识别与性状或疾病相关的基因座，但通常无法提供这些关联的生物学解释。TWAS通过考虑基因表达数据，有助于更好地理解为什么某些基因与性状相关（SNP的存在是否影响了转录本层面的生物学机制）。</li>
-<li><strong>功能注释</strong>：TWAS可以用于识别潜在的功能性基因。它不仅告诉我们哪些基因与性状相关，还可以帮助我们了解这些基因在性状或疾病发病机制中的具体角色。</li>
-<li><strong>更精确的关联</strong>：TWAS可以提供更准确的关联信息，因为它结合了基因表达数据，减少了假阳性的可能性。</li>
-</ol>
-<p>总之，GWAS和TWAS是两种互补的遗传学方法，用于研究基因与性状或疾病之间的关系。TWAS的发展有助于增强我们对基因与性状之间关联的理解，并提供更多有关基因功能和生物学机制的信息。</p>
-<h3 id="twas与ld之间的关系">TWAS与LD之间的关系？</h3>
-<p>#GWAS#​TWAS statistics，在GWAS的基础上考虑了转录组的数据构建的统计量来找casual variants。但是TWAS仍旧会受到LD的影响。</p>
+<h3 id="参考资料">参考资料</h3>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/106103885#:~:text=fine%20mapping%E4%BE%A7%E9%87%8D%E4%BA%8E%E7%A1%AE%E5%AE%9A,%E6%BD%9C%E5%9C%A8%E5%9B%A0%E6%9E%9C%E5%8F%98%E5%BC%82%E7%9A%84%E8%8C%83%E5%9B%B4%E3%80%82">zhuanlan.zhihu.com/p/106...</a></li>
+</ul>
+<h2 id="fine-mapping方法">fine-mapping｜方法</h2>
+<h3 id="twas-based-fine-mapping">TWAS-based fine-mapping</h3>
 <ul>
 <li>
-<p>TWAS加入了expression weight，即具有<strong>类似expression weight</strong>（对同一类转录本有相似影响的SNPs，才能够被当作与目标表型的casual SNPs）。但是由于LD的影响，在计算最终TWAS signal时，周围non-casual SNPs由于LD的影响，也会具有和casual SNPs近似水平的association signal —— LD tagging effect</p>
-</li>
-<li>
-<p>图解</p>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
+<p>FOCUS：TWAS-fine-mapping methods</p>
+<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
 </li>
 </ul>
 <br />
@@ -156,17 +137,11 @@ TWAS的发展是为了弥补GWAS的一些限制：
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
-                      <a href="https://chenyoupu.top/tag/1NYqZNZ4D/" class="article-info">
-                        TWAS</a>
-                      
                       <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
                         GWAS</a>
                       
                       <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
                         基因组学</a>
-                      
-                      <a href="https://chenyoupu.top/tag/JqrJMa8-Vd/" class="article-info">
-                        转录组</a>
                       </span>
                   </div>
                 </div>
@@ -174,9 +149,9 @@ TWAS的发展是为了弥补GWAS的一些限制：
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/gwas-heritability-estimate/">
+                  <a href="https://chenyoupu.top/post/gwas-incomplete-LD/">
                     <h3 class="post-title">
-                      「GWAS那些事儿」heritability的估计有哪些工具/模型？
+                      「GWAS那些事儿」incomplete LD对heritability估计的影响
                     </h3>
                   </a>
                 </div>

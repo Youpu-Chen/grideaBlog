@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>To change or not to change？ | 有朴的第二大脑</title>
+<title>「GWAS之外」GWAS之外｜还有哪些关联分析方法？ | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1696328252517" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,12 +15,22 @@
 
 
 
-  <meta name="description" content="Part I 专属于我的弯路
-其实我一直都保留着，我想要研究做人类方面的研究的想法，一直都有。
-但是本科阶段做了很多的傻事，也没有遇到一个好的老师，对我的方向有着怎么样的指引，我现在就正走在属于我的弯路上。
-Part II 规划重要吗？
-规..." />
-  <meta name="keywords" content="" />
+  <meta name="description" content="
+
+FUSION
+gusevlab.org/projects/fu...
+
+包括TWAS和RWAS
+
+
+
+
+其他
+为什么要发展TWAS？
+TWAS的发展是为了弥补GWAS的一些限制：
+
+解释关联：GWAS虽然可以识别与性状或疾病相关的基因座..." />
+  <meta name="keywords" content="TWAS,GWAS,基因组学,转录组" />
 </head>
 
 <body>
@@ -96,46 +106,75 @@ Part II 规划重要吗？
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  To change or not to change？</a>
+                  「GWAS之外」GWAS之外｜还有哪些关联分析方法？</a>
               </h2>
-              <span class="article-info">2022-09-16, 525 words, 2 min read</span>
+              <span class="article-info">2023-10-02, 433 words, 2 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <h1 id="part-i-专属于我的弯路">Part I 专属于我的弯路</h1>
-<p>其实我一直都保留着，我想要研究做人类方面的研究的想法，一直都有。<br>
-但是本科阶段做了很多的傻事，也没有遇到一个好的老师，对我的方向有着怎么样的指引，我现在就正走在属于我的弯路上。</p>
-<h1 id="part-ii-规划重要吗">Part II 规划重要吗？</h1>
-<p>规划自己的生活重要吗？<br>
-虽然开学才短短不到20天，但是我却已经产生了要转硕士/转课题组的想法，<br>
-不为什么，<br>
-但是也为了什么。</p>
-<p>为了想要完成自己曾经不敢去想的事情，为了将自己生命中宝贵的时间，都投入到自己感兴趣的事情上去。<br>
-在上一堂课的时候，林老师说，“规划人生不重要，我当年想读生物信息学，但是没有名额，最终现在在做mRNA……”，</p>
-<p>引发了我的疑惑，我下课就去问他，<br>
-最终具体说了什么我忘了，大概说了一些，“你永远不知道明天会发生什么，明天也有可能直接被车了”、“路上碰到一个女孩，我想让她当我女朋友，最后没有成功，有什么关系呢？？我尽力去做了”，</p>
-<p>所以，并不是规划不重要，而是能否接受现实与理想的不同，并继续努力好好生活。<br>
-“有时候，就是头脑一热，就干了” —— 林金钟</p>
-<h1 id="part-iii-我的反抗-我的自由-我的激情">Part III 我的反抗、我的自由、我的激情</h1>
-<p>上面这句话来自加缪。<br>
-而我想写一句对应着我自己的话，“我的兴趣、我的坚持、我的义无反顾”。<br>
-作为一个小镇错题库，我不知道我是如何成长到现在这样的，<br>
-我看了很多的心理学书籍，我看了很多的哲学书籍，我也看了很多我兴趣方面的书籍。<br>
-我的父母不理解我想要做什么，大概也已经觉得我走到现在这一步就已经可以了，</p>
-<p>但是，我不这样认为。</p>
+                  <ul>
+<li>
+<p>FUSION</p>
+<p><a href="http://gusevlab.org/projects/fusion/">gusevlab.org/projects/fu...</a></p>
+<ul>
+<li>包括TWAS和RWAS</li>
+<li><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231003170030.png" alt="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h2 id="其他">其他</h2>
+<h3 id="为什么要发展twas">为什么要发展TWAS？</h3>
+<p>TWAS的发展是为了弥补GWAS的一些限制：</p>
+<ol>
+<li><strong>解释关联</strong>：GWAS虽然可以识别与性状或疾病相关的基因座，但通常无法提供这些关联的生物学解释。TWAS通过考虑基因表达数据，有助于更好地理解为什么某些基因与性状相关（SNP的存在是否影响了转录本层面的生物学机制）。</li>
+<li><strong>功能注释</strong>：TWAS可以用于识别潜在的功能性基因。它不仅告诉我们哪些基因与性状相关，还可以帮助我们了解这些基因在性状或疾病发病机制中的具体角色。</li>
+<li><strong>更精确的关联</strong>：TWAS可以提供更准确的关联信息，因为它结合了基因表达数据，减少了假阳性的可能性。</li>
+</ol>
+<p>总之，GWAS和TWAS是两种互补的遗传学方法，用于研究基因与性状或疾病之间的关系。TWAS的发展有助于增强我们对基因与性状之间关联的理解，并提供更多有关基因功能和生物学机制的信息。</p>
+<h3 id="twas与ld之间的关系">TWAS与LD之间的关系？</h3>
+<p>#GWAS#​TWAS statistics，在GWAS的基础上考虑了转录组的数据构建的统计量来找casual variants。但是TWAS仍旧会受到LD的影响。</p>
+<ul>
+<li>
+<p>TWAS加入了expression weight，即具有<strong>类似expression weight</strong>（对同一类转录本有相似影响的SNPs，才能够被当作与目标表型的casual SNPs）。但是由于LD的影响，在计算最终TWAS signal时，周围non-casual SNPs由于LD的影响，也会具有和casual SNPs近似水平的association signal —— LD tagging effect</p>
+</li>
+<li>
+<p>图解</p>
+<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
+</li>
+</ul>
 <br />
                   
               </p>
             </div>
             <div class="post_footer">
               
+                <div class="meta">
+                  <div class="info">
+                    <span class="field tags">
+                      <i class="iconfont icon-tag-sm"></i>
+                      
+                      <a href="https://chenyoupu.top/tag/1NYqZNZ4D/" class="article-info">
+                        TWAS</a>
+                      
+                      <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
+                        GWAS</a>
+                      
+                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
+                        基因组学</a>
+                      
+                      <a href="https://chenyoupu.top/tag/JqrJMa8-Vd/" class="article-info">
+                        转录组</a>
+                      </span>
+                  </div>
+                </div>
+                
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/WGCNA/">
+                  <a href="https://chenyoupu.top/post/gwas-heritability-estimate/">
                     <h3 class="post-title">
-                      「转录组」001｜WGCNA专题：实战原理两不误
+                      「GWAS那些事儿」heritability的估计有哪些工具/模型？
                     </h3>
                   </a>
                 </div>

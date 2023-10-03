@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-03T03:46:25.382Z</updated>
+    <updated>2023-10-03T10:17:35.094Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,37 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「GWAS那些事儿」fine-mapping]]></title>
+        <id>https://chenyoupu.top/post/gwas-fine-mapping/</id>
+        <link href="https://chenyoupu.top/post/gwas-fine-mapping/">
+        </link>
+        <updated>2023-10-03T10:16:59.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="为什么要做fine-mapping">为什么要做fine-mapping？</h2>
+<ul>
+<li>
+<p>从GWAS分析结果中，排除LD以及特定生物学背景的噪音，鉴定到casual variants对理解disease发生以及鉴定后续受到影响的gene和pathway有重要作用</p>
+<p>“Overcoming LD and identifying the context-specific variants that are causal to a trait is imperative for understanding disease mechanisms and confidently identifying which downstream genes and pathways are affected.” (<a href="zotero://select/library/items/LGQLEIDT">Broekema et al., 2020, p. 3</a>) (<a href="zotero://open-pdf/library/items/NGDG8676?page=3&amp;annotation=HIZ4DZJZ">pdf</a>)</p>
+</li>
+<li>
+<p>translate GWAS loci to a functional understanding of the associated trait, while taking cell-type- and disease-specific context into account.</p>
+<p><a href="https://zhuanlan.zhihu.com/p/106103885#:~:text=fine%20mapping%E4%BE%A7%E9%87%8D%E4%BA%8E%E7%A1%AE%E5%AE%9A,%E6%BD%9C%E5%9C%A8%E5%9B%A0%E6%9E%9C%E5%8F%98%E5%BC%82%E7%9A%84%E8%8C%83%E5%9B%B4%E3%80%82">zhuanlan.zhihu.com/p/106...</a></p>
+</li>
+</ul>
+<h3 id="参考资料">参考资料</h3>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/106103885#:~:text=fine%20mapping%E4%BE%A7%E9%87%8D%E4%BA%8E%E7%A1%AE%E5%AE%9A,%E6%BD%9C%E5%9C%A8%E5%9B%A0%E6%9E%9C%E5%8F%98%E5%BC%82%E7%9A%84%E8%8C%83%E5%9B%B4%E3%80%82">zhuanlan.zhihu.com/p/106...</a></li>
+</ul>
+<h2 id="fine-mapping方法">fine-mapping｜方法</h2>
+<h3 id="twas-based-fine-mapping">TWAS-based fine-mapping</h3>
+<ul>
+<li>
+<p>FOCUS：TWAS-fine-mapping methods</p>
+<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
+</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」incomplete LD对heritability估计的影响]]></title>
         <id>https://chenyoupu.top/post/gwas-incomplete-LD/</id>
@@ -124,20 +155,19 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[「GWAS之外」TWAS（Transcriptome-Wide Association Study）]]></title>
-        <id>https://chenyoupu.top/post/gwas-twas/</id>
-        <link href="https://chenyoupu.top/post/gwas-twas/">
+        <title type="html"><![CDATA[「GWAS之外」GWAS之外｜还有哪些关联分析方法？]]></title>
+        <id>https://chenyoupu.top/post/gwas-other/</id>
+        <link href="https://chenyoupu.top/post/gwas-other/">
         </link>
         <updated>2023-10-02T14:13:33.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="twas">TWAS</h2>
-<ul>
-<li>
-<p>FOCUS</p>
-<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
-</li>
+        <content type="html"><![CDATA[<ul>
 <li>
 <p>FUSION</p>
 <p><a href="http://gusevlab.org/projects/fusion/">gusevlab.org/projects/fu...</a></p>
+<ul>
+<li>包括TWAS和RWAS</li>
+<li><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231003170030.png" alt="" loading="lazy"></li>
+</ul>
 </li>
 </ul>
 <h2 id="其他">其他</h2>
@@ -157,7 +187,7 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
 </li>
 <li>
 <p>图解</p>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
 </li>
 </ul>
 ]]></content>
@@ -595,48 +625,6 @@ P: 1.9880e-27
 </li>
 </ul>
 <p>“nobody cares，我就是我自己世界的王”，蛮有意思，自我一点，但是不是自我意识过剩一点。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「有谱音乐说」001｜我是个“健将”]]></title>
-        <id>https://chenyoupu.top/post/you-pu-yin-le-shuo-001orwo-shi-ge-jian-jiang/</id>
-        <link href="https://chenyoupu.top/post/you-pu-yin-le-shuo-001orwo-shi-ge-jian-jiang/">
-        </link>
-        <updated>2023-09-30T09:21:13.000Z</updated>
-        <content type="html"><![CDATA[<p>我是冷静的</p>
-<p>稳定的</p>
-<p>从来不任性的</p>
-<p>把水端得最平的</p>
-<p>不配赢的</p>
-<p>站错了队形的</p>
-<p>如影随形的破事</p>
-<p>哪怕永远不会停</p>
-<p>不撕破脸</p>
-<p>我会难为情的</p>
-<p>我要深刻</p>
-<p>要厚重</p>
-<p>要工整</p>
-<p>不能有漏洞</p>
-<p>要说个道理</p>
-<p>我要你用效率去对抗虚无</p>
-<p>套上件最花的衣服</p>
-<p>却排不出体内的瘀毒</p>
-<p>我做不到</p>
-<p>羞愧于纯粹的快乐</p>
-<p>不敢直说我爱着</p>
-<p>我不是品</p>
-<p>我就是爱喝</p>
-<p>押多少才能算合格</p>
-<p>都在笑堂吉诃德</p>
-<p>为什么作者写窗帘是蓝色的</p>
-<p>因为它就是蓝色的</p>
-<p>我做不到</p>
-<p>我真的在努力去克制</p>
-<p>保持我 I内向人的特质</p>
-<p>自己对自己呵斥</p>
-<p>可我真的需要一首歌的时间放空</p>
-<p>我不在乎这是比赛</p>
-<p>我要“发疯”</p>
 ]]></content>
     </entry>
 </feed>
