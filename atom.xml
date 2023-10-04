@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://chenyoupu.top</id>
+    <id>http://localhost:4000</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-03T10:17:35.094Z</updated>
+    <updated>2023-10-03T13:56:58.365Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://chenyoupu.top"/>
-    <link rel="self" href="https://chenyoupu.top/atom.xml"/>
+    <link rel="alternate" href="http://localhost:4000"/>
+    <link rel="self" href="http://localhost:4000/atom.xml"/>
     <subtitle>Hi，这里是有朴的第二大脑。&lt;br/&gt;很高兴与你相遇</subtitle>
-    <logo>https://chenyoupu.top/images/avatar.png</logo>
-    <icon>https://chenyoupu.top/favicon.ico</icon>
+    <logo>http://localhost:4000/images/avatar.png</logo>
+    <icon>http://localhost:4000/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」fine-mapping]]></title>
-        <id>https://chenyoupu.top/post/gwas-fine-mapping/</id>
-        <link href="https://chenyoupu.top/post/gwas-fine-mapping/">
+        <id>http://localhost:4000/post/gwas-fine-mapping/</id>
+        <link href="http://localhost:4000/post/gwas-fine-mapping/">
         </link>
         <updated>2023-10-03T10:16:59.000Z</updated>
         <content type="html"><![CDATA[<h2 id="为什么要做fine-mapping">为什么要做fine-mapping？</h2>
@@ -43,8 +43,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」incomplete LD对heritability估计的影响]]></title>
-        <id>https://chenyoupu.top/post/gwas-incomplete-LD/</id>
-        <link href="https://chenyoupu.top/post/gwas-incomplete-LD/">
+        <id>http://localhost:4000/post/gwas-incomplete-LD/</id>
+        <link href="http://localhost:4000/post/gwas-incomplete-LD/">
         </link>
         <updated>2023-10-03T03:43:49.000Z</updated>
         <content type="html"><![CDATA[<p>有一个前提假设：</p>
@@ -100,8 +100,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「每日知识储备」molecular markrs]]></title>
-        <id>https://chenyoupu.top/post/dailykg001/</id>
-        <link href="https://chenyoupu.top/post/dailykg001/">
+        <id>http://localhost:4000/post/dailykg001/</id>
+        <link href="http://localhost:4000/post/dailykg001/">
         </link>
         <updated>2023-10-02T15:05:06.000Z</updated>
         <content type="html"><![CDATA[<h1 id="molecular-markrs是什么">molecular markrs是什么？</h1>
@@ -123,8 +123,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」数量遗传学应该关注谁的文章？]]></title>
-        <id>https://chenyoupu.top/post/gwas-famous/</id>
-        <link href="https://chenyoupu.top/post/gwas-famous/">
+        <id>http://localhost:4000/post/gwas-famous/</id>
+        <link href="http://localhost:4000/post/gwas-famous/">
         </link>
         <updated>2023-10-02T14:20:34.000Z</updated>
         <content type="html"><![CDATA[<h1 id="写在前面">写在前面</h1>
@@ -156,8 +156,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS之外」GWAS之外｜还有哪些关联分析方法？]]></title>
-        <id>https://chenyoupu.top/post/gwas-other/</id>
-        <link href="https://chenyoupu.top/post/gwas-other/">
+        <id>http://localhost:4000/post/gwas-other/</id>
+        <link href="http://localhost:4000/post/gwas-other/">
         </link>
         <updated>2023-10-02T14:13:33.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -194,8 +194,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」heritability的估计有哪些工具/模型？]]></title>
-        <id>https://chenyoupu.top/post/gwas-heritability-estimate/</id>
-        <link href="https://chenyoupu.top/post/gwas-heritability-estimate/">
+        <id>http://localhost:4000/post/gwas-heritability-estimate/</id>
+        <link href="http://localhost:4000/post/gwas-heritability-estimate/">
         </link>
         <updated>2023-10-02T14:10:09.000Z</updated>
         <content type="html"><![CDATA[<h1 id="写在前面">写在前面</h1>
@@ -226,8 +226,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」heritability和genetic correlation估计中的liability scale]]></title>
-        <id>https://chenyoupu.top/post/gwas-liability-scale/</id>
-        <link href="https://chenyoupu.top/post/gwas-liability-scale/">
+        <id>http://localhost:4000/post/gwas-liability-scale/</id>
+        <link href="http://localhost:4000/post/gwas-liability-scale/">
         </link>
         <updated>2023-10-02T11:34:52.000Z</updated>
         <content type="html"><![CDATA[<p><strong>liability scale是什么</strong>？</p>
@@ -237,8 +237,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」linear regression中的Z-Score]]></title>
-        <id>https://chenyoupu.top/post/gwas-zscore/</id>
-        <link href="https://chenyoupu.top/post/gwas-zscore/">
+        <id>http://localhost:4000/post/gwas-zscore/</id>
+        <link href="http://localhost:4000/post/gwas-zscore/">
         </link>
         <updated>2023-10-02T11:33:43.000Z</updated>
         <content type="html"><![CDATA[<ul>
@@ -276,8 +276,8 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
     </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」LDSC｜LD Score的计算与LD regression构建]]></title>
-        <id>https://chenyoupu.top/post/gwas-ldsc/</id>
-        <link href="https://chenyoupu.top/post/gwas-ldsc/">
+        <id>http://localhost:4000/post/gwas-ldsc/</id>
+        <link href="http://localhost:4000/post/gwas-ldsc/">
         </link>
         <updated>2023-10-02T11:27:59.000Z</updated>
         <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
@@ -607,8 +607,8 @@ P: 1.9880e-27
     </entry>
     <entry>
         <title type="html"><![CDATA[「有谱talk」002｜遇到问题，解决问题]]></title>
-        <id>https://chenyoupu.top/post/youputalk002/</id>
-        <link href="https://chenyoupu.top/post/youputalk002/">
+        <id>http://localhost:4000/post/youputalk002/</id>
+        <link href="http://localhost:4000/post/youputalk002/">
         </link>
         <updated>2023-09-30T15:43:50.000Z</updated>
         <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
