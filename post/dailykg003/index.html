@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「有谱talk」002｜遇到问题，解决问题 | 有朴的第二大脑</title>
+<title>「每日知识储备」说说我对PCA的理解 | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1696484970528" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,14 +15,14 @@
 
 
 
-  <meta name="description" content="写在前面
+  <meta name="description" content="
+
+不讲公式，从个人角度来理解PCA到底做了些什么？
 
 
-虽然嘴上说着要碰到问题解决问题，但是发现自己好像总是热衷于解决知识上的问题，但是在人际关系上的问题，自己却更倾向于逃避。这一类问题对我来说，又或者说对现在的我来说太难了
-
-
-个人事务上遇到很大的困境，不知该如何解决，所以总是会..." />
-  <meta name="keywords" content="有谱talk" />
+首先举个例子，解释下为什么要“降维”？
+比如当前有10个individual，对他们进行了WGS测序，得到了他们10个人的variants calling结果。想要分析他们在祖源上的..." />
+  <meta name="keywords" content="PCA,population genetics" />
 </head>
 
 <body>
@@ -98,27 +98,37 @@
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「有谱talk」002｜遇到问题，解决问题</a>
+                  「每日知识储备」说说我对PCA的理解</a>
               </h2>
-              <span class="article-info">2023-09-30, 288 words, 1 min read</span>
+              <span class="article-info">2023-10-05, 484 words, 2 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <h2 id="写在前面">写在前面</h2>
+                  <ul>
+<li>
+<p>不讲公式，从个人角度来理解PCA到底做了些什么？</p>
+</li>
+<li>
+<p>首先举个例子，解释下为什么要“降维”？</p>
+<p>比如当前有10个individual，对他们进行了WGS测序，得到了他们10个人的variants calling结果。想要分析他们在祖源上的远近程度，如何分析？</p>
+<p>方法1：针对<strong>SNP1～5</strong>（SNP1，SNP2，...，SNP5），比如用hamming distance，可以计算得到10个individual中有5个individual（A，B，C，D，E）的hamming distance是0～5，而另外5个individual（F，G，H，I，J）与上述5个individual的hamming distance是7～10，那么我们就可以得到两个分群。</p>
+<p>但是再换取另一批SNP数据时，比如SNP100～500时，不仅计算量大，还否定了之前的计算结果，那么这10个individual的祖源到底是什么样的呢？</p>
+<p>方法2：<strong>针对WGS测序得到的所有variants来重新构建变量</strong>，且保证重新构建的每个变量之间是正交的，即不相关，保证原始数据的损失达到最小（这部分用variance来衡量）</p>
+<p>重新构建的第一个变量称为PC1，第二个称为PC2，依此类推。而每个主成分代表的variance是依次减少的。若前两个主成分（或者三个）能够解释原始数据比较高的比例，那么我们对数据降维的目的就达到了。</p>
+<p>而individual在两个主成分（或者三个）上的distribution，就在一定程度上代表了他们genetic material的差异</p>
+<blockquote>
 <ul>
-<li>
-<p>虽然嘴上说着要碰到问题解决问题，但是发现自己好像总是热衷于解决知识上的问题，但是在人际关系上的问题，自己却更倾向于逃避。这一类问题对我来说，又或者说对现在的我来说太难了</p>
-</li>
-<li>
-<p>个人事务上遇到很大的困境，不知该如何解决，所以总是会选择逃避，或者间断性地麻痹自己</p>
-</li>
-<li>
-<p>同时又喜欢在人面前“证明”自己，所谓的成熟，害怕别人如何看待我，觉得我不成熟，但是我不成熟和他人有什么关系？所以现在总在学习赤焰男孩，“nobody cares，我就是我自己世界的王”</p>
-<p>但是我也的确发现自己的不成熟，对自己的职业发展不够上心，收集行政事务上的信息、与行政上的人沟通等，这些都是我的弱项，需要在往后的生活中锻炼。</p>
+<li>保证重新构建的变量之间是正交，是为了极大限度地提升对原始数据的提取</li>
+<li>为什么用variance来衡量，就比如一个标准正态分布，若取它的一个截断分布，那么实际上就损失了一部分方差，因此方差是一个很好的指代信息损失量的指标</li>
+</ul>
+</blockquote>
 </li>
 </ul>
-<p>“nobody cares，我就是我自己世界的王”，蛮有意思，自我一点，但是不是自我意识过剩一点。</p>
+<h2 id="推荐阅读">推荐阅读</h2>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/77151308">阿泽对PCA的讲解，有公式</a></li>
+</ul>
 <br />
                   
               </p>
@@ -130,8 +140,11 @@
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
-                      <a href="https://chenyoupu.top/tag/yvOUfVgi0/" class="article-info">
-                        有谱talk</a>
+                      <a href="https://chenyoupu.top/tag/Kj6IkQ_4s/" class="article-info">
+                        PCA</a>
+                      
+                      <a href="https://chenyoupu.top/tag/TJI1Qqyxl/" class="article-info">
+                        population genetics</a>
                       </span>
                   </div>
                 </div>
@@ -139,9 +152,9 @@
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/you-pu-yin-le-shuo-001orwo-shi-ge-jian-jiang/">
+                  <a href="https://chenyoupu.top/post/dailykg002/">
                     <h3 class="post-title">
-                      「有谱音乐说」001｜我是个“健将”
+                      「每日知识储备」GWAS中的effect size是什么？
                     </h3>
                   </a>
                 </div>
