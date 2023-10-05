@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <title>「基因组」001｜基因组组装之前要做的：Genome Survey | 有朴的第二大脑</title>
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
-<link href="http://localhost:4000/styles/main.css?v=1696328252473" rel="stylesheet">
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1696483551244" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
 <link rel="alternate" type="application/rss+xml" title="有朴的第二大脑 » Feed"
-  href="http://localhost:4000/atom.xml">
+  href="https://chenyoupu.top/atom.xml">
 
 
 
@@ -30,7 +30,7 @@ genome size是多少？
     <div class="header animated fadeInDown">
   <div class="site_title_container">
     <div class="site_title">
-      <a href="http://localhost:4000">
+      <a href="https://chenyoupu.top">
         有朴的第二大脑
       </a>
     </div>
@@ -56,7 +56,7 @@ genome size是多少？
           
     
           
-    <a href="http://localhost:4000/atom.xml" target="_blank">
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
       <i class="iconfont icon-rss"></i></a>
   </div>
 </div>
@@ -84,7 +84,7 @@ genome size是多少？
   
 
   <div class="gridea-search-div">
-    <form id="gridea-search-form" data-update="1696328252473" action="http://localhost:4000/search/">
+    <form id="gridea-search-form" data-update="1696483551244" action="https://chenyoupu.top/search/">
       <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
     </form>
   </div>
@@ -206,7 +206,7 @@ smudgeplot.py hetkmers -o smudgeplot_kmercounts/&lt;kmc_db&gt;.kmc_L&quot;$L&quo
 smudgeplot.py plot &lt;kmc_db&gt;._L&quot;$L&quot;_U&quot;$U&quot;_coverages.tsv
 </code></pre>
 <p>结果示意图如下，</p>
-<figure data-type="image" tabindex="1"><img src="http://localhost:4000/post-images/1665905861119.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="1"><img src="https://chenyoupu.top/post-images/1665905861119.png" alt="" loading="lazy"></figure>
 <p><strong>基因组大小估计需要注意的点</strong>，</p>
 <p>0）三代数据不适合用于Kmer分析，因为测序错误率高了很多，会对分析结果产生非常大的影响，</p>
 <p>但是HiFi reads以及canu和falcon产生的corrected reads可以很好的适用于Genome Scope分析</p>
@@ -217,9 +217,9 @@ smudgeplot.py plot &lt;kmc_db&gt;._L&quot;$L&quot;_U&quot;$U&quot;_coverages.tsv
 <p>前者的<code>observed</code>曲线经过了一个转换，越往后的peak其峰值越大，即在原始的kmer freq上乘了一个n（n代表第n个peak），</p>
 <p>后者的<code>observed</code>曲线为实际观测到的一个数值，没有经过上述转换</p>
 <p>transformed linear：</p>
-<figure data-type="image" tabindex="2"><img src="http://localhost:4000/post-images/1665905871689.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://chenyoupu.top/post-images/1665905871689.png" alt="" loading="lazy"></figure>
 <p>linear plot：</p>
-<figure data-type="image" tabindex="3"><img src="http://localhost:4000/post-images/1665905877897.png" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="3"><img src="https://chenyoupu.top/post-images/1665905877897.png" alt="" loading="lazy"></figure>
 <p>4）Genome Scope 2.0分析时，如果将过多的kmer判定为了<code>error</code>，最终的genome size就会小了特别多（基于genome size的计算公式）</p>
 <h1 id="背后的原理">背后的原理</h1>
 <p>首先需要明确的一个点是：Genome Scope 是基于diploid进行编写的。</p>
@@ -268,13 +268,13 @@ smudgeplot.py plot &lt;kmc_db&gt;._L&quot;$L&quot;_U&quot;$U&quot;_coverages.tsv
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
-                      <a href="http://localhost:4000/tag/Xg1_Prd4r/" class="article-info">
+                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
                         基因组学</a>
                       
-                      <a href="http://localhost:4000/tag/O3WOVHTS3b/" class="article-info">
+                      <a href="https://chenyoupu.top/tag/O3WOVHTS3b/" class="article-info">
                         Python</a>
                       
-                      <a href="http://localhost:4000/tag/YePZ4sFJt/" class="article-info">
+                      <a href="https://chenyoupu.top/tag/YePZ4sFJt/" class="article-info">
                         R</a>
                       </span>
                   </div>
@@ -283,7 +283,7 @@ smudgeplot.py plot &lt;kmc_db&gt;._L&quot;$L&quot;_U&quot;$U&quot;_coverages.tsv
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="http://localhost:4000/post/statistic-powerandfalse-positive/">
+                  <a href="https://chenyoupu.top/post/statistic-powerandfalse-positive/">
                     <h3 class="post-title">
                       「生物信息学中的Math」001｜浅谈统计检验效能和FDR
                     </h3>
@@ -326,7 +326,7 @@ smudgeplot.py plot &lt;kmc_db&gt;._L&quot;$L&quot;_U&quot;$U&quot;_coverages.tsv
 <div id="back_to_top" class="back_to_top">
   <span>△</span>
 </div>
-<script src="http://localhost:4000/media/scripts/util.js"></script>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
 
 </div>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
