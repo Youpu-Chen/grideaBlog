@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「GWAS那些事儿」fine-mapping | 有朴的第二大脑</title>
+<title>「每日知识储备」GWAS中的effect size是什么？ | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1696483790714" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,12 +15,10 @@
 
 
 
-  <meta name="description" content="为什么要做fine-mapping？
+  <meta name="description" content="effect size实际上就是利用线性回归构建genetic data和phenotype之间关系的回归系数β\betaβ。举个例子，比如不同genotype对height的影响，
 
-
-从GWAS分析结果中，排除LD以及特定生物学背景的噪音，鉴定到casual variants对理解disease发生以及鉴定后续受到影响的gene和pathway有重要作用
-“Overcoming ..." />
-  <meta name="keywords" content="GWAS,基因组学" />
+如果是logistic regression，则是od..." />
+  <meta name="keywords" content="linear regression,logistic regression,GWAS" />
 </head>
 
 <body>
@@ -96,35 +94,19 @@
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「GWAS那些事儿」fine-mapping</a>
+                  「每日知识储备」GWAS中的effect size是什么？</a>
               </h2>
-              <span class="article-info">2023-10-03, 145 words, 1 min read</span>
+              <span class="article-info">2023-10-05, 139 words, 1 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <h2 id="为什么要做fine-mapping">为什么要做fine-mapping？</h2>
+                  <p>effect size实际上就是利用线性回归构建genetic data和phenotype之间关系的回归系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>。举个例子，比如不同genotype对height的影响，</p>
+<blockquote>
+<p>如果是logistic regression，则是odd ratio</p>
+</blockquote>
 <ul>
-<li>
-<p>从GWAS分析结果中，排除LD以及特定生物学背景的噪音，鉴定到casual variants对理解disease发生以及鉴定后续受到影响的gene和pathway有重要作用</p>
-<p>“Overcoming LD and identifying the context-specific variants that are causal to a trait is imperative for understanding disease mechanisms and confidently identifying which downstream genes and pathways are affected.” (<a href="zotero://select/library/items/LGQLEIDT">Broekema et al., 2020, p. 3</a>) (<a href="zotero://open-pdf/library/items/NGDG8676?page=3&amp;annotation=HIZ4DZJZ">pdf</a>)</p>
-</li>
-<li>
-<p>translate GWAS loci to a functional understanding of the associated trait, while taking cell-type- and disease-specific context into account.</p>
-<p><a href="https://zhuanlan.zhihu.com/p/106103885#:~:text=fine%20mapping%E4%BE%A7%E9%87%8D%E4%BA%8E%E7%A1%AE%E5%AE%9A,%E6%BD%9C%E5%9C%A8%E5%9B%A0%E6%9E%9C%E5%8F%98%E5%BC%82%E7%9A%84%E8%8C%83%E5%9B%B4%E3%80%82">zhuanlan.zhihu.com/p/106...</a></p>
-</li>
-</ul>
-<h3 id="参考资料">参考资料</h3>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/106103885#:~:text=fine%20mapping%E4%BE%A7%E9%87%8D%E4%BA%8E%E7%A1%AE%E5%AE%9A,%E6%BD%9C%E5%9C%A8%E5%9B%A0%E6%9E%9C%E5%8F%98%E5%BC%82%E7%9A%84%E8%8C%83%E5%9B%B4%E3%80%82">zhuanlan.zhihu.com/p/106...</a></li>
-</ul>
-<h2 id="fine-mapping方法">fine-mapping｜方法</h2>
-<h3 id="twas-based-fine-mapping">TWAS-based fine-mapping</h3>
-<ul>
-<li>
-<p>FOCUS：TWAS-fine-mapping methods</p>
-<p><a href="https://github.com/bogdanlab/focus">github.com/bogdanlab/foc...</a></p>
-</li>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>出现时，对身高的影响可能是0.0001 cm；而<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{b}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>出现时，则对身高的影响是-0.001 cm。这就体现出了不同的variants对身高的影响的效应不同和effect的方向性不同，而上述的数值简单理解就是对应了GWAS回归方程中的回归系数。</li>
 </ul>
 <br />
                   
@@ -137,11 +119,14 @@
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
+                      <a href="https://chenyoupu.top/tag/zVppLwbzO/" class="article-info">
+                        linear regression</a>
+                      
+                      <a href="https://chenyoupu.top/tag/ELG3WinYA/" class="article-info">
+                        logistic regression</a>
+                      
                       <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
                         GWAS</a>
-                      
-                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
-                        基因组学</a>
                       </span>
                   </div>
                 </div>
@@ -149,9 +134,9 @@
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/gwas-incomplete-LD/">
+                  <a href="https://chenyoupu.top/post/gwas-or/">
                     <h3 class="post-title">
-                      「GWAS那些事儿」incomplete LD对heritability估计的影响
+                      「GWAS那些事儿」Odd Ratio的计算方式
                     </h3>
                   </a>
                 </div>

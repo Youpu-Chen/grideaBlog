@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-05T05:26:54.678Z</updated>
+    <updated>2023-10-05T05:29:53.484Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,21 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「每日知识储备」GWAS中的effect size是什么？]]></title>
+        <id>https://chenyoupu.top/post/dailykg002/</id>
+        <link href="https://chenyoupu.top/post/dailykg002/">
+        </link>
+        <updated>2023-10-05T05:27:58.000Z</updated>
+        <content type="html"><![CDATA[<p>effect size实际上就是利用线性回归构建genetic data和phenotype之间关系的回归系数<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>β</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05278em;">β</span></span></span></span>。举个例子，比如不同genotype对height的影响，</p>
+<blockquote>
+<p>如果是logistic regression，则是odd ratio</p>
+</blockquote>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>a</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{a}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">a</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>出现时，对身高的影响可能是0.0001 cm；而<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>b</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{b}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">b</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>出现时，则对身高的影响是-0.001 cm。这就体现出了不同的variants对身高的影响的效应不同和effect的方向性不同，而上述的数值简单理解就是对应了GWAS回归方程中的回归系数。</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「GWAS那些事儿」Odd Ratio的计算方式]]></title>
         <id>https://chenyoupu.top/post/gwas-or/</id>
@@ -360,337 +375,6 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
 </li>
 </ol>
 </li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「GWAS那些事儿」LDSC｜LD Score的计算与LD regression构建]]></title>
-        <id>https://chenyoupu.top/post/gwas-ldsc/</id>
-        <link href="https://chenyoupu.top/post/gwas-ldsc/">
-        </link>
-        <updated>2023-10-02T11:27:59.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
-<ul>
-<li>
-<p><strong>什么是LD score</strong>?</p>
-<ul>
-<li>LD Score衡量了target region的genetic correlation</li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>的LD score可以被定义为该SNP与一定范围内其他SNP的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>r</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">r^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>之和。​ LD score衡量了该SNP标记的遗传变异性的大小。</li>
-</ul>
-</li>
-<li>
-<p><strong>为什么需要开展LD regression analysis</strong>？</p>
-<ul>
-<li>
-<p>在GWAS研究中，多基因性（polygenicity，即若干较小的基因效应）和干扰因素引起的偏差（e.g.，隐性关联 cryptic relatedness，群体分层 population stratification等）都会造成检验的统计量的分布偏高（inflated）</p>
-<blockquote>
-<ul>
-<li>
-<p><strong>统计量指什么</strong>？即经过卡方检验检验得到的对应SNP对目标表型的作用，用<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>来衡量</p>
-</li>
-<li>
-<p>造成association signal（SNP）对应的统计量分布偏高，是否是真的对目标表型有显著作用（有如此高的作用）？</p>
-<p><u>如何将这部分不知道由于是polygenicity造成，还是由populaton stratification等不准确因素造成的effect给估计出来</u>？答案：LD regression（实际上还有很多别的模型来做这这个heritability估计）</p>
-</li>
-</ul>
-</blockquote>
-</li>
-<li>
-<p>通过LD score regression，我们可以通过研究检验统计量与连锁不平衡（linkage disequilibrium）之间的关系来定量分析每部分的影响，即对干扰因素平均效应的<strong>估计值</strong>进行计算</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>LD Score的计算原理是什么</strong>？</p>
-<p>GWAS检验中，对一个SNP效应量的估计通常也会包含与该SNP成LD的其他SNP的效应，也就是说一个与其他SNP呈现高LD的SNP，通常也会有更高的卡方检验量。</p>
-</li>
-<li>
-<p><strong>LD regression的原理是什么</strong>？</p>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002180236.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
-<h2 id="ldsc安装">LDSC｜安装</h2>
-<ul>
-<li>M1芯片不支持（因为LDSC基于Python 2.7）</li>
-<li>推荐在Server或者Win虚拟机上运行</li>
-</ul>
-<pre><code class="language-shell">git clone https://github.com/bulik/ldsc.git
-cd ldsc
-mamba env create --file environment.yml
-mamba activate ldsc
-</code></pre>
-<h2 id="ldscld-score-calculation">LDSC｜LD Score Calculation</h2>
-<ul>
-<li>
-<p>输入文件：要求PLINK处理过后的genotype数据</p>
-<p><code>.bed/.bim/.fam</code>作为输入文件，可以使用PLINK VCF来生成</p>
-</li>
-<li>
-<p>作者推荐的LD Score估计遗传范围（选择用于计算LD Score遗传距离的窗口）：1 centiMorgan (cM) window</p>
-<p>可以使用<code>plink --cm-map</code>来保留遗传距离</p>
-</li>
-<li>
-<p>在针对MHC等复杂区域（e.g.，LD延展度更高的region），需要设置更大的window size；具有比较高的recombination rate就不需要设置太大的window size</p>
-<p>It is sensible to use a larger window (as measured in kb) in regions like the MHC where LD spans over tens of megabases than in regions with high recombination rate, where LD doesn't extend beyond ~100kb.</p>
-</li>
-</ul>
-<p>以LDSC官方提供的<code>1kg_eur.tar.bz2</code>来说明toy data的结果。</p>
-<h3 id="01univariate-ld-score">01）Univariate LD Score</h3>
-<pre><code class="language-shell">python ldsc.py\
-	--bfile\
-	--l2\ 
-	--ld-wind-cm 1\ 
-	--out 22
-</code></pre>
-<ul>
-<li><code>--l2</code>，指示计算LD Score</li>
-<li><code>--ld-wind-cm</code>代表选择的window size（基于遗传距离），还可以直接基于物理距离、SNP个数等</li>
-</ul>
-<h4 id="结果文件解读">结果文件解读</h4>
-<h5 id="122log">1）22.log</h5>
-<ul>
-<li>
-<p>包含所使用的cml以及基本运行结果，</p>
-<pre><code class="language-shell">Beginning analysis at Fri Jan 30 10:58:44 2015
-Read list of 19156 SNPs from 22.bim
-Read list of 379 individuals from 22.fam
-Reading genotypes from 22.bed
-After filtering, 19156 SNPs remain
-～～～Estimating LD Score.～～～
-Writing LD Scores for 19156 SNPs to 22.l2.ldscore.gz
-</code></pre>
-</li>
-</ul>
-<h5 id="222l2m-22l2m_5_50">2）<code>22.l2.M</code>, <code>22.l2.M_5_50</code></h5>
-<ul>
-<li>
-<p>第一个文件包含了目标region所包含的SNP数目</p>
-</li>
-<li>
-<p>第二个文件包含了过滤MAF（&gt;5%）的SNP数目</p>
-<blockquote>
-<p>LDSC一般基于后者来进行heritability的估计</p>
-</blockquote>
-</li>
-</ul>
-<h5 id="322l2ldscoregz">3）22.l2.ldscore.gz</h5>
-<ul>
-<li>CHR：chromosome number</li>
-<li>SNP：variantID</li>
-<li>BP：LDSC自动对variantID对应的物理位置进行排序</li>
-</ul>
-<pre><code class="language-shell">gunzip -c 22.l2.ldscore.gz | head 
-
-CHR SNP	        BP	        L2
-22	rs9617528	16061016	1.271
-22	rs4911642	16504399	1.805
-22	rs140378	16877135	3.849
-22	rs131560	16877230	3.769
-22	rs7287144	16886873	7.226
-22	rs5748616	16888900	7.379
-22	rs5748662	16892858	7.195
-22	rs5994034	16894090	2.898
-22	rs4010554	16894264	6.975
-</code></pre>
-<h3 id="02partitioned-ld-score">02）Partitioned LD Score</h3>
-<ul>
-<li>略</li>
-</ul>
-<h2 id="ldscld-regression">LDSC｜LD regression</h2>
-<p>需要的输入文件，</p>
-<ul>
-<li>GWAS summary statistics</li>
-<li>计算好的LD Score（需要针对对应的人群进行计算）</li>
-</ul>
-<p>结果文件解读包含：heritability、genetic correlation、LD regression估计出来的intercetp（衡量了polygenicity之外的因素对SNP effect的影响）等</p>
-<h3 id="01genetic-correlation-heritability">01）genetic correlation &amp; heritability</h3>
-<h4 id="1数据下载-格式转换">1）数据下载 &amp; 格式转换</h4>
-<pre><code class="language-shell"># 
-wget www.med.unc.edu/pgc/files/resultfiles/pgc.cross.bip.zip
-wget www.med.unc.edu/pgc/files/resultfiles/pgc.cross.scz.zip
-wget https://data.broadinstitute.org/alkesgroup/LDSCORE/eur_w_ld_chr.tar.bz2
-wget https://data.broadinstitute.org/alkesgroup/LDSCORE/w_hm3.snplist.bz2
-
-# 由于GWAS summary statistics不能直接用于ldsc的计算，需要转换
-munge_sumstats.py \
---sumstats pgc.cross.SCZ17.2013-05.txt \
---N 17115 \
---out scz \
---merge-alleles w_hm3.snplist
-
-munge_sumstats.py \
---sumstats pgc.cross.BIP11.2013-05.txt \
---N 11810 \
---out bip \
---merge-alleles w_hm3.snplist
-</code></pre>
-<ul>
-<li>
-<p>转换之后生成<code>.log</code>文件，包含的信息：使用的命令以及header对应的信息以及对summary statistics过滤的condition信息</p>
-<ul>
-<li>一般的过滤条件：<code>INFO &gt; 0.9, MAF &gt; 0.01 and 0 &lt; P &lt;= 1.</code>，去除了INDELs、strand ambiguous SNPs、SNPs with duplicated rs numbers</li>
-</ul>
-</li>
-<li>
-<p>log文件的最后一部分给出了summary statistics的meta信息，</p>
-<pre><code class="language-plaintext">Metadata:
-Mean chi^2 = 1.229
-Lambda GC = 1.201
-Max chi^2 = 32.4
-11 Genome-wide significant SNPs (some may have been removed by filtering).
-
-Conversion finished at Mon Apr  4 13:21:29 2016
-Total time elapsed: 16.07s 
-</code></pre>
-</li>
-<li>
-<p>举个例子，</p>
-<pre><code class="language-plaintext">Reading list of SNPs for allele merge from w_hm3.snplist
-Read 1217311 SNPs for allele merge.
-Reading sumstats from pgc.cross.SCZ17.2013-05.txt into memory 5000000.0 SNPs at a time.
-Read 1237958 SNPs from --sumstats file.
-Removed 137131 SNPs not in --merge-alleles.
-Removed 0 SNPs with missing values.
-Removed 256286 SNPs with INFO &lt;= 0.9.
-Removed 0 SNPs with MAF &lt;= 0.01.
-Removed 0 SNPs with out-of-bounds p-values.
-Removed 2 variants that were not SNPs or were strand-ambiguous.
-844539 SNPs remain.
-Removed 0 SNPs with duplicated rs numbers (844539 SNPs remain).
-Using N = 17115.0
-Median value of or was 1.0, which seems sensible.
-Removed 39 SNPs whose alleles did not match --merge-alleles (844500 SNPs remain).
-Writing summary statistics for 1217311 SNPs (844500 with nonmissing beta) to scz.sumstats.gz.
-</code></pre>
-</li>
-</ul>
-<h4 id="2遗传力估计-遗传相关性估计">2）遗传力估计 + 遗传相关性估计</h4>
-<pre><code class="language-shell"># rg
-ldsc.py \
---rg scz.sumstats.gz,bip.sumstats.gz \
---ref-ld-chr eur_w_ld_chr/ \
---w-ld-chr eur_w_ld_chr/ \
---out scz_bip
-
-# h2
-ldsc.py \
---h2 scz.sumstats.gz \
---ref-ld-chr eur_w_ld_chr/ \
---w-ld-chr eur_w_ld_chr/ \
---out scz_h2
-</code></pre>
-<h4 id="参数解读">参数解读</h4>
-<ul>
-<li>
-<p><code>--rg</code>，计算genetic correlation（作者给出的例子中直接以SCZ和bipolar为例）</p>
-<ul>
-<li>
-<p>与使用<code>--h2</code>来计算得到的heritability存在不同</p>
-</li>
-<li>
-<p>作者对此的解释：总的来说就是所使用的SNP dataset不同，rg由于需要同时计算genetic correlation，所以并不是直接使用对应表型的SNP dataset</p>
-<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002171737.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
-</li>
-<li>
-<p><code>--w-ld</code>｜<code>--w-ld-chr</code>，在进行<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi><mi>N</mi><msub><mi>P</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">SNP_{j}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.969438em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.05764em;">S</span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.13889em;">P</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:-0.13889em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>的LD回归的估算时，理论上要考虑到该SNP和别的SNP的<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>r</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">r^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.02778em;">r</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>之和，但是在实际中LD回归对SNP的权重不敏感，所以使用<code>--ref-ld-chr</code>即可</p>
-</li>
-</ul>
-<h4 id="结果解读">结果解读</h4>
-<ul>
-<li>
-<p>以<code>--rg</code>的分析结果为例</p>
-<ul>
-<li>
-<p>Lambda GC，代表了估计结果受到population stratification的影响程度</p>
-<p>计算公式：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mi>a</mi><mi>m</mi><mi>b</mi><mi>d</mi><mi>a</mi><mtext> </mtext><mtext> </mtext><mi>G</mi><mi>C</mi><mo>=</mo><mfrac><mrow><mi>m</mi><mi>e</mi><mi>d</mi><mi>i</mi><mi>a</mi><mi>n</mi><mtext> </mtext><mtext> </mtext><mi>c</mi><mi>h</mi><msup><mi>i</mi><mn>2</mn></msup></mrow><mn>0.4549</mn></mfrac></mrow><annotation encoding="application/x-tex">lambda\,\,GC=\frac{median\,\,chi^{2}}{0.4549}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mord mathdefault">a</span><span class="mord mathdefault">m</span><span class="mord mathdefault">b</span><span class="mord mathdefault">d</span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">G</span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.36292em;vertical-align:-0.345em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.01792em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">0</span><span class="mord mtight">.</span><span class="mord mtight">4</span><span class="mord mtight">5</span><span class="mord mtight">4</span><span class="mord mtight">9</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">d</span><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">n</span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">h</span><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913142857142857em;"><span style="top:-2.931em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>，</p>
-<ul>
-<li>
-<p>0.4549，the expected median of a variable from the <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>χ</mi><mn>1</mn><mn>2</mn></msubsup></mrow><annotation encoding="application/x-tex">\chi^{2}_{1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0622159999999998em;vertical-align:-0.24810799999999997em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-2.4518920000000004em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span></span></span></span><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.24810799999999997em;"><span></span></span></span></span></span></span></span></span></span> distribution</p>
-<p><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4406348/">www.ncbi.nlm.nih.gov/pmc...</a></p>
-</li>
-</ul>
-</li>
-<li>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\chi^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>，通过比较case和control中的genotype得到的卡方统计量</p>
-<blockquote>
-<ul>
-<li>by comparing the observed genotype frequencies in cases (individuals with the trait or disease) and controls (individuals without the trait or disease).</li>
-<li>The chi-square statistic measures the extent to which the observed genotype frequencies deviate from what would be expected under the null hypothesis of no association between the SNP and the trait.</li>
-</ul>
-</blockquote>
-</li>
-<li>
-<p><code>Intercept</code>，the LD Score regression intercept</p>
-</li>
-<li>
-<p>Ratio（<em>attenuation ratio</em>）：<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mfrac><mrow><mi>i</mi><mi>n</mi><mi>t</mi><mi>e</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>p</mi><mi>t</mi><mo>−</mo><mn>1</mn></mrow><mrow><mi>m</mi><mi>e</mi><mi>a</mi><mi>n</mi><mo>(</mo><mi>c</mi><mi>h</mi><msup><mi>i</mi><mn>2</mn></msup><mo>)</mo><mo>−</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{intercept-1}{mean(chi^2)-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.427772em;vertical-align:-0.52em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.907772em;"><span style="top:-2.655em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">m</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">a</span><span class="mord mathdefault mtight">n</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">h</span><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mclose mtight">)</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.446108em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mord mathdefault mtight">n</span><span class="mord mathdefault mtight">t</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight" style="margin-right:0.02778em;">r</span><span class="mord mathdefault mtight">c</span><span class="mord mathdefault mtight">e</span><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.52em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span></span></span>，用于衡量在LD regression中，polygenicity之外的因素对（理想情况下，应为0）SNP effect的影响（<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>e</mi><mi>a</mi><mi>n</mi><mtext> </mtext><mtext> </mtext><msup><mi>χ</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">mean\,\,\chi^{2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">e</span><span class="mord mathdefault">a</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">χ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span>）</p>
-</li>
-</ul>
-</li>
-</ul>
-<pre><code class="language-shell">Heritability of phenotype 1
----------------------------
-Total Observed scale h2: 0.5907 (0.0484)
-Lambda GC: 1.2038
-Mean Chi^2: 1.2336
-Intercept: 1.0014 (0.0113)
-Ratio: 0.0059 (0.0482)
-
-Heritability of phenotype 2/2
------------------------------
-Total Observed scale h2: 0.5221 (0.0531)
-Lambda GC: 1.1364
-Mean Chi^2: 1.1436
-Intercept: 1.0013 (0.0094)
-Ratio: 0.0093 (0.0652)
-</code></pre>
-<ul>
-<li>
-<p>genetic covariance：</p>
-<pre><code class="language-shell">Genetic Covariance
-------------------
-Total Observed scale gencov: 0.3644 (0.0368)
-Mean z1*z2: 0.1226
-Intercept: 0.0037 (0.0071)
-</code></pre>
-</li>
-<li>
-<p>genetic correlaton：</p>
-<pre><code class="language-shell">Genetic Correlation
--------------------
-
-Genetic Correlation: 0.6561 (0.0605)
-Z-score: 10.8503
-P: 1.9880e-27
-</code></pre>
-</li>
-</ul>
-<h3 id="02将heritability结果转换到liability-scale">02）将heritability结果转换到liability scale</h3>
-<ul>
-<li>
-<p>由于ldsc估计出来的heritability是obseved scale，为了研究之间的可比较性，需要转换到liability scale，</p>
-<pre><code class="language-shell">ldsc.py \
---rg scz.sumstats.gz,bip.sumstats.gz \
---ref-ld-chr eur_w_ld_chr/ \
---w-ld-chr eur_w_ld_chr/ \
---out scz_bip \
---samp-prev 0.5,0.5 \
---pop-prev 0.01,0.01
-</code></pre>
-</li>
-</ul>
-<h2 id="参考资料">参考资料</h2>
-<ul>
-<li><a href="https://github.com/bulik/ldsc/wiki/LD-Score-Estimation-Tutorial#univariate-ld-scores">LDSC：LD Score的计算</a></li>
-<li><a href="https://github.com/bulik/ldsc/wiki/Heritability-and-Genetic-Correlation">LDSC：heritability + genetic correlation的估计</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/379628546">GWAS Lab：LDSC原理</a></li>
-<li><a href="https://gwaslab.org/2022/04/04/ld-score/">GWAS Lab：LDSC计算LD Scores</a></li>
-</ul>
-<h2 id="资源">资源</h2>
-<ul>
-<li><a href="https://zenodo.org/record/7768714">zenodo.org/record/776871...</a></li>
 </ul>
 ]]></content>
     </entry>
