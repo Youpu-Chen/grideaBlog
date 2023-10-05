@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-05T06:50:28.549Z</updated>
+    <updated>2023-10-05T08:24:47.031Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,52 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「每日知识储备」gene-environment interaction如何影响heritability估计？]]></title>
+        <id>https://chenyoupu.top/post/dailykg005/</id>
+        <link href="https://chenyoupu.top/post/dailykg005/">
+        </link>
+        <updated>2023-10-05T08:15:34.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>
+<p>由于gene-environment interaction本身是一种non-linear effects，因此也可以直接从epistasis等类似的non-linear effects类比过来。</p>
+<p>比如geneA对lung cancer有影响，但是在正常生活条件下，其对应的odd ratio为1.0，代表在这种环境下，该geneA对lung cancer的病发没有任何影响。但是当individual有吸烟等情况或者一些没有被测量的情况时，该geneA的odd ratio为5.0，则说明在环境因素的影响下，该geneA对lung cancer的发生有了非常大的影响。</p>
+</li>
+<li>
+<p>因此，当没有考虑到对应的环境条件时，有的gene effect就不会被检测到，这就造成了heritability的丧失。</p>
+</li>
+<li>
+<p>参考资料</p>
+<ul>
+<li>“Ito et al. (1) showed a significant interaction between smoking status and the apurinic/ apyrimidinic endonuclease 1 protein coding gene (APE1) for lung cancer.” (<a href="zotero://select/library/items/TQT89NAX">Murcray et al., 2009, p. 219</a>) (<a href="zotero://open-pdf/library/items/CQS2299L?page=1&amp;annotation=B8RGSAI7">pdf</a>)</li>
+<li>“Stern et al. (2) found smoking status to be an effect modifier of the association between the XPD codon 751 polymorphism and risk of bladder cancer.” (<a href="zotero://select/library/items/TQT89NAX">Murcray et al., 2009, p. 219</a>) (<a href="zotero://open-pdf/library/items/CQS2299L?page=1&amp;annotation=W4HMSNRE">pdf</a>)</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[「每日知识储备」对variant calling的一点小误解]]></title>
+        <id>https://chenyoupu.top/post/daily004/</id>
+        <link href="https://chenyoupu.top/post/daily004/">
+        </link>
+        <updated>2023-10-05T07:51:32.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>
+<p>以人类参考基因组为例（只提供了一套染色体组的信息，本质是因为同源，两套基本上没有信息上的差异，只存在一些等位基因（即allele）上的差异）</p>
+</li>
+<li>
+<p>图解</p>
+<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001232054.png" alt="" loading="lazy"></figure>
+</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzAxOTUxOTM0Nw==&amp;mid=2649798506&amp;idx=1&amp;sn=773a7db5dfd002c53fead86625266af5&amp;chksm=83c1d576b4b65c6057f93a00d62ea41364ccdf53429b1820442f5855a104dde68f4325376722&amp;scene=21#wechat_redirect">人类基因组phasing的原理</a></li>
+</ul>
+<p><a href="https://zhuanlan.zhihu.com/p/29485987">从零开始完整学习全基因组测序数据分析：第4节构建WGS主流程</a></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「每日知识储备」说说我对PCA的理解]]></title>
         <id>https://chenyoupu.top/post/dailykg003/</id>
@@ -333,49 +379,6 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
 <figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
 </li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「GWAS那些事儿」heritability的估计有哪些工具/模型？]]></title>
-        <id>https://chenyoupu.top/post/gwas-heritability-estimate/</id>
-        <link href="https://chenyoupu.top/post/gwas-heritability-estimate/">
-        </link>
-        <updated>2023-10-02T14:10:09.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="写在前面">写在前面</h1>
-<ul>
-<li>持续更新</li>
-</ul>
-<ul>
-<li>
-<p>LDSC：baseline LD model</p>
-<p><a href="https://github.com/bulik/ldsc">github.com/bulik/ldsc</a></p>
-</li>
-<li>
-<p>LDAK model</p>
-<ul>
-<li>
-<p><a href="http://dougspeed.com/ldak/">dougspeed.com/ldak/</a>，官方series下载链接</p>
-</li>
-<li>
-<p><a href="https://github.com/takiy-berrandou/LDAK-GBAT-paper-scripts">github.com/takiy-berrand...</a><br /></p>
-</li>
-<li>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002220845.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「GWAS那些事儿」heritability和genetic correlation估计中的liability scale]]></title>
-        <id>https://chenyoupu.top/post/gwas-liability-scale/</id>
-        <link href="https://chenyoupu.top/post/gwas-liability-scale/">
-        </link>
-        <updated>2023-10-02T11:34:52.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>liability scale是什么</strong>？</p>
-<p>the &quot;liability scale&quot; refers to a hypothetical scale used to model the underlying genetic liability or genetic risk for a specific trait or disease.</p>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002175826.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>

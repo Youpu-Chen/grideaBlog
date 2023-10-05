@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「每日知识储备」molecular markrs | 有朴的第二大脑</title>
+<title>「每日知识储备」gene-environment interaction如何影响heritability估计？ | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1696494284866" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,12 +15,11 @@
 
 
 
-  <meta name="description" content="molecular markrs是什么？
+  <meta name="description" content="
 
-
-指基因组上的一段区域、一段DNA。不同的语境也可以指代不同的意思，比如还可以指代为SNPs。
-比如如下的这段话是Yang Jian老师10年的文章中提到的genotyepd SNP，但是在黄三文..." />
-  <meta name="keywords" content="biology,GWAS" />
+由于gene-environment interaction本身是一种non-linear effects，因此也可以直接从epistasis等类似的non-linear effects类比过来。
+比如geneA对lung cancer..." />
+  <meta name="keywords" content="linear regression,GWAS,heritability" />
 </head>
 
 <body>
@@ -96,28 +95,29 @@
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「每日知识储备」molecular markrs</a>
+                  「每日知识储备」gene-environment interaction如何影响heritability估计？</a>
               </h2>
-              <span class="article-info">2023-10-02, 111 words, 1 min read</span>
+              <span class="article-info">2023-10-05, 238 words, 2 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <h1 id="molecular-markrs是什么">molecular markrs是什么？</h1>
-<ul>
+                  <ul>
 <li>
-<p>指基因组上的一段区域、一段DNA。不同的语境也可以指代不同的意思，比如还可以指代为SNPs。</p>
-<p>比如如下的这段话是Yang Jian老师10年的文章中提到的genotyepd SNP，但是在黄三文老师的22年的番茄泛基因组文章中则表述为了“molecular markers”</p>
-<blockquote>
-<p>果然，是我看的文献还不够多</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002230342.png" alt="" loading="lazy"></figure>
+<p>由于gene-environment interaction本身是一种non-linear effects，因此也可以直接从epistasis等类似的non-linear effects类比过来。</p>
+<p>比如geneA对lung cancer有影响，但是在正常生活条件下，其对应的odd ratio为1.0，代表在这种环境下，该geneA对lung cancer的病发没有任何影响。但是当individual有吸烟等情况或者一些没有被测量的情况时，该geneA的odd ratio为5.0，则说明在环境因素的影响下，该geneA对lung cancer的发生有了非常大的影响。</p>
 </li>
 <li>
-<p>也可以称作genetic markers</p>
+<p>因此，当没有考虑到对应的环境条件时，有的gene effect就不会被检测到，这就造成了heritability的丧失。</p>
+</li>
+<li>
+<p>参考资料</p>
+<ul>
+<li>“Ito et al. (1) showed a significant interaction between smoking status and the apurinic/ apyrimidinic endonuclease 1 protein coding gene (APE1) for lung cancer.” (<a href="zotero://select/library/items/TQT89NAX">Murcray et al., 2009, p. 219</a>) (<a href="zotero://open-pdf/library/items/CQS2299L?page=1&amp;annotation=B8RGSAI7">pdf</a>)</li>
+<li>“Stern et al. (2) found smoking status to be an effect modifier of the association between the XPD codon 751 polymorphism and risk of bladder cancer.” (<a href="zotero://select/library/items/TQT89NAX">Murcray et al., 2009, p. 219</a>) (<a href="zotero://open-pdf/library/items/CQS2299L?page=1&amp;annotation=W4HMSNRE">pdf</a>)</li>
+</ul>
 </li>
 </ul>
-<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002224303.png" alt="" loading="lazy"></figure>
 <br />
                   
               </p>
@@ -129,11 +129,14 @@
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
-                      <a href="https://chenyoupu.top/tag/9ZzP8hWwm/" class="article-info">
-                        biology</a>
+                      <a href="https://chenyoupu.top/tag/zVppLwbzO/" class="article-info">
+                        linear regression</a>
                       
                       <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
                         GWAS</a>
+                      
+                      <a href="https://chenyoupu.top/tag/zG21iYlNhy/" class="article-info">
+                        heritability</a>
                       </span>
                   </div>
                 </div>
@@ -141,9 +144,9 @@
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/gwas-famous/">
+                  <a href="https://chenyoupu.top/post/daily004/">
                     <h3 class="post-title">
-                      「GWAS那些事儿」数量遗传学应该关注谁的文章？
+                      「每日知识储备」对variant calling的一点小误解
                     </h3>
                   </a>
                 </div>
