@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-07T13:06:41.572Z</updated>
+    <updated>2023-10-09T08:45:25.091Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,35 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「有谱talk」003｜和优柔寡断告别]]></title>
+        <id>https://chenyoupu.top/post/youputalk003/</id>
+        <link href="https://chenyoupu.top/post/youputalk003/">
+        </link>
+        <updated>2023-10-09T08:43:21.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="小镇错题库">小镇错题库</h2>
+<p>高二的时候很迷茫，沉迷于LOL、守望先锋，不知爱为何物，不知道未来的方向在哪里？</p>
+<p>许久不见的亲戚关心我的学习，“现在怎么样？”</p>
+<p>“感觉找不到对手”，我一眼茫然。</p>
+<p>“这么厉害啊”</p>
+<p>“不，我排名一百多都快两百了，只是我不知道为何而读书”</p>
+<p>是的，曾经的我不喜欢学习，我质疑学习的意义，我不喜欢早读课上，周围同学对英语的态度，“我学习英语难道不是为了来了解各类的文化，丰富自己的见识吗？”，我讨厌死记硬背，我讨厌为了学习而学习。我想要追求的是学习之外的事情。</p>
+<p>曾经，可能挺喜欢数学，但是高二的班主任，“<strong>好不好，看高考</strong>”、“要不是因为某某某这个班我都不想教”，我恨透这个人，连带着我也很透数学。看着他肆无忌惮地宣誓着自己的主权，总有一种透不过气的感觉，感觉被自己被淹死在了出水前的最后一刻。</p>
+<p>针对这位老师说的话，“好不好，看高考”，我想说我这辈子活的好不好，并不是由一次考试决定的，我就算高考考的不好，我还是可以通过我之后的努力，提升我自己，改善我自己的生活，所以何来“好不好，看高考”一谈。</p>
+<p>第一次否定他人对自己的否定。</p>
+<h2 id="你和我在人际关系上相差太多了">“你和我在人际关系上相差太多了”</h2>
+<p>一段错误的亲密关心，一个有毒的朋友圈，是怎么样影响我的生活的？</p>
+<p>我的朋友对我现在的评价是“现在完全看不出来你是个恋爱脑啊！”</p>
+<p>我花了四年甚至五年才治好我的恋爱脑。一开始，我认为的爱情，就是完完全全地付出，这样做的初衷是希望对方也会一样对待我。但是并非如此。若掉进了一段并非排他性的、自以为是的亲密关系，对人的伤害是巨大的。</p>
+<p>为了某个人，做出怎么样的事，这样的话，在我看来无论如何都很可笑。因为我就曾经为了某个人忍受着一个有毒的朋友圈，让我喘不过气，我认为我在付出，实际上对方看来，这只是你自愿承担的，你自找的。所以，我否定了之前的我：“切勿感动自己”。</p>
+<p>当然，我有骄傲的一点，当时别人说我在给定范围内的人之中是最优秀的，当时的我不相信，我用伪装出来的谦虚来掩饰着脆弱的自尊心，认为这样就是优秀。非也。</p>
+<p>我需要在我需要展示我的才能的时候，“疯狂地”挥洒汗水，在求知时不拘一格。这是真正的谦虚，而不是时时刻刻的谦虚，这是虚伪。所以，我否定了之前的我：“该展现自己的时候，要展现自己”</p>
+<p>经过这所谓的研究生一年级，对我身心、精神上都是一个很大的磨练，面对曾经伤害过我的人，我也不愿意去说，“我原谅你了”、“谢谢你，要不是因为你”这种虚伪的话。</p>
+<p>我想说的是，“我失去的，我要全部拿回来，我要复仇”。</p>
+<p>我否定了我，否定了那个温顺待人、是个老好人的我。</p>
+<p>我否定曾经被否定的自己，我肯定我自己的，一步一步地，等着吧，我失去的，我要亲手拿回来。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[内向人的“自救指南”（一）]]></title>
         <id>https://chenyoupu.top/post/innerpersion1/</id>
@@ -336,39 +365,6 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
 </li>
 </ul>
 <figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002224303.png" alt="" loading="lazy"></figure>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「GWAS那些事儿」数量遗传学应该关注谁的文章？]]></title>
-        <id>https://chenyoupu.top/post/gwas-famous/</id>
-        <link href="https://chenyoupu.top/post/gwas-famous/">
-        </link>
-        <updated>2023-10-02T14:20:34.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="写在前面">写在前面</h1>
-<ul>
-<li>持续更新</li>
-</ul>
-<ul>
-<li>
-<p>经过数十年的研究，GWAS已经证实了自己方法本身上的可行性</p>
-</li>
-<li>
-<p>Peter M. Visscher（关于missing heritability的综述，就是这位大佬写的）</p>
-</li>
-<li>
-<p>Yang Jian</p>
-<ul>
-<li>近期代表性工作：GCTA（可用于heritability estitation）</li>
-</ul>
-</li>
-<li>
-<p><a href="https://scholar.google.com/citations?hl=en&amp;user=9bqHVEsAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">David J. Balding</a></p>
-<ul>
-<li>近期代表性工作：<a href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=9bqHVEsAAAAJ&amp;sortby=pubdate&amp;citation_for_view=9bqHVEsAAAAJ:QsaTk4IG4EwC">LDAK-GBAT</a></li>
-</ul>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002221915.png" alt="" loading="lazy"></figure>
-</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
