@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<title>「GWAS之外」GWAS之外｜还有哪些关联分析方法？ | 有朴的第二大脑</title>
+<title>「有谱talk」存档篇｜论科研与生活 | 有朴的第二大脑</title>
 <link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
 <link href="https://chenyoupu.top/styles/main.css?v=1697269528701" rel="stylesheet">
 <link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
@@ -15,22 +15,14 @@
 
 
 
-  <meta name="description" content="
+  <meta name="description" content="写在前面
 
-FUSION
-gusevlab.org/projects/fu...
+这部分内容是我大四时所写。近日观觉醒年代有感，则重新发布，供自己回忆与思考。
+其中有几个论点颇为无厘头。
 
-包括TWAS和RWAS
-
-
-
-
-其他
-为什么要发展TWAS？
-TWAS的发展是为了弥补GWAS的一些限制：
-
-解释关联：GWAS虽然可以识别与性状或疾病相关的基因座..." />
-  <meta name="keywords" content="TWAS,GWAS,基因组学,转录组" />
+“有多少人在创新？”
+我发现我要的不只是读一个所谓的研究生，拿一个所谓的研究生学历。但是我绝不能成为空喊口号，空谈科研意..." />
+  <meta name="keywords" content="有谱talk" />
 </head>
 
 <body>
@@ -106,43 +98,41 @@ TWAS的发展是为了弥补GWAS的一些限制：
             <div class="post_title post_detail_title">
               <h2>
                 <a>
-                  「GWAS之外」GWAS之外｜还有哪些关联分析方法？</a>
+                  「有谱talk」存档篇｜论科研与生活</a>
               </h2>
-              <span class="article-info">2023-10-02, 433 words, 2 min read</span>
+              <span class="article-info">2023-10-14, 1013 words, 4 min read</span>
             </div>
             <div class="post_content markdown">
               <p class="md_block">
                 <span class="md_line md_line_start md_line_end">
-                  <ul>
-<li>
-<p>FUSION</p>
-<p><a href="http://gusevlab.org/projects/fusion/">gusevlab.org/projects/fu...</a></p>
+                  <h2 id="写在前面">写在前面</h2>
 <ul>
-<li>包括TWAS和RWAS</li>
-<li><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231003170030.png" alt="" loading="lazy"></li>
-</ul>
-</li>
-</ul>
-<h2 id="其他">其他</h2>
-<h3 id="为什么要发展twas">为什么要发展TWAS？</h3>
-<p>TWAS的发展是为了弥补GWAS的一些限制：</p>
-<ol>
-<li><strong>解释关联</strong>：GWAS虽然可以识别与性状或疾病相关的基因座，但通常无法提供这些关联的生物学解释。TWAS通过考虑基因表达数据，有助于更好地理解为什么某些基因与性状相关（SNP的存在是否影响了转录本层面的生物学机制）。</li>
-<li><strong>功能注释</strong>：TWAS可以用于识别潜在的功能性基因。它不仅告诉我们哪些基因与性状相关，还可以帮助我们了解这些基因在性状或疾病发病机制中的具体角色。</li>
-<li><strong>更精确的关联</strong>：TWAS可以提供更准确的关联信息，因为它结合了基因表达数据，减少了假阳性的可能性。</li>
-</ol>
-<p>总之，GWAS和TWAS是两种互补的遗传学方法，用于研究基因与性状或疾病之间的关系。TWAS的发展有助于增强我们对基因与性状之间关联的理解，并提供更多有关基因功能和生物学机制的信息。</p>
-<h3 id="twas与ld之间的关系">TWAS与LD之间的关系？</h3>
-<p>#GWAS#​TWAS statistics，在GWAS的基础上考虑了转录组的数据构建的统计量来找casual variants。但是TWAS仍旧会受到LD的影响。</p>
+<li>这部分内容是我大四时所写。近日观觉醒年代有感，则重新发布，供自己回忆与思考。</li>
+<li>其中有几个论点颇为无厘头。
 <ul>
-<li>
-<p>TWAS加入了expression weight，即具有<strong>类似expression weight</strong>（对同一类转录本有相似影响的SNPs，才能够被当作与目标表型的casual SNPs）。但是由于LD的影响，在计算最终TWAS signal时，周围non-casual SNPs由于LD的影响，也会具有和casual SNPs近似水平的association signal —— LD tagging effect</p>
-</li>
-<li>
-<p>图解</p>
-<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231001204544.png" alt="" loading="lazy"></figure>
+<li>“有多少人在创新？”</li>
+<li>我发现我要的不只是读一个所谓的研究生，拿一个所谓的研究生学历。但是我绝不能成为空喊口号，空谈科研意义之人，找寻其中的热情、激情以及获取知识的快乐，才是我用于与日常生活斗争的源头和动力</li>
+<li>生活也很重要，搞钱必然也是目标。没有物质基础，谈何热情与激情？</li>
+</ul>
 </li>
 </ul>
+<h2 id="正文">正文</h2>
+<p>如果实验室的同学们见第一面就是在吐槽老师怎么怎么样，这样的实验室真的是在科研吗？</p>
+<p>实话实说，并不是所有人都想着要搞科研，但是既然选择了读研究生肯定就是要帮老师做好事情的，从分配到自己头上的科研项目中不断训练自己的科研思维和提升自己的能力。</p>
+<p>中国现阶段，很多人就是为了读一个研究生，再往更深层次说一些事情，得到了一个好的科研思维上的训练，对以后的工作也是好的，并不是一定为了科研，为什么要如此偏激地想着读博这个事情呢（甚至很多情况下，读博也是为了更好的生存）？如果在读研过程中，发现自己适合科研，那再好不过，因为有多少人能够在自己年轻的时候就意识到自己想做什么呢？</p>
+<blockquote>
+<p>人在年轻时，最头疼的一件事就是决定自己这一生要做什么。</p>
+</blockquote>
+<p>科研，说白了也只是一份工作。人们能够因为科研，获得有一份不错的工作，能够过上幸福快乐的日子，那该是多么开心的一件事。</p>
+<p>学生不是老师的工具人，学生读书是为了更好地见识这个世界（当然，见识到了世界的黑暗面也是好的），而不是来当老师科研前进路上的一次性垫脚石，用完就丢，用“骗”学生过来干活，这种说法我总觉得有些不对劲。</p>
+<p>其本身的想法是好的，在这个大家都在不断地灌水的时代，自己并不想去生产一些东西“同流合污”的产物，如果能遇上抱有如此志向的老师，想必学生对于科研的看法也会提升一个档次，对自己的追求相比也会更高。在如此一个时代，能够追求纯粹事物之人，难得（其实也得分人生的阶段讨论）。</p>
+<p>但是，实际情况往往并不如上述情况一样。</p>
+<p><strong>真正有多少人在创新？</strong></p>
+<p>单纯从科研角度上来看，能够发SCI（并非MPB这种水刊），那似乎是比发中文来的厉害，但是也并没有在实际意义上做到创新，最终发表的工作能否符合“<strong>漂亮的工作</strong>”的标准，我个人认为已经是相当厉害。</p>
+<p>因此我认为没有必要踩一捧一，大家追求不一样，大家都有自己生活中所追求的目标，大家都快乐才是最重要的。</p>
+<p>为自己的利益考虑，肯定是没有问题，因为人不为己天诛地灭。但是不能过度利己，过度利己会让自己的视野变得越来越狭隘，越来越偏激，做出的事情也越来越不能被周围人所理解（当然，要是想选择不被周围人理解也ok）。</p>
+<p>我自己岁数不大，经历的事情不够多，看问题必然存在偏颇，写这篇文章只是想简单表明一下自己的个人观点。</p>
+<p>最后祝大家生活开心，工作顺利。</p>
 <br />
                   
               </p>
@@ -154,17 +144,8 @@ TWAS的发展是为了弥补GWAS的一些限制：
                     <span class="field tags">
                       <i class="iconfont icon-tag-sm"></i>
                       
-                      <a href="https://chenyoupu.top/tag/1NYqZNZ4D/" class="article-info">
-                        TWAS</a>
-                      
-                      <a href="https://chenyoupu.top/tag/yAgAgbaWe/" class="article-info">
-                        GWAS</a>
-                      
-                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
-                        基因组学</a>
-                      
-                      <a href="https://chenyoupu.top/tag/JqrJMa8-Vd/" class="article-info">
-                        转录组</a>
+                      <a href="https://chenyoupu.top/tag/yvOUfVgi0/" class="article-info">
+                        有谱talk</a>
                       </span>
                   </div>
                 </div>
@@ -172,9 +153,9 @@ TWAS的发展是为了弥补GWAS的一些限制：
               
                 <div class="next-post" style="margin-top: 20px;">
                   <div class="next">下一篇</div>
-                  <a href="https://chenyoupu.top/post/gwas-heritability-estimate/">
+                  <a href="https://chenyoupu.top/post/youputalk003/">
                     <h3 class="post-title">
-                      「GWAS那些事儿」heritability的估计有哪些工具/模型？
+                      「有谱talk」003｜和优柔寡断告别
                     </h3>
                   </a>
                 </div>

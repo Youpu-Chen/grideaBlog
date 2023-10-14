@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-10-09T08:45:25.091Z</updated>
+    <updated>2023-10-14T07:45:32.822Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -10,6 +10,42 @@
     <logo>https://chenyoupu.top/images/avatar.png</logo>
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
+    <entry>
+        <title type="html"><![CDATA[「有谱talk」存档篇｜论科研与生活]]></title>
+        <id>https://chenyoupu.top/post/youputalk004/</id>
+        <link href="https://chenyoupu.top/post/youputalk004/">
+        </link>
+        <updated>2023-10-14T07:38:28.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="写在前面">写在前面</h2>
+<ul>
+<li>这部分内容是我大四时所写。近日观觉醒年代有感，则重新发布，供自己回忆与思考。</li>
+<li>其中有几个论点颇为无厘头。
+<ul>
+<li>“有多少人在创新？”</li>
+<li>我发现我要的不只是读一个所谓的研究生，拿一个所谓的研究生学历。但是我绝不能成为空喊口号，空谈科研意义之人，找寻其中的热情、激情以及获取知识的快乐，才是我用于与日常生活斗争的源头和动力</li>
+<li>生活也很重要，搞钱必然也是目标。没有物质基础，谈何热情与激情？</li>
+</ul>
+</li>
+</ul>
+<h2 id="正文">正文</h2>
+<p>如果实验室的同学们见第一面就是在吐槽老师怎么怎么样，这样的实验室真的是在科研吗？</p>
+<p>实话实说，并不是所有人都想着要搞科研，但是既然选择了读研究生肯定就是要帮老师做好事情的，从分配到自己头上的科研项目中不断训练自己的科研思维和提升自己的能力。</p>
+<p>中国现阶段，很多人就是为了读一个研究生，再往更深层次说一些事情，得到了一个好的科研思维上的训练，对以后的工作也是好的，并不是一定为了科研，为什么要如此偏激地想着读博这个事情呢（甚至很多情况下，读博也是为了更好的生存）？如果在读研过程中，发现自己适合科研，那再好不过，因为有多少人能够在自己年轻的时候就意识到自己想做什么呢？</p>
+<blockquote>
+<p>人在年轻时，最头疼的一件事就是决定自己这一生要做什么。</p>
+</blockquote>
+<p>科研，说白了也只是一份工作。人们能够因为科研，获得有一份不错的工作，能够过上幸福快乐的日子，那该是多么开心的一件事。</p>
+<p>学生不是老师的工具人，学生读书是为了更好地见识这个世界（当然，见识到了世界的黑暗面也是好的），而不是来当老师科研前进路上的一次性垫脚石，用完就丢，用“骗”学生过来干活，这种说法我总觉得有些不对劲。</p>
+<p>其本身的想法是好的，在这个大家都在不断地灌水的时代，自己并不想去生产一些东西“同流合污”的产物，如果能遇上抱有如此志向的老师，想必学生对于科研的看法也会提升一个档次，对自己的追求相比也会更高。在如此一个时代，能够追求纯粹事物之人，难得（其实也得分人生的阶段讨论）。</p>
+<p>但是，实际情况往往并不如上述情况一样。</p>
+<p><strong>真正有多少人在创新？</strong></p>
+<p>单纯从科研角度上来看，能够发SCI（并非MPB这种水刊），那似乎是比发中文来的厉害，但是也并没有在实际意义上做到创新，最终发表的工作能否符合“<strong>漂亮的工作</strong>”的标准，我个人认为已经是相当厉害。</p>
+<p>因此我认为没有必要踩一捧一，大家追求不一样，大家都有自己生活中所追求的目标，大家都快乐才是最重要的。</p>
+<p>为自己的利益考虑，肯定是没有问题，因为人不为己天诛地灭。但是不能过度利己，过度利己会让自己的视野变得越来越狭隘，越来越偏激，做出的事情也越来越不能被周围人所理解（当然，要是想选择不被周围人理解也ok）。</p>
+<p>我自己岁数不大，经历的事情不够多，看问题必然存在偏颇，写这篇文章只是想简单表明一下自己的个人观点。</p>
+<p>最后祝大家生活开心，工作顺利。</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[「有谱talk」003｜和优柔寡断告别]]></title>
         <id>https://chenyoupu.top/post/youputalk003/</id>
@@ -342,29 +378,6 @@ casual variants数据集中包含的variants，其频率<span class="katex"><spa
 <ul>
 <li>Common SNPs explain a large proportion of the heritability for human height</li>
 </ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[「每日知识储备」molecular markrs]]></title>
-        <id>https://chenyoupu.top/post/dailykg001/</id>
-        <link href="https://chenyoupu.top/post/dailykg001/">
-        </link>
-        <updated>2023-10-02T15:05:06.000Z</updated>
-        <content type="html"><![CDATA[<h1 id="molecular-markrs是什么">molecular markrs是什么？</h1>
-<ul>
-<li>
-<p>指基因组上的一段区域、一段DNA。不同的语境也可以指代不同的意思，比如还可以指代为SNPs。</p>
-<p>比如如下的这段话是Yang Jian老师10年的文章中提到的genotyepd SNP，但是在黄三文老师的22年的番茄泛基因组文章中则表述为了“molecular markers”</p>
-<blockquote>
-<p>果然，是我看的文献还不够多</p>
-</blockquote>
-<figure data-type="image" tabindex="1"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002230342.png" alt="" loading="lazy"></figure>
-</li>
-<li>
-<p>也可以称作genetic markers</p>
-</li>
-</ul>
-<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/20231002224303.png" alt="" loading="lazy"></figure>
 ]]></content>
     </entry>
 </feed>
