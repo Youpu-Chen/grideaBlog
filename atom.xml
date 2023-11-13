@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chenyoupu.top</id>
     <title>有朴的第二大脑</title>
-    <updated>2023-11-13T06:39:37.328Z</updated>
+    <updated>2023-11-13T06:44:04.717Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chenyoupu.top"/>
     <link rel="self" href="https://chenyoupu.top/atom.xml"/>
@@ -11,270 +11,115 @@
     <icon>https://chenyoupu.top/favicon.ico</icon>
     <rights>All rights reserved 2023, 有朴的第二大脑</rights>
     <entry>
-        <title type="html"><![CDATA[「Pangenome tutorial」vg｜utilizing pangenome graph with variation graph]]></title>
-        <id>https://chenyoupu.top/post/pangenome-tutorial-002/</id>
-        <link href="https://chenyoupu.top/post/pangenome-tutorial-002/">
+        <title type="html"><![CDATA[「Pangenome tutorial」Pangenie｜Graph-based genotyping]]></title>
+        <id>https://chenyoupu.top/post/pangenome-tutorial-001/</id>
+        <link href="https://chenyoupu.top/post/pangenome-tutorial-001/">
         </link>
-        <updated>2023-11-13T06:38:00.000Z</updated>
-        <content type="html"><![CDATA[<h2 id="background">Background</h2>
+        <updated>2023-11-13T06:41:22.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="intropan-genie能做什么">Intro｜Pan-Genie能做什么？</h2>
 <ul>
 <li>
-<p>graph的数据结构</p>
+<p>PanGenie is a pangenome-based genotyper using short-read data. <u>It computes genotypes for variants represented as bubbles in a pangenome graph by taking information of already known haplotypes</u> (represented as paths through the graph) into account. It can only genotype diploid individuals. The required input files are described in detail below.</p>
+<p>总结来说，</p>
 <ul>
-<li>
-<p><em>nodes</em>, which are labeled by sequences and ids</p>
-</li>
-<li>
-<p><em>edges</em>, which connect two nodes via either of their respective ends</p>
-</li>
-<li>
-<p><em>paths</em>, describe genomes, sequence alignments, and annotations (such as gene models and transcripts) as <strong>walks through</strong> nodes connected by edges</p>
-<ul>
-<li>Paths provide coordinate systems relative to genomes encoded in the graph, allowing stable mappings to be produced even if the structure of the graph is changed.</li>
+<li>PanGenie不是variant caller，<strong>而是genotyping类的工具</strong>（同时只能针对二倍体物种来做）</li>
 </ul>
 </li>
 </ul>
-</li>
+<h2 id="pangenie软件安装">Pangenie｜软件安装</h2>
+<p>作者给出了两种方式来安装，</p>
+<ul>
+<li>singularity</li>
+<li>conda/mamba，但还是需要一个编译的过程</li>
 </ul>
-<h2 id="vginstall">vg｜Install</h2>
-<pre><code class="language-shell">git clone --recursive https://github.com/vgteam/vg.git
-cd vg
+<pre><code class="language-bash">git clone https://github.com/eblerjana/pangenie.git  
+cd pangenie  
+conda env create -f environment.yml  
+conda activate pangenie   
+mkdir build; cd build; cmake .. ; make
 
-# MacOS系统下安装对应的dependencies——使用bundle
-# Install all the dependencies in the Brewfile
-brew bundle
-
-. ./source_me.sh &amp;&amp; make
+# mamba activate pangenie
 </code></pre>
-<h2 id="vgvariation-graph-construction">vg｜variation graph construction</h2>
+<p>Short Notes:</p>
+<ul>
+<li>还是可以在x86架构的机器上正常运行的（arm64有待测试）<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/WeChatfd0f8a18e30001e3992aada1d04d8981.jpg" alt="" loading="lazy"></li>
+<li>Pangenie依赖的是jellyfish，也是一款非常经典的k-mer genomics software了</li>
+</ul>
+<h2 id="pangenie输入文件准备">Pangenie｜输入文件准备</h2>
+<h3 id="01pan-genome-graph-in-variants-format">01）pan-genome graph in variants format</h3>
+<p>pangenie需要的variants file有以下几个特点（其本质上是从构建pan-genome graph过程中产生的VCF中获得），</p>
 <ul>
 <li>
-<p>说中文就是构图，将linear genome转变为grpah genome的形式</p>
+<p><strong>multi-sample</strong>：包含多条resolvde haplotype，且至少有一条haplotype的sample info是已知的</p>
 </li>
 <li>
-<p>vg也同时支持多种输入格式来构建variation graph</p>
-<ul>
-<li>
-<p><code>PackedGraph (.vg)</code>：<code>vg's</code> native format，支持各类操作（topology和paths内容的修改），但是在大样本时可能效率低下</p>
+<p><strong>fully-phased</strong>：举个例子，hifiasm过程中产生的两条phased haplotype即可</p>
 </li>
 <li>
-<p><code>GFA (.gfa)</code>：graph sequence的通用结果（中枢结构），text形式，方便在各个pangenome软件中作为中转</p>
-<ul>
+<p><strong>non-overlapping variants</strong>：由于基于pan-genome graph产生得到的variants在physical position上存在重叠，而这一类是不可以作为pangenie的输入数据的</p>
+</li>
 <li>
-<p>vg直接操作gfa的前提是自动转变为PackedGraph来进行操作（暗箱）</p>
-<p><code>vg</code> can also operate on (<strong>uncompressed</strong>) GFA files directly, by way of using a <code>PackedGraph</code> representation in memory (and therefore shares that format's scaling concerns and edit-ability).</p>
+<p><strong>sequence-resolved</strong>：需要清晰地保存了REF allele和ALT allele信息，像2015年Evan Eichler它们发布的结果不可以作为pangenie的输入文件（no information about REF &amp; ALT）</p>
+<p><a href="https://www.internationalgenome.org/phase-3-structural-variant-dataset">www.internationalgenome....</a></p>
 </li>
 </ul>
-</li>
-<li>
-<p><code>GBZ (.gbz)</code>：highly-compressed graph format（不允许任何操作）</p>
-<ul>
-<li>GBZ格式将reference graph和haplotype graph给区分，比如HPRC中hg38和t2t是作为reference graph，而剩余assembly haplotype则是作为haplotype graph</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p>vg默认使用1.1版本的gfa，<a href="https://github.com/GFA-spec/GFA-spec/blob/master/GFA1.md#w-walk-line-since-v11">GFA v1.1</a></p>
-</li>
-</ul>
-<h3 id="1vg-constructfrom-vcf">1）<code>vg construct</code>｜from vcf</h3>
+<p>针对第三点，pangenie官方给出的示意格式，</p>
+<figure data-type="image" tabindex="1"><img src="https://github.com/eblerjana/pangenie/raw/master/images/input-representation.png" alt="" loading="lazy"></figure>
+<p>准备上述variants file的格式如下，</p>
 <ul>
 <li>
-<p>需要以提前joint calling得到的variation information作为index来输入，作为graph的基础（fa + vcf）</p>
+<p><a href="https://bitbucket.org/jana_ebler/vcf-merging/src/master/">bitbucket.org/jana_ebler...</a></p>
 </li>
 <li>
-<p>vcf需要index</p>
-<pre><code class="language-shell">tabix -p vcf x.vcf.gz
+<p>also see <a href="https://github.com/eblerjana/pangenie/wiki">Wiki</a> for different ways to generate VCFs</p>
+</li>
+<li>
+<p>1）vcfbub</p>
+<pre><code class="language-bash"># 如何过滤准备得到对应的pan-genie input vcf
+vcfbub -l 0 -r 100000 --input &lt;your-vcf-file&gt; &gt; pangenie-ready.vcf
 </code></pre>
 </li>
-</ul>
-<pre><code class="language-shell">vg construct -r small/x.fa -v small/x.vcf.gz &gt;x.vg
-</code></pre>
-<ul>
-<li><code>-r</code>，<code>--reference</code></li>
-<li><code>-v</code>，<code>--vcf</code></li>
-</ul>
-<h4 id="2vg-constructfrom-assembly">2）<code>vg construct</code>｜from assembly</h4>
-<ul>
-<li>比如使用Minigraph-Cactus构建得到的gfa：<a href="https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/pangenome.md">github.com/ComparativeGe...</a></li>
-</ul>
-<h4 id="-vg-autoindexbuild-graph-index">-）<code>vg autoindex</code>｜build graph &amp; index</h4>
-<h4 id="-vg-convert-g">-）<code>vg convert -g</code></h4>
-<ul>
-<li>将ODGI和PGGB的grpah形式转变为vg格式</li>
-</ul>
-<h4 id="-vg-convert-f">-）<code>vg convert -f</code></h4>
-<ul>
 <li>
-<p>将任意格式的graph转为gfa格式</p>
+<p>2）针对mini-cactus分析得到的vcf，<a href="https://github.com/eblerjana/genotyping-pipelines/tree/main/prepare-vcf-MC">github.com/eblerjana/gen...</a></p>
+<p>该pipeline的两种特点，</p>
+<ul>
+<li>vcfbub + addtional annotation（for downstream analysis）</li>
+</ul>
 </li>
 <li>
-<p>W-lines和P-lines代表了使用不同的字母表示paths，若需要使用P来代表paths则使用<code>vg convert -fW</code></p>
-<blockquote>
-<p>P-lines对应gfa 1.0版本</p>
-</blockquote>
+<p>3）再者使用的是其他软件（e.g., PAV, developed by Evan），则可以使用pangenie自带的pipeline来进行merge和过滤，</p>
+<p><a href="https://github.com/eblerjana/pangenie/tree/master/pipelines/run-from-callset">github.com/eblerjana/pan...</a>，该流程基于snakemake</p>
 </li>
 </ul>
-<h2 id="vgmapping">vg｜mapping</h2>
-<h3 id="1vg-giraffe">1）<code>vg giraffe</code></h3>
+<p>Short Notes：</p>
 <ul>
-<li>fast for highly accurate short reads, against graphs with haplotype information.</li>
-<li>在进行giraffe mapping之前，首先需要构建graph的index（使用<code>vg autoindex</code>）</li>
+<li>
+<p>哪些VCF是无法满足上述数据的数据要求？</p>
+<p>Note again that the haplotypes must be phased into a single phased block. So phased VCFs generated by phasing tools like <strong>WhatsHap</strong> are not suitable!</p>
+</li>
 </ul>
-<pre><code class="language-shell"># 0. simulate short reads
-# simulate a bunch of 150bp reads from the graph, into a GAM file of reads aligned to a graph
-vg sim -n 1000 -l 150 -x x.giraffe.gbz -a &gt; x.sim.gam
-
-
-# 1. construct the graph and indexes (paths below assume running from `vg/test` directory)
-vg autoindex --workflow giraffe -r small/x.fa -v small/x.vcf.gz -p x
-
-[vg autoindex] Executing command: vg autoindex --workflow giraffe -r small/x.fa -v small/x.vcf.gz -p x
-[IndexRegistry]: Checking for phasing in VCF(s).
-[IndexRegistry]: Chunking inputs for parallelism.
-[IndexRegistry]: Constructing VG graph from FASTA and VCF input.
-[IndexRegistry]: Constructing GBWT from VG graph and phased VCF input.
-[IndexRegistry]: Stripping allele paths from VG.
-[IndexRegistry]: Constructing XG graph from VG graph.
-[IndexRegistry]: Downsampling full GBWT.
-[IndexRegistry]: Not enough haplotypes; augmenting the full GBWT instead.
-[IndexRegistry]: Constructing GBZ.
-[IndexRegistry]: Constructing distance index for Giraffe.
-[IndexRegistry]: Constructing minimizer index.
-
-
-# 2. remap: using **gam** as the input for the giraffe
-# Notes: 
-# - 这一部分的逻辑可以理解为基于linear得到的BAM分析得到了对应的VCF——完成graph的构建
-# - BAM转为GAM，比对到graph上再重新得到BAM
-# now re-map these reads against the graph, and get BAM output in linear space
-# FASTQ input uses -f instead of -G.
-vg giraffe -Z x.giraffe.gbz -G x.sim.gam -o BAM &gt; aln.bam
-
-# 需要得index文件：x.min，x.dist
-Guessing that x.min is Minimizers
-Guessing that x.dist is Giraffe Distance Index
-warning:[vg::get_sequence_dictionary] No reference-sense paths available in the graph; falling back to generic paths.
+<h3 id="02short-reads-input">02）short reads input</h3>
+<h3 id="03reference-genome">03）reference genome</h3>
+<h2 id="pangeniedemo">Pangenie｜demo</h2>
+<pre><code class="language-bash">PanGenie-index -r test-reference.fa -v test-variants.vcf -o preprocessing -e 100000
+PanGenie -f preprocessing -i test-reads.fa -o test -e 100000
 </code></pre>
 <ul>
 <li>
-<p><code>vg sim</code>：基于graph来simulate reads</p>
-<ul>
-<li>-n <code>--num-reads</code>；-l <code>--read-length</code>；-x <code>--xg-name</code>，输入的graph；-a <code>--align-out</code>，输出为gam format的文件</li>
-</ul>
-</li>
-<li>
-<p><code>vg giraffe</code>：graph-based short reads mapping</p>
-<ul>
-<li><code>-o</code>，根据后缀名输出结果比对文件</li>
-<li>如果以fastq作为输入，则需要使用<code>-f</code>而不是<code>-G</code></li>
-</ul>
+<p>结果文件，</p>
+<p><code>test_genotyping.vcf</code>：与输入variants保留着相同的REF &amp; ALT，但是基于k-mer的genotyping算法重新估计了如下的三个参数，</p>
+<p>1）<strong>additional genotype predictions</strong>；</p>
+<p>2）genotype likelihoods；</p>
+<p>3）genotype qualities；</p>
+<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/WeChat0fce19e0c0147b6fe7f86def41cc0573.jpg" alt="" loading="lazy"></figure>
 </li>
 </ul>
-<h3 id="2vg-map">2）<code>vg map</code></h3>
-<ul>
-<li>
-<p>基于kmer的算法将graph分chunk，构建index；且在mapping过程中，所使用的kmer size一定需要小于构建graph index的kmer size</p>
-<blockquote>
-<p>graph kmer size和mapping kmer size如何影响比对的准确率？</p>
-<p><strong>需要锻炼自己的测试数据的能力</strong></p>
-</blockquote>
-<p>When mapping, any kmer size shorter than that used in the index can be employed, and by default the mapper will decrease the kmer size to increase sensitivity when alignment at a particular <em>k</em> fails.</p>
-</li>
-</ul>
-<pre><code class="language-shell"># 1. construct the graph (paths below assume running from `vg/test` directory)
-# Notes: 注意此处生成的是x.vg
-vg construct -r small/x.fa -v small/x.vcf.gz &gt; x.vg
-
-# 2. store the graph in the xg/gcsa index pair
-# Notes: 
-# - 使用k=16来构建index
-# - x.gcsa，即输出`.gcsa`类型的index
-# - 最终得到的是 xg/gcsa格式的index pairs
-vg index -x x.xg -g x.gcsa -k 16 x.vg
-
-# 3.1 align a read to the indexed version of the graph
-# note that the graph file is not opened, but x.vg.index is assumed
-vg map -s CTACTGACAGCAGAAGTTTGCTGTGAAGATTAAATTAGGTGATGCTTG -x x.xg -g x.gcsa &gt; read.gam
-
-# 3.2 simulate a bunch of 150bp reads from the graph, one per line
-vg sim -n 1000 -l 150 -x x.xg &gt; x.sim.txt
-# now map these reads against the graph to get a GAM
-vg map -T x.sim.txt -x x.xg -g x.gcsa &gt; aln.gam
-
-# 4.1 surject the alignments back into the reference space of sequence &quot;x&quot;, yielding a BAM file
-# Notes: 将vg map生成的gam文件重新比对到graph中的reference path上，生成得到BAM文件
-vg surject -x x.xg -b aln.gam &gt; aln.bam
-
-# 4.2 surject them to BAM in the call to map
-# Notes: 在使用vg map比对的时候就可以直接生成bam文件
-vg sim -n 1000 -l 150 -x x.xg &gt; x.sim.txt
-vg map -T x.sim.txt -x x.xg -g x.gcsa --surject-to bam &gt; aln.bam
-</code></pre>
-<ul>
-<li>
-<p><code>vg index</code></p>
-<ul>
-<li>-x，<code>--xg-name</code>：use this file to store a succinct, queryable version of the graph(s), or read for GCSA or distance indexing</li>
-<li>-g，<code>--gcsa-out</code>：output a GCSA2 index to the given file</li>
-</ul>
-</li>
-<li>
-<p><code>vg sim</code></p>
-<ul>
-<li>默认情况下生成text格式的sequence，一行一条序列</li>
-</ul>
-</li>
-<li>
-<p><code>vg map</code></p>
-<ul>
-<li>默认生产的格式为gam</li>
-<li>-T，<code>--reads</code>：take reads (one per line) from FILE, write alignments to stdout</li>
-<li>-x + -g，输入index pairs</li>
-</ul>
-</li>
-</ul>
-<h2 id="vgvariant-calling">vg｜variant calling</h2>
-<h3 id="1calling-variants-with-read-support">1）calling variants with read support</h3>
-<ul>
-<li>
-<p>当前对SV得准确率更高</p>
-</li>
-<li>
-<p>Operating on <code>.vg</code> or '.gfa' uses the most memory and is not recommended for large graphs.</p>
-</li>
-<li>
-<p>1）<code>pack</code>：获得gam文件中的reads depth信息</p>
-<ul>
-<li><code>-x</code>，代表输入的graph</li>
-<li><code>-Q 5</code>代表过滤mapping quality小于5的read mapping结果</li>
-</ul>
-</li>
-<li>
-<p>2）<code>call</code></p>
-<ul>
-<li>默认情况下输出到STDOUT</li>
-<li><code>-k</code>，<code>--pack</code>：supports created from vg pack for given input graph（reads support文件的输入flag）</li>
-</ul>
-</li>
-</ul>
-<p>只针对graph中的variants进行calling，</p>
-<pre><code class="language-shell"># Compute the read support from the gam
-# -Q 5: ignore mapping and base qualitiy &lt; 5
-vg pack -x x.xg -g aln.gam -Q 5  -o aln.pack
-
-# Generate a VCF from the support.  
-vg call x.xg -k aln.pack &gt; graph_calls.vcf
-
-vg call x.xg -k aln.pack -a &gt; snarl_genotypes.vcf
-</code></pre>
 ]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[「Pangenome tutorial」vg｜utilizing pangenome graph with variation graph]]></title>
-        <id>https://chenyoupu.top/post/pangenome-tutorial-vgorutilizing-pangenome-graph-with-variation-graph/</id>
-        <link href="https://chenyoupu.top/post/pangenome-tutorial-vgorutilizing-pangenome-graph-with-variation-graph/">
+        <id>https://chenyoupu.top/post/pangenome-tutorial-002/</id>
+        <link href="https://chenyoupu.top/post/pangenome-tutorial-002/">
         </link>
         <updated>2023-11-13T06:38:00.000Z</updated>
         <content type="html"><![CDATA[<h2 id="background">Background</h2>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>「Pangenome tutorial」Pangenie｜Graph-based genotyping | 有朴的第二大脑</title>
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1699857842315" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="有朴的第二大脑 » Feed"
+  href="https://chenyoupu.top/atom.xml">
+
+
+
+
+  <meta name="description" content="Intro｜Pan-Genie能做什么？
+
+
+PanGenie is a pangenome-based genotyper using short-read data. It computes genotypes for variants..." />
+  <meta name="keywords" content="pangenome,基因组学" />
+</head>
+
+<body>
+  <div class="main animated">
+    <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <a href="https://chenyoupu.top">
+        有朴的第二大脑
+      </a>
+    </div>
+    <div class="description">
+      Hi，这里是有朴的第二大脑。<br/>很高兴与你相遇
+    </div>
+  </div>
+  <div class="my_socials">
+    
+    
+    <a href="https://github.com/Youpu-Chen" target="_blank">
+      <i class="iconfont icon-github"></i></a>
+    
+          
+    
+    <a href="https://twitter.com/chenhongpu1" target="_blank">
+      <i class="iconfont icon-twitter"></i></a>
+    
+          
+    
+          
+    
+          
+    
+          
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
+      <i class="iconfont icon-rss"></i></a>
+  </div>
+</div>
+
+<div class="header_menu">
+  
+  
+  <a href="/" class="menu">Homepage</a>
+  
+
+  
+  <a href="/archives" class="menu">Archives</a>
+  
+
+  
+  <a href="/tags" class="menu">Tags</a>
+  
+
+  
+  <a href="/post/about" class="menu">About Me</a>
+  
+
+  
+  <a href="/post/friendslinks" class="menu">Links</a>
+  
+
+  <div class="gridea-search-div">
+    <form id="gridea-search-form" data-update="1699857842315" action="https://chenyoupu.top/search/">
+      <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+    </form>
+  </div>
+</div>
+
+
+    <div class="autopagerize_page_element">
+      <div class="content">
+        <div class="post_page">
+          <div class="post animated fadeInDown">
+            <div class="post_title post_detail_title">
+              <h2>
+                <a>
+                  「Pangenome tutorial」Pangenie｜Graph-based genotyping</a>
+              </h2>
+              <span class="article-info">2023-11-13, 625 words, 3 min read</span>
+            </div>
+            <div class="post_content markdown">
+              <p class="md_block">
+                <span class="md_line md_line_start md_line_end">
+                  <h2 id="intropan-genie能做什么">Intro｜Pan-Genie能做什么？</h2>
+<ul>
+<li>
+<p>PanGenie is a pangenome-based genotyper using short-read data. <u>It computes genotypes for variants represented as bubbles in a pangenome graph by taking information of already known haplotypes</u> (represented as paths through the graph) into account. It can only genotype diploid individuals. The required input files are described in detail below.</p>
+<p>总结来说，</p>
+<ul>
+<li>PanGenie不是variant caller，<strong>而是genotyping类的工具</strong>（同时只能针对二倍体物种来做）</li>
+</ul>
+</li>
+</ul>
+<h2 id="pangenie软件安装">Pangenie｜软件安装</h2>
+<p>作者给出了两种方式来安装，</p>
+<ul>
+<li>singularity</li>
+<li>conda/mamba，但还是需要一个编译的过程</li>
+</ul>
+<pre><code class="language-bash">git clone https://github.com/eblerjana/pangenie.git  
+cd pangenie  
+conda env create -f environment.yml  
+conda activate pangenie   
+mkdir build; cd build; cmake .. ; make
+
+# mamba activate pangenie
+</code></pre>
+<p>Short Notes:</p>
+<ul>
+<li>还是可以在x86架构的机器上正常运行的（arm64有待测试）<img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/WeChatfd0f8a18e30001e3992aada1d04d8981.jpg" alt="" loading="lazy"></li>
+<li>Pangenie依赖的是jellyfish，也是一款非常经典的k-mer genomics software了</li>
+</ul>
+<h2 id="pangenie输入文件准备">Pangenie｜输入文件准备</h2>
+<h3 id="01pan-genome-graph-in-variants-format">01）pan-genome graph in variants format</h3>
+<p>pangenie需要的variants file有以下几个特点（其本质上是从构建pan-genome graph过程中产生的VCF中获得），</p>
+<ul>
+<li>
+<p><strong>multi-sample</strong>：包含多条resolvde haplotype，且至少有一条haplotype的sample info是已知的</p>
+</li>
+<li>
+<p><strong>fully-phased</strong>：举个例子，hifiasm过程中产生的两条phased haplotype即可</p>
+</li>
+<li>
+<p><strong>non-overlapping variants</strong>：由于基于pan-genome graph产生得到的variants在physical position上存在重叠，而这一类是不可以作为pangenie的输入数据的</p>
+</li>
+<li>
+<p><strong>sequence-resolved</strong>：需要清晰地保存了REF allele和ALT allele信息，像2015年Evan Eichler它们发布的结果不可以作为pangenie的输入文件（no information about REF &amp; ALT）</p>
+<p><a href="https://www.internationalgenome.org/phase-3-structural-variant-dataset">www.internationalgenome....</a></p>
+</li>
+</ul>
+<p>针对第三点，pangenie官方给出的示意格式，</p>
+<figure data-type="image" tabindex="1"><img src="https://github.com/eblerjana/pangenie/raw/master/images/input-representation.png" alt="" loading="lazy"></figure>
+<p>准备上述variants file的格式如下，</p>
+<ul>
+<li>
+<p><a href="https://bitbucket.org/jana_ebler/vcf-merging/src/master/">bitbucket.org/jana_ebler...</a></p>
+</li>
+<li>
+<p>also see <a href="https://github.com/eblerjana/pangenie/wiki">Wiki</a> for different ways to generate VCFs</p>
+</li>
+<li>
+<p>1）vcfbub</p>
+<pre><code class="language-bash"># 如何过滤准备得到对应的pan-genie input vcf
+vcfbub -l 0 -r 100000 --input &lt;your-vcf-file&gt; &gt; pangenie-ready.vcf
+</code></pre>
+</li>
+<li>
+<p>2）针对mini-cactus分析得到的vcf，<a href="https://github.com/eblerjana/genotyping-pipelines/tree/main/prepare-vcf-MC">github.com/eblerjana/gen...</a></p>
+<p>该pipeline的两种特点，</p>
+<ul>
+<li>vcfbub + addtional annotation（for downstream analysis）</li>
+</ul>
+</li>
+<li>
+<p>3）再者使用的是其他软件（e.g., PAV, developed by Evan），则可以使用pangenie自带的pipeline来进行merge和过滤，</p>
+<p><a href="https://github.com/eblerjana/pangenie/tree/master/pipelines/run-from-callset">github.com/eblerjana/pan...</a>，该流程基于snakemake</p>
+</li>
+</ul>
+<p>Short Notes：</p>
+<ul>
+<li>
+<p>哪些VCF是无法满足上述数据的数据要求？</p>
+<p>Note again that the haplotypes must be phased into a single phased block. So phased VCFs generated by phasing tools like <strong>WhatsHap</strong> are not suitable!</p>
+</li>
+</ul>
+<h3 id="02short-reads-input">02）short reads input</h3>
+<h3 id="03reference-genome">03）reference genome</h3>
+<h2 id="pangeniedemo">Pangenie｜demo</h2>
+<pre><code class="language-bash">PanGenie-index -r test-reference.fa -v test-variants.vcf -o preprocessing -e 100000
+PanGenie -f preprocessing -i test-reads.fa -o test -e 100000
+</code></pre>
+<ul>
+<li>
+<p>结果文件，</p>
+<p><code>test_genotyping.vcf</code>：与输入variants保留着相同的REF &amp; ALT，但是基于k-mer的genotyping算法重新估计了如下的三个参数，</p>
+<p>1）<strong>additional genotype predictions</strong>；</p>
+<p>2）genotype likelihoods；</p>
+<p>3）genotype qualities；</p>
+<figure data-type="image" tabindex="2"><img src="https://youpu777-assets-1308187048.cos.ap-shanghai.myqcloud.com/siyuan-notes/WeChat0fce19e0c0147b6fe7f86def41cc0573.jpg" alt="" loading="lazy"></figure>
+</li>
+</ul>
+<br />
+                  
+              </p>
+            </div>
+            <div class="post_footer">
+              
+                <div class="meta">
+                  <div class="info">
+                    <span class="field tags">
+                      <i class="iconfont icon-tag-sm"></i>
+                      
+                      <a href="https://chenyoupu.top/tag/GNP47DovX/" class="article-info">
+                        pangenome</a>
+                      
+                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
+                        基因组学</a>
+                      </span>
+                  </div>
+                </div>
+                
+              
+                <div class="next-post" style="margin-top: 20px;">
+                  <div class="next">下一篇</div>
+                  <a href="https://chenyoupu.top/post/pangenome-tutorial-002/">
+                    <h3 class="post-title">
+                      「Pangenome tutorial」vg｜utilizing pangenome graph with variation graph
+                    </h3>
+                  </a>
+                </div>
+                
+            </div>
+          </div>
+          
+          
+                      
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+<div id="disqus_thread"></div>
+<script>
+  var options = {
+    shortname: 'DisqusComments',
+    apikey: '0D4eig7RqYsljZD0i62dy7y5H2AVm2gE3T9qwx1S16zyJejdxXypcpTtxHm07Eig',
+  }
+  if ('https://disqus.com/api/oauth/2.0/authorize/') {
+    options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+  }
+  var dsqjs = new DisqusJS(options)
+</script>
+          
+                            
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  
+  <div class="powered">
+    Powered by<a href="https://gridea.dev/" target="_blank">Gridea</a>&<a
+    href="https://github.com/fei0810/gridea-theme-oneplus" target="_blank">Theme OnePlus</a>
+ </div>
+ <div class="footer_slogan">
+  
+</div>
+<div id="back_to_top" class="back_to_top">
+  <span>△</span>
+</div>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
+
+</div>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
