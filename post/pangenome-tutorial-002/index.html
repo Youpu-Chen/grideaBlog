@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>「Pangenome tutorial」vg｜utilizing pangenome graph with variation graph | 有朴的第二大脑</title>
+<link rel="shortcut icon" href="https://chenyoupu.top/favicon.ico">
+<link href="https://chenyoupu.top/styles/main.css?v=1699857563676" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_1678829_1mxi55l93a3.css" rel="stylesheet">
+<link rel="alternate" type="application/rss+xml" title="有朴的第二大脑 » Feed"
+  href="https://chenyoupu.top/atom.xml">
+
+
+
+
+  <meta name="description" content="Background
+
+
+graph的数据结构
+
+
+nodes, which are labeled by sequences and ids
+
+
+edges, which connect two nodes via either of t..." />
+  <meta name="keywords" content="pangenome,基因组学" />
+</head>
+
+<body>
+  <div class="main animated">
+    <div class="header animated fadeInDown">
+  <div class="site_title_container">
+    <div class="site_title">
+      <a href="https://chenyoupu.top">
+        有朴的第二大脑
+      </a>
+    </div>
+    <div class="description">
+      Hi，这里是有朴的第二大脑。<br/>很高兴与你相遇
+    </div>
+  </div>
+  <div class="my_socials">
+    
+    
+    <a href="https://github.com/Youpu-Chen" target="_blank">
+      <i class="iconfont icon-github"></i></a>
+    
+          
+    
+    <a href="https://twitter.com/chenhongpu1" target="_blank">
+      <i class="iconfont icon-twitter"></i></a>
+    
+          
+    
+          
+    
+          
+    
+          
+    <a href="https://chenyoupu.top/atom.xml" target="_blank">
+      <i class="iconfont icon-rss"></i></a>
+  </div>
+</div>
+
+<div class="header_menu">
+  
+  
+  <a href="/" class="menu">Homepage</a>
+  
+
+  
+  <a href="/archives" class="menu">Archives</a>
+  
+
+  
+  <a href="/tags" class="menu">Tags</a>
+  
+
+  
+  <a href="/post/about" class="menu">About Me</a>
+  
+
+  
+  <a href="/post/friendslinks" class="menu">Links</a>
+  
+
+  <div class="gridea-search-div">
+    <form id="gridea-search-form" data-update="1699857563676" action="https://chenyoupu.top/search/">
+      <input class="gridea-search-input" autocomplete="off" spellcheck="false" name="q" />
+    </form>
+  </div>
+</div>
+
+
+    <div class="autopagerize_page_element">
+      <div class="content">
+        <div class="post_page">
+          <div class="post animated fadeInDown">
+            <div class="post_title post_detail_title">
+              <h2>
+                <a>
+                  「Pangenome tutorial」vg｜utilizing pangenome graph with variation graph</a>
+              </h2>
+              <span class="article-info">2023-11-13, 1499 words, 8 min read</span>
+            </div>
+            <div class="post_content markdown">
+              <p class="md_block">
+                <span class="md_line md_line_start md_line_end">
+                  <h2 id="background">Background</h2>
+<ul>
+<li>
+<p>graph的数据结构</p>
+<ul>
+<li>
+<p><em>nodes</em>, which are labeled by sequences and ids</p>
+</li>
+<li>
+<p><em>edges</em>, which connect two nodes via either of their respective ends</p>
+</li>
+<li>
+<p><em>paths</em>, describe genomes, sequence alignments, and annotations (such as gene models and transcripts) as <strong>walks through</strong> nodes connected by edges</p>
+<ul>
+<li>Paths provide coordinate systems relative to genomes encoded in the graph, allowing stable mappings to be produced even if the structure of the graph is changed.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="vginstall">vg｜Install</h2>
+<pre><code class="language-shell">git clone --recursive https://github.com/vgteam/vg.git
+cd vg
+
+# MacOS系统下安装对应的dependencies——使用bundle
+# Install all the dependencies in the Brewfile
+brew bundle
+
+. ./source_me.sh &amp;&amp; make
+</code></pre>
+<h2 id="vgvariation-graph-construction">vg｜variation graph construction</h2>
+<ul>
+<li>
+<p>说中文就是构图，将linear genome转变为grpah genome的形式</p>
+</li>
+<li>
+<p>vg也同时支持多种输入格式来构建variation graph</p>
+<ul>
+<li>
+<p><code>PackedGraph (.vg)</code>：<code>vg's</code> native format，支持各类操作（topology和paths内容的修改），但是在大样本时可能效率低下</p>
+</li>
+<li>
+<p><code>GFA (.gfa)</code>：graph sequence的通用结果（中枢结构），text形式，方便在各个pangenome软件中作为中转</p>
+<ul>
+<li>
+<p>vg直接操作gfa的前提是自动转变为PackedGraph来进行操作（暗箱）</p>
+<p><code>vg</code> can also operate on (<strong>uncompressed</strong>) GFA files directly, by way of using a <code>PackedGraph</code> representation in memory (and therefore shares that format's scaling concerns and edit-ability).</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>GBZ (.gbz)</code>：highly-compressed graph format（不允许任何操作）</p>
+<ul>
+<li>GBZ格式将reference graph和haplotype graph给区分，比如HPRC中hg38和t2t是作为reference graph，而剩余assembly haplotype则是作为haplotype graph</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>vg默认使用1.1版本的gfa，<a href="https://github.com/GFA-spec/GFA-spec/blob/master/GFA1.md#w-walk-line-since-v11">GFA v1.1</a></p>
+</li>
+</ul>
+<h3 id="1vg-constructfrom-vcf">1）<code>vg construct</code>｜from vcf</h3>
+<ul>
+<li>
+<p>需要以提前joint calling得到的variation information作为index来输入，作为graph的基础（fa + vcf）</p>
+</li>
+<li>
+<p>vcf需要index</p>
+<pre><code class="language-shell">tabix -p vcf x.vcf.gz
+</code></pre>
+</li>
+</ul>
+<pre><code class="language-shell">vg construct -r small/x.fa -v small/x.vcf.gz &gt;x.vg
+</code></pre>
+<ul>
+<li><code>-r</code>，<code>--reference</code></li>
+<li><code>-v</code>，<code>--vcf</code></li>
+</ul>
+<h4 id="2vg-constructfrom-assembly">2）<code>vg construct</code>｜from assembly</h4>
+<ul>
+<li>比如使用Minigraph-Cactus构建得到的gfa：<a href="https://github.com/ComparativeGenomicsToolkit/cactus/blob/master/doc/pangenome.md">github.com/ComparativeGe...</a></li>
+</ul>
+<h4 id="-vg-autoindexbuild-graph-index">-）<code>vg autoindex</code>｜build graph &amp; index</h4>
+<h4 id="-vg-convert-g">-）<code>vg convert -g</code></h4>
+<ul>
+<li>将ODGI和PGGB的grpah形式转变为vg格式</li>
+</ul>
+<h4 id="-vg-convert-f">-）<code>vg convert -f</code></h4>
+<ul>
+<li>
+<p>将任意格式的graph转为gfa格式</p>
+</li>
+<li>
+<p>W-lines和P-lines代表了使用不同的字母表示paths，若需要使用P来代表paths则使用<code>vg convert -fW</code></p>
+<blockquote>
+<p>P-lines对应gfa 1.0版本</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="vgmapping">vg｜mapping</h2>
+<h3 id="1vg-giraffe">1）<code>vg giraffe</code></h3>
+<ul>
+<li>fast for highly accurate short reads, against graphs with haplotype information.</li>
+<li>在进行giraffe mapping之前，首先需要构建graph的index（使用<code>vg autoindex</code>）</li>
+</ul>
+<pre><code class="language-shell"># 0. simulate short reads
+# simulate a bunch of 150bp reads from the graph, into a GAM file of reads aligned to a graph
+vg sim -n 1000 -l 150 -x x.giraffe.gbz -a &gt; x.sim.gam
+
+
+# 1. construct the graph and indexes (paths below assume running from `vg/test` directory)
+vg autoindex --workflow giraffe -r small/x.fa -v small/x.vcf.gz -p x
+
+[vg autoindex] Executing command: vg autoindex --workflow giraffe -r small/x.fa -v small/x.vcf.gz -p x
+[IndexRegistry]: Checking for phasing in VCF(s).
+[IndexRegistry]: Chunking inputs for parallelism.
+[IndexRegistry]: Constructing VG graph from FASTA and VCF input.
+[IndexRegistry]: Constructing GBWT from VG graph and phased VCF input.
+[IndexRegistry]: Stripping allele paths from VG.
+[IndexRegistry]: Constructing XG graph from VG graph.
+[IndexRegistry]: Downsampling full GBWT.
+[IndexRegistry]: Not enough haplotypes; augmenting the full GBWT instead.
+[IndexRegistry]: Constructing GBZ.
+[IndexRegistry]: Constructing distance index for Giraffe.
+[IndexRegistry]: Constructing minimizer index.
+
+
+# 2. remap: using **gam** as the input for the giraffe
+# Notes: 
+# - 这一部分的逻辑可以理解为基于linear得到的BAM分析得到了对应的VCF——完成graph的构建
+# - BAM转为GAM，比对到graph上再重新得到BAM
+# now re-map these reads against the graph, and get BAM output in linear space
+# FASTQ input uses -f instead of -G.
+vg giraffe -Z x.giraffe.gbz -G x.sim.gam -o BAM &gt; aln.bam
+
+# 需要得index文件：x.min，x.dist
+Guessing that x.min is Minimizers
+Guessing that x.dist is Giraffe Distance Index
+warning:[vg::get_sequence_dictionary] No reference-sense paths available in the graph; falling back to generic paths.
+</code></pre>
+<ul>
+<li>
+<p><code>vg sim</code>：基于graph来simulate reads</p>
+<ul>
+<li>-n <code>--num-reads</code>；-l <code>--read-length</code>；-x <code>--xg-name</code>，输入的graph；-a <code>--align-out</code>，输出为gam format的文件</li>
+</ul>
+</li>
+<li>
+<p><code>vg giraffe</code>：graph-based short reads mapping</p>
+<ul>
+<li><code>-o</code>，根据后缀名输出结果比对文件</li>
+<li>如果以fastq作为输入，则需要使用<code>-f</code>而不是<code>-G</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="2vg-map">2）<code>vg map</code></h3>
+<ul>
+<li>
+<p>基于kmer的算法将graph分chunk，构建index；且在mapping过程中，所使用的kmer size一定需要小于构建graph index的kmer size</p>
+<blockquote>
+<p>graph kmer size和mapping kmer size如何影响比对的准确率？</p>
+<p><strong>需要锻炼自己的测试数据的能力</strong></p>
+</blockquote>
+<p>When mapping, any kmer size shorter than that used in the index can be employed, and by default the mapper will decrease the kmer size to increase sensitivity when alignment at a particular <em>k</em> fails.</p>
+</li>
+</ul>
+<pre><code class="language-shell"># 1. construct the graph (paths below assume running from `vg/test` directory)
+# Notes: 注意此处生成的是x.vg
+vg construct -r small/x.fa -v small/x.vcf.gz &gt; x.vg
+
+# 2. store the graph in the xg/gcsa index pair
+# Notes: 
+# - 使用k=16来构建index
+# - x.gcsa，即输出`.gcsa`类型的index
+# - 最终得到的是 xg/gcsa格式的index pairs
+vg index -x x.xg -g x.gcsa -k 16 x.vg
+
+# 3.1 align a read to the indexed version of the graph
+# note that the graph file is not opened, but x.vg.index is assumed
+vg map -s CTACTGACAGCAGAAGTTTGCTGTGAAGATTAAATTAGGTGATGCTTG -x x.xg -g x.gcsa &gt; read.gam
+
+# 3.2 simulate a bunch of 150bp reads from the graph, one per line
+vg sim -n 1000 -l 150 -x x.xg &gt; x.sim.txt
+# now map these reads against the graph to get a GAM
+vg map -T x.sim.txt -x x.xg -g x.gcsa &gt; aln.gam
+
+# 4.1 surject the alignments back into the reference space of sequence &quot;x&quot;, yielding a BAM file
+# Notes: 将vg map生成的gam文件重新比对到graph中的reference path上，生成得到BAM文件
+vg surject -x x.xg -b aln.gam &gt; aln.bam
+
+# 4.2 surject them to BAM in the call to map
+# Notes: 在使用vg map比对的时候就可以直接生成bam文件
+vg sim -n 1000 -l 150 -x x.xg &gt; x.sim.txt
+vg map -T x.sim.txt -x x.xg -g x.gcsa --surject-to bam &gt; aln.bam
+</code></pre>
+<ul>
+<li>
+<p><code>vg index</code></p>
+<ul>
+<li>-x，<code>--xg-name</code>：use this file to store a succinct, queryable version of the graph(s), or read for GCSA or distance indexing</li>
+<li>-g，<code>--gcsa-out</code>：output a GCSA2 index to the given file</li>
+</ul>
+</li>
+<li>
+<p><code>vg sim</code></p>
+<ul>
+<li>默认情况下生成text格式的sequence，一行一条序列</li>
+</ul>
+</li>
+<li>
+<p><code>vg map</code></p>
+<ul>
+<li>默认生产的格式为gam</li>
+<li>-T，<code>--reads</code>：take reads (one per line) from FILE, write alignments to stdout</li>
+<li>-x + -g，输入index pairs</li>
+</ul>
+</li>
+</ul>
+<h2 id="vgvariant-calling">vg｜variant calling</h2>
+<h3 id="1calling-variants-with-read-support">1）calling variants with read support</h3>
+<ul>
+<li>
+<p>当前对SV得准确率更高</p>
+</li>
+<li>
+<p>Operating on <code>.vg</code> or '.gfa' uses the most memory and is not recommended for large graphs.</p>
+</li>
+<li>
+<p>1）<code>pack</code>：获得gam文件中的reads depth信息</p>
+<ul>
+<li><code>-x</code>，代表输入的graph</li>
+<li><code>-Q 5</code>代表过滤mapping quality小于5的read mapping结果</li>
+</ul>
+</li>
+<li>
+<p>2）<code>call</code></p>
+<ul>
+<li>默认情况下输出到STDOUT</li>
+<li><code>-k</code>，<code>--pack</code>：supports created from vg pack for given input graph（reads support文件的输入flag）</li>
+</ul>
+</li>
+</ul>
+<p>只针对graph中的variants进行calling，</p>
+<pre><code class="language-shell"># Compute the read support from the gam
+# -Q 5: ignore mapping and base qualitiy &lt; 5
+vg pack -x x.xg -g aln.gam -Q 5  -o aln.pack
+
+# Generate a VCF from the support.  
+vg call x.xg -k aln.pack &gt; graph_calls.vcf
+
+vg call x.xg -k aln.pack -a &gt; snarl_genotypes.vcf
+</code></pre>
+<br />
+                  
+              </p>
+            </div>
+            <div class="post_footer">
+              
+                <div class="meta">
+                  <div class="info">
+                    <span class="field tags">
+                      <i class="iconfont icon-tag-sm"></i>
+                      
+                      <a href="https://chenyoupu.top/tag/GNP47DovX/" class="article-info">
+                        pangenome</a>
+                      
+                      <a href="https://chenyoupu.top/tag/Xg1_Prd4r/" class="article-info">
+                        基因组学</a>
+                      </span>
+                  </div>
+                </div>
+                
+              
+                <div class="next-post" style="margin-top: 20px;">
+                  <div class="next">下一篇</div>
+                  <a href="https://chenyoupu.top/post/pangenome-tutorial-vgorutilizing-pangenome-graph-with-variation-graph/">
+                    <h3 class="post-title">
+                      「Pangenome tutorial」vg｜utilizing pangenome graph with variation graph
+                    </h3>
+                  </a>
+                </div>
+                
+            </div>
+          </div>
+          
+          
+                      
+          <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css">
+<script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+<div id="disqus_thread"></div>
+<script>
+  var options = {
+    shortname: 'DisqusComments',
+    apikey: '0D4eig7RqYsljZD0i62dy7y5H2AVm2gE3T9qwx1S16zyJejdxXypcpTtxHm07Eig',
+  }
+  if ('https://disqus.com/api/oauth/2.0/authorize/') {
+    options.api = 'https://disqus.com/api/oauth/2.0/authorize/'
+  }
+  var dsqjs = new DisqusJS(options)
+</script>
+          
+                            
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+  
+  <div class="powered">
+    Powered by<a href="https://gridea.dev/" target="_blank">Gridea</a>&<a
+    href="https://github.com/fei0810/gridea-theme-oneplus" target="_blank">Theme OnePlus</a>
+ </div>
+ <div class="footer_slogan">
+  
+</div>
+<div id="back_to_top" class="back_to_top">
+  <span>△</span>
+</div>
+<script src="https://chenyoupu.top/media/scripts/util.js"></script>
+
+</div>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/styles/default.min.css">
+  <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release/build/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
